@@ -1,7 +1,8 @@
 import type { PandalImage } from "./imageLibrary";
+import { IMAGE_SOURCE_LIBRARY } from "./generatedImageSourceLibrary";
 
 /** Generated manifest for all photo-backed catalogue pandal records. */
-export const APPROVED_PANDAL_IMAGES: Record<string, PandalImage[]> = {
+const RAW_APPROVED_PANDAL_IMAGES: Record<string, PandalImage[]> = {
   "ekdalia-evergreen": [
     {
       "id": "manus-storage-001_ekdalia-evergreen-club_biswarup-ganguly",
@@ -27295,3 +27296,17 @@ export const APPROVED_PANDAL_IMAGES: Record<string, PandalImage[]> = {
     }
   ]
 };
+
+const REMOTE_URL_BY_PAGE = new Map(IMAGE_SOURCE_LIBRARY.map(item => [item.sourcePageUrl, item.imageUrl]));
+
+export const APPROVED_PANDAL_IMAGES: Record<string, PandalImage[]> = Object.fromEntries(
+  Object.entries(RAW_APPROVED_PANDAL_IMAGES).map(([key, list]) => [
+    key,
+    list.map(img => {
+      if (img.url.startsWith("/manus-storage/pandal_") && img.licenseUrl && REMOTE_URL_BY_PAGE.has(img.licenseUrl)) {
+        return { ...img, url: REMOTE_URL_BY_PAGE.get(img.licenseUrl)! };
+      }
+      return img;
+    }),
+  ])
+);
