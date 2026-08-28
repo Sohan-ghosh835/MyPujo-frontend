@@ -38,7 +38,7 @@ queryClient.getMutationCache().subscribe(event => {
 });
 
 const getApiUrl = () => {
-  const baseUrl = import.meta.env.VITE_API_URL || "";
+  const baseUrl = import.meta.env.VITE_API_URL || "https://mypujo-backend.onrender.com";
   return `${baseUrl.replace(/\/$/, "")}/api/trpc`;
 };
 
