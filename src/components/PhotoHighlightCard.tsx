@@ -29,7 +29,7 @@ export function PhotoHighlightCard({ asset, bengali }: { asset: PhotoHighlightAs
           decoding="async"
           referrerPolicy="no-referrer"
           onError={(e) => {
-            (e.currentTarget as HTMLImageElement).src = "/dm.jpg";
+            (e.currentTarget as HTMLImageElement).src = "/durga-puja-hero.png";
           }}
           className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
         />
