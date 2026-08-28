@@ -27,6 +27,10 @@ export function PhotoHighlightCard({ asset, bengali }: { asset: PhotoHighlightAs
           alt={image.alt}
           loading="eager"
           decoding="async"
+          referrerPolicy="no-referrer"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = "/dm.jpg";
+          }}
           className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
         />
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#1a0c0c]/90 via-[#1a0c0c]/40 to-transparent" />

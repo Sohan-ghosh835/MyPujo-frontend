@@ -32,7 +32,7 @@ export function PujoGallery({ bengali }: { bengali: boolean }) {
       <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {visibleFestival.map((image, index) => (
           <article key={`festival-context-${index}`} className="overflow-hidden rounded-2xl bg-[#fff9eb] text-[#4a2520] shadow-[0_10px_22px_rgba(0,0,0,.18)]">
-            <img src={image.url} alt={image.alt} loading="lazy" decoding="async" className="h-48 w-full object-cover" />
+            <img src={image.url} alt={image.alt} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={(e) => { (e.currentTarget as HTMLImageElement).src = "/dm.jpg"; }} className="h-48 w-full object-cover" />
             <div className="p-3">
               <h4 className="font-display text-base font-bold leading-tight line-clamp-2">{image.title}</h4>
               <p className="mt-1 line-clamp-2 text-xs text-[#765e53]">{image.description}</p>
