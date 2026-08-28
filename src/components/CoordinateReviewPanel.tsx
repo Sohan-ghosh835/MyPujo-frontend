@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { CoordinateCandidateMap } from "@/components/CoordinateCandidateMap";
 import { trpc } from "@/lib/trpc";
 import { coordinateStatusLabel } from "@shared/coordinateVerification";
-import { hasStrongCoordinateEvidence } from "../../../shared/coordinateEligibility";
+import { hasStrongCoordinateEvidence } from "@shared/coordinateEligibility";
 
 type ReviewStatus = "approved" | "resolved" | "review_required" | "rejected" | "unresolved";
 

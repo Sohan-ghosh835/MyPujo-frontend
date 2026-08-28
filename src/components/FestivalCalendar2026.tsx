@@ -1,4 +1,4 @@
-import { KOLKATAKHOJ_2026_DAY_FACTS, KOLKATAKHOJ_2026_SOURCE } from "../../../shared/kolkataKhoj2026";
+import { KOLKATAKHOJ_2026_DAY_FACTS, KOLKATAKHOJ_2026_SOURCE } from "@shared/kolkataKhoj2026";
 import { CalendarDays, ExternalLink } from "lucide-react";
 
 export function FestivalCalendar2026({ bengali }: { bengali: boolean }) {

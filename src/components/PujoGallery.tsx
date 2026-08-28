@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { PUJO_GALLERY_FEATURES } from "../../../shared/pujoGallery";
+import { PUJO_GALLERY_FEATURES } from "@shared/pujoGallery";
 import { ChevronLeft, ChevronRight, ExternalLink, Images } from "lucide-react";
 import { useState } from "react";
 

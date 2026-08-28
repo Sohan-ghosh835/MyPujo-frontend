@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { CheckCircle2, ExternalLink, ImageOff, ShieldAlert } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { trpc } from "@/lib/trpc";
-import { imageReviewPresentation } from "../../../shared/imageReviewPresentation";
+import { imageReviewPresentation } from "@shared/imageReviewPresentation";
 
 const statusOptions = [
   { value: "review_required", label: "Review required" },
