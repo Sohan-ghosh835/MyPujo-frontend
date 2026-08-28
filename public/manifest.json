@@ -1,0 +1,18 @@
+{
+  "name": "PujoParikroma — Kolkata Durga Puja Guide",
+  "short_name": "PujoParikroma",
+  "description": "Kolkata Durga Puja discovery guide for ranked pandals, address previews, and personal parikrama lists.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#241313",
+  "theme_color": "#7d191c",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/dm.jpg",
+      "sizes": "192x192 512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
