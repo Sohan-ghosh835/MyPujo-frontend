@@ -7,7 +7,6 @@ export type PhotoHighlightAsset = PublicGalleryAsset;
 
 export function PhotoHighlightCard({ asset, bengali }: { asset: PhotoHighlightAsset; bengali: boolean }) {
   const { pandal, image, imageIndex, totalForPandal } = asset;
-  const primaryFallback = pandal.image?.url && pandal.image.url !== image.url ? pandal.image.url : "/durga-puja-hero.png";
   const periodLabel =
     image.imagePeriod === "current"
       ? (bengali ? "বর্তমান ছবি" : "Current photo")
@@ -29,14 +28,6 @@ export function PhotoHighlightCard({ asset, bengali }: { asset: PhotoHighlightAs
           loading="eager"
           decoding="async"
           referrerPolicy="no-referrer"
-          onError={(e) => {
-            const target = e.currentTarget as HTMLImageElement;
-            if (target.src !== primaryFallback && !target.src.endsWith(primaryFallback)) {
-              target.src = primaryFallback;
-            } else {
-              target.src = "/durga-puja-hero.png";
-            }
-          }}
           className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
         />
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#1a0c0c]/90 via-[#1a0c0c]/40 to-transparent" />
