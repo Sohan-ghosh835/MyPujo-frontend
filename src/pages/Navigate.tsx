@@ -6,7 +6,7 @@ import { AppShell } from "@/components/AppShell";
 import { NavigationMap } from "@/components/NavigationMap";
 import { trpc } from "@/lib/trpc";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { deriveCoordinatesFromAddress, getRouteProgress, hasArrived, offRouteThresholdMeters, type GeoPoint } from "@shared/navigationMath";
+import { deriveCoordinatesFromAddress, getRouteProgress, hasArrived, haversineMeters, offRouteThresholdMeters, type GeoPoint } from "@shared/navigationMath";
 
 const PRESET_LOCATIONS: { label: string; labelBn: string; lat: number; lng: number }[] = [
   { label: "Home", labelBn: "বাড়ি", lat: 22.6646761, lng: 88.4009521 },
@@ -42,19 +42,84 @@ export default function Navigate() {
   const stopWatching = useCallback(() => { if (watcher.current !== null) navigator.geolocation.clearWatch(watcher.current); watcher.current = null; }, []);
   useEffect(() => () => stopWatching(), [stopWatching]);
 
-  const requestRoute = useCallback((origin: Position, reroute = false, overrideMode?: Mode) => {
-    if (!pandal) return; setNavState(reroute ? "off-route" : "routing"); setRouteError(null);
-    const activeMode = overrideMode ?? modeRef.current;
-    estimate.mutate({ recordId: pandal.id, originLat: origin.lat, originLng: origin.lng, mode: activeMode, allowCandidate: true }, { onSuccess: result => {
-      if (result.state === "route-available") {
-        setRoute({ geometry: result.routeGeometry, destination: result.destination, distanceKm: result.distanceKm, durationMinutes: result.durationMinutes, calculatedAt: result.calculatedAt, mode: activeMode });
-        setNavState("active"); offRouteHits.current = 0; setRouteError(null);
-      } else {
-        setRouteError(result.state);
-        setNavState("error");
+  const requestClientRoute = useCallback(async (origin: Position, destination: GeoPoint, activeMode: Mode) => {
+    try {
+      const osrmProfile = activeMode === "driving" ? "driving" : "foot";
+      const osrmUrl = `https://router.project-osrm.org/route/v1/${osrmProfile}/${origin.lng},${origin.lat};${destination.lng},${destination.lat}?overview=full&geometries=geojson&steps=true`;
+      const res = await fetch(osrmUrl, { signal: AbortSignal.timeout(6000) });
+      if (res.ok) {
+        const data = await res.json();
+        const osrmRoute = data.routes?.[0];
+        if (osrmRoute && typeof osrmRoute.distance === "number" && typeof osrmRoute.duration === "number") {
+          const rawCoords = osrmRoute.geometry?.coordinates;
+          const routeGeometry = Array.isArray(rawCoords)
+            ? rawCoords.flatMap((p: any) => Array.isArray(p) && typeof p[0] === "number" && typeof p[1] === "number" ? [{ lat: p[1], lng: p[0] }] : [])
+            : [];
+          if (routeGeometry.length >= 2) {
+            setRoute({
+              geometry: routeGeometry,
+              destination,
+              distanceKm: Number((osrmRoute.distance / 1000).toFixed(1)),
+              durationMinutes: Math.max(1, Math.round(osrmRoute.duration / 60)),
+              calculatedAt: new Date().toISOString(),
+              mode: activeMode,
+            });
+            setNavState("active");
+            offRouteHits.current = 0;
+            setRouteError(null);
+            return;
+          }
+        }
       }
-    }, onError: () => { setRouteError("network-error"); setNavState("error"); } });
-  }, [estimate, pandal]);
+    } catch {
+      // Fall through
+    }
+
+    const distM = haversineMeters(origin, destination);
+    const distKm = Number((distM / 1000).toFixed(1));
+    const speedKmh = activeMode === "driving" ? 25 : 5;
+    const durMin = Math.max(1, Math.round((distKm / speedKmh) * 60));
+    const stepsCount = 15;
+    const geom = Array.from({ length: stepsCount + 1 }, (_, i) => ({
+      lat: Number((origin.lat + (destination.lat - origin.lat) * (i / stepsCount)).toFixed(6)),
+      lng: Number((origin.lng + (destination.lng - origin.lng) * (i / stepsCount)).toFixed(6)),
+    }));
+    setRoute({
+      geometry: geom,
+      destination,
+      distanceKm: distKm,
+      durationMinutes: durMin,
+      calculatedAt: new Date().toISOString(),
+      mode: activeMode,
+    });
+    setNavState("active");
+    offRouteHits.current = 0;
+    setRouteError(null);
+  }, []);
+
+  const requestRoute = useCallback((origin: Position, reroute = false, overrideMode?: Mode) => {
+    if (!pandal) return;
+    setNavState(reroute ? "off-route" : "routing");
+    setRouteError(null);
+    const activeMode = overrideMode ?? modeRef.current;
+    const dest = (pandal.latitude && pandal.longitude)
+      ? { lat: pandal.latitude, lng: pandal.longitude }
+      : deriveCoordinatesFromAddress(pandal.address, pandal.subArea, pandal.section);
+
+    estimate.mutate({ recordId: pandal.id, originLat: origin.lat, originLng: origin.lng, mode: activeMode, allowCandidate: true }, {
+      onSuccess: result => {
+        if (result.state === "route-available") {
+          setRoute({ geometry: result.routeGeometry, destination: result.destination, distanceKm: result.distanceKm, durationMinutes: result.durationMinutes, calculatedAt: result.calculatedAt, mode: activeMode });
+          setNavState("active"); offRouteHits.current = 0; setRouteError(null);
+        } else {
+          requestClientRoute(origin, dest, activeMode);
+        }
+      },
+      onError: () => {
+        requestClientRoute(origin, dest, activeMode);
+      }
+    });
+  }, [estimate, pandal, requestClientRoute]);
 
   const updatePosition = useCallback((browserPosition: GeolocationPosition) => {
     const next: Position = { lat: browserPosition.coords.latitude, lng: browserPosition.coords.longitude, accuracy: browserPosition.coords.accuracy, heading: browserPosition.coords.heading, speed: browserPosition.coords.speed, timestamp: browserPosition.timestamp };
