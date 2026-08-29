@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PUJO_MUSIC_TRACKS, type PujoMusicTrack } from "@shared/durgaPujoMusicData";
-import { Disc, ExternalLink, X, Play, Pause, Radio, Maximize2, Minimize2, SkipForward, SkipBack, ListMusic, Search } from "lucide-react";
+import { ExternalLink, X, Radio, Maximize2, Minimize2, ListMusic, Search } from "lucide-react";
 
 interface PujoMusicPlayerProps {
   isOpen: boolean;
@@ -15,7 +15,6 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   const [activeSection, setActiveSection] = useState<"hits" | "og" | "mahalaya">("hits");
   const [activeTrackId, setActiveTrackId] = useState<string>("hit-track-1");
   const [searchFilter, setSearchFilter] = useState<string>("");
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
 
   // Prevent background website scrolling on PC & mobile when modal is open
@@ -44,32 +43,20 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     const first = PUJO_MUSIC_TRACKS.find(t => t.section === section);
     if (first) {
       setActiveTrackId(first.id);
-      setIsPlaying(true);
     }
   };
 
-  const handleNextTrack = () => {
-    const currentIndex = currentSectionTracks.findIndex(t => t.id === activeTrackId);
-    const nextIndex = (currentIndex + 1) % currentSectionTracks.length;
-    if (currentSectionTracks[nextIndex]) {
-      setActiveTrackId(currentSectionTracks[nextIndex].id);
-      setIsPlaying(true);
+  const getEmbedUrl = () => {
+    if (activeSection === "hits") {
+      return "https://www.youtube.com/embed/videoseries?list=PLJAiFJ6bGyew";
     }
-  };
-
-  const handlePrevTrack = () => {
-    const currentIndex = currentSectionTracks.findIndex(t => t.id === activeTrackId);
-    const prevIndex = (currentIndex - 1 + currentSectionTracks.length) % currentSectionTracks.length;
-    if (currentSectionTracks[prevIndex]) {
-      setActiveTrackId(currentSectionTracks[prevIndex].id);
-      setIsPlaying(true);
+    if (activeSection === "og") {
+      return "https://www.youtube.com/embed/oyBQywMMi24";
     }
-  };
-
-  const getEmbedUrl = (track: PujoMusicTrack) => {
-    const autoplay = isPlaying ? "1" : "0";
-    const videoId = track.youtubeId && track.youtubeId.length === 11 ? track.youtubeId : "oyBQywMMi24";
-    return `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay}&enablejsapi=1&rel=0`;
+    if (activeSection === "mahalaya") {
+      return "https://www.youtube.com/embed/Oxs4vBNkqtM";
+    }
+    return "https://www.youtube.com/embed/videoseries?list=PLJAiFJ6bGyew";
   };
 
   if (!isOpen) return null;
@@ -95,12 +82,6 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
         </div>
         <div className="flex items-center gap-1.5">
           <button
-            onClick={() => setIsPlaying(!isPlaying)}
-            className="grid size-8 place-items-center rounded-lg bg-[#8c1e21] text-[#f5c85b] hover:bg-[#6f1719]"
-          >
-            {isPlaying ? <Pause size={14} /> : <Play size={14} />}
-          </button>
-          <button
             onClick={() => setIsMinimized(false)}
             className="grid size-8 place-items-center rounded-lg bg-white/10 text-white hover:bg-white/20"
             title={bengali ? "প্লেয়ার প্রসারিত করুন" : "Expand Player"}
@@ -117,11 +98,11 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
         </div>
 
         <iframe
-          key={`min-${activeTrack.id}-${isPlaying}`}
-          src={getEmbedUrl(activeTrack)}
+          key={`min-${activeSection}`}
+          src={getEmbedUrl()}
           title="Audio Stream"
           className="absolute opacity-0 pointer-events-none -z-50 w-1 h-1 overflow-hidden"
-          allow="autoplay; encrypted-media; picture-in-picture"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         />
       </div>
     );
@@ -225,24 +206,8 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             </div>
 
             <div className="flex items-center gap-2 flex-shrink-0">
-              <button
-                onClick={handlePrevTrack}
-                disabled={currentSectionTracks.length <= 1}
-                className="grid size-8 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20 disabled:opacity-30"
-              >
-                <SkipBack size={14} />
-              </button>
-
-              <button
-                onClick={handleNextTrack}
-                disabled={currentSectionTracks.length <= 1}
-                className="grid size-8 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20 disabled:opacity-30"
-              >
-                <SkipForward size={14} />
-              </button>
-
               <a
-                href={activeTrack.directUrl}
+                href={activeSection === "hits" ? "https://music.youtube.com/playlist?list=PLJAiFJ6bGyew&si=wK5E1TZsBmii-CwJ" : activeTrack.directUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-white/20"
@@ -253,15 +218,18 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             </div>
           </div>
 
-          {/* Guaranteed Playable YouTube Video Player Frame */}
+          {/* User Requested YouTube Embed Player Iframe */}
           <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-black shadow-2xl">
             <iframe
-              key={`player-${activeTrack.id}-${activeTrack.youtubeId}-${isPlaying}`}
-              src={getEmbedUrl(activeTrack)}
-              title={activeTrack.title}
-              className="h-full w-full border-0"
+              key={`player-${activeSection}`}
+              width="100%"
+              height="315"
+              src={getEmbedUrl()}
+              title="YouTube playlist"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              className="h-full w-full border-0"
             />
           </div>
 
@@ -298,7 +266,6 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                     key={`${t.id}-${idx}`}
                     onClick={() => {
                       setActiveTrackId(t.id);
-                      setIsPlaying(true);
                     }}
                     className={`flex cursor-pointer items-center justify-between rounded-xl p-2 transition ${
                       isCurrent
@@ -324,16 +291,12 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={e => e.stopPropagation()}
-                        className="rounded-md bg-white/10 p-1 text-white/70 hover:bg-[#f5c85b] hover:text-[#241f1a] transition"
+                        className="rounded-md bg-white/10 p-1 text-white/70 hover:bg-[#f5c85b] hover:text-[#241f1a] transition flex items-center gap-1 text-[10px]"
                         title="Search on YouTube Music"
                       >
                         <ExternalLink size={12} />
+                        <span>YT Music</span>
                       </a>
-                      {isCurrent && isPlaying ? (
-                        <Disc size={16} className="animate-spin text-[#f5c85b]" />
-                      ) : (
-                        <Play size={14} className="text-white/60" />
-                      )}
                     </div>
                   </div>
                 );
