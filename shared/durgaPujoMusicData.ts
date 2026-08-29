@@ -27,7 +27,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/xlElO06nQy8/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=xlElO06nQy8",
     "supportsShuffle": false,
-    "durationSeconds": 215
+    "durationSeconds": 150
   },
   {
     "id": "hit-song-2",
@@ -41,7 +41,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/sPuZ0Q3KDWo/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=sPuZ0Q3KDWo",
     "supportsShuffle": false,
-    "durationSeconds": 248
+    "durationSeconds": 173
   },
   {
     "id": "hit-song-3",
@@ -55,7 +55,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/be1l6wWKUEg/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=be1l6wWKUEg",
     "supportsShuffle": false,
-    "durationSeconds": 272
+    "durationSeconds": 210
   },
   {
     "id": "hit-song-4",
@@ -69,7 +69,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/rwyqFCznhZk/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=rwyqFCznhZk",
     "supportsShuffle": false,
-    "durationSeconds": 198
+    "durationSeconds": 263
   },
   {
     "id": "hit-song-5",
@@ -83,7 +83,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/PiMa4BW9Vrw/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=PiMa4BW9Vrw",
     "supportsShuffle": false,
-    "durationSeconds": 225
+    "durationSeconds": 204
   },
   {
     "id": "hit-song-6",
@@ -97,7 +97,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/4h5DXcN6cd4/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=4h5DXcN6cd4",
     "supportsShuffle": false,
-    "durationSeconds": 260
+    "durationSeconds": 200
   },
   {
     "id": "hit-song-7",
@@ -111,7 +111,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/hbXuXt7gkFY/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=hbXuXt7gkFY",
     "supportsShuffle": false,
-    "durationSeconds": 284
+    "durationSeconds": 263
   },
   {
     "id": "hit-song-8",
@@ -125,7 +125,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/xytF80lvSV8/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=xytF80lvSV8",
     "supportsShuffle": false,
-    "durationSeconds": 210
+    "durationSeconds": 265
   },
   {
     "id": "hit-song-9",
@@ -139,7 +139,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/gwjWIawYyNs/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=gwjWIawYyNs",
     "supportsShuffle": false,
-    "durationSeconds": 238
+    "durationSeconds": 205
   },
   {
     "id": "hit-song-10",
@@ -153,7 +153,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/2U416kTo0as/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=2U416kTo0as",
     "supportsShuffle": false,
-    "durationSeconds": 255
+    "durationSeconds": 290
   },
   {
     "id": "hit-song-11",
@@ -167,7 +167,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/xUMhpMmwAmM/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=xUMhpMmwAmM",
     "supportsShuffle": false,
-    "durationSeconds": 215
+    "durationSeconds": 216
   },
   {
     "id": "hit-song-12",
@@ -181,7 +181,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/0xDe5O7kAC0/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=0xDe5O7kAC0",
     "supportsShuffle": false,
-    "durationSeconds": 248
+    "durationSeconds": 119
   },
   {
     "id": "hit-song-13",
@@ -195,7 +195,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/hnkfDCbULxk/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=hnkfDCbULxk",
     "supportsShuffle": false,
-    "durationSeconds": 272
+    "durationSeconds": 207
   },
   {
     "id": "hit-song-14",
@@ -209,7 +209,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/FH-p9rnBbU4/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=FH-p9rnBbU4",
     "supportsShuffle": false,
-    "durationSeconds": 198
+    "durationSeconds": 219
   },
   {
     "id": "hit-song-15",
@@ -223,7 +223,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/3E_qefwPA0E/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=3E_qefwPA0E",
     "supportsShuffle": false,
-    "durationSeconds": 225
+    "durationSeconds": 209
   },
   {
     "id": "hit-song-16",
@@ -237,7 +237,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/9OkzYV4R9nc/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=9OkzYV4R9nc",
     "supportsShuffle": false,
-    "durationSeconds": 260
+    "durationSeconds": 242
   },
   {
     "id": "hit-song-17",
@@ -251,7 +251,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/W-YAf-bHkCw/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=W-YAf-bHkCw",
     "supportsShuffle": false,
-    "durationSeconds": 284
+    "durationSeconds": 340
   },
   {
     "id": "hit-song-18",
@@ -265,7 +265,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/G7CdEseBpwc/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=G7CdEseBpwc",
     "supportsShuffle": false,
-    "durationSeconds": 210
+    "durationSeconds": 220
   },
   {
     "id": "hit-song-19",
@@ -279,7 +279,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/MMkXLPPSnwM/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=MMkXLPPSnwM",
     "supportsShuffle": false,
-    "durationSeconds": 238
+    "durationSeconds": 311
   },
   {
     "id": "hit-song-20",
@@ -293,7 +293,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/IbDqRfeqjDo/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=IbDqRfeqjDo",
     "supportsShuffle": false,
-    "durationSeconds": 255
+    "durationSeconds": 281
   },
   {
     "id": "hit-song-21",
@@ -307,7 +307,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/1Yycc3tejNw/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=1Yycc3tejNw",
     "supportsShuffle": false,
-    "durationSeconds": 215
+    "durationSeconds": 901
   },
   {
     "id": "hit-song-22",
@@ -321,7 +321,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/H9puHH3wlqs/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=H9puHH3wlqs",
     "supportsShuffle": false,
-    "durationSeconds": 248
+    "durationSeconds": 265
   },
   {
     "id": "hit-song-23",
@@ -335,7 +335,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/2U416kTo0as/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=2U416kTo0as",
     "supportsShuffle": false,
-    "durationSeconds": 272
+    "durationSeconds": 290
   },
   {
     "id": "hit-song-24",
@@ -349,7 +349,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/Icgq6OE7b30/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=Icgq6OE7b30",
     "supportsShuffle": false,
-    "durationSeconds": 198
+    "durationSeconds": 254
   },
   {
     "id": "hit-song-25",
@@ -363,7 +363,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/bQtuffhU6_4/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=bQtuffhU6_4",
     "supportsShuffle": false,
-    "durationSeconds": 225
+    "durationSeconds": 247
   },
   {
     "id": "hit-song-26",
@@ -377,7 +377,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/60tSbJWJCr0/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=60tSbJWJCr0",
     "supportsShuffle": false,
-    "durationSeconds": 260
+    "durationSeconds": 129
   },
   {
     "id": "hit-song-27",
@@ -391,7 +391,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/AoHSQ0e89sw/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=AoHSQ0e89sw",
     "supportsShuffle": false,
-    "durationSeconds": 284
+    "durationSeconds": 186
   },
   {
     "id": "hit-song-28",
@@ -405,7 +405,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/EbcdDXEPukk/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=EbcdDXEPukk",
     "supportsShuffle": false,
-    "durationSeconds": 210
+    "durationSeconds": 296
   },
   {
     "id": "hit-song-29",
@@ -419,7 +419,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/0xDe5O7kAC0/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=0xDe5O7kAC0",
     "supportsShuffle": false,
-    "durationSeconds": 238
+    "durationSeconds": 119
   },
   {
     "id": "hit-song-30",
@@ -433,7 +433,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/JrcqCpFjE7Q/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=JrcqCpFjE7Q",
     "supportsShuffle": false,
-    "durationSeconds": 255
+    "durationSeconds": 217
   },
   {
     "id": "hit-song-31",
@@ -447,7 +447,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/tP6MIon3S5c/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=tP6MIon3S5c",
     "supportsShuffle": false,
-    "durationSeconds": 215
+    "durationSeconds": 233
   },
   {
     "id": "hit-song-32",
@@ -461,7 +461,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/9fG229zIL_0/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=9fG229zIL_0",
     "supportsShuffle": false,
-    "durationSeconds": 248
+    "durationSeconds": 167
   },
   {
     "id": "hit-song-33",
@@ -475,7 +475,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/uVTuUieyO7o/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=uVTuUieyO7o",
     "supportsShuffle": false,
-    "durationSeconds": 272
+    "durationSeconds": 1005
   },
   {
     "id": "hit-song-34",
@@ -489,7 +489,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/AoHSQ0e89sw/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=AoHSQ0e89sw",
     "supportsShuffle": false,
-    "durationSeconds": 198
+    "durationSeconds": 186
   },
   {
     "id": "hit-song-36",
@@ -503,7 +503,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/4h5DXcN6cd4/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=4h5DXcN6cd4",
     "supportsShuffle": false,
-    "durationSeconds": 225
+    "durationSeconds": 200
   },
   {
     "id": "hit-song-37",
@@ -517,7 +517,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/asdoVzpUFsE/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=asdoVzpUFsE",
     "supportsShuffle": false,
-    "durationSeconds": 260
+    "durationSeconds": 192
   },
   {
     "id": "hit-song-38",
@@ -531,7 +531,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/zZ4dYYcPxUY/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=zZ4dYYcPxUY",
     "supportsShuffle": false,
-    "durationSeconds": 284
+    "durationSeconds": 160
   },
   {
     "id": "hit-song-39",
@@ -545,7 +545,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/UElpQ1D3CkA/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=UElpQ1D3CkA",
     "supportsShuffle": false,
-    "durationSeconds": 210
+    "durationSeconds": 190
   },
   {
     "id": "hit-song-40",
@@ -559,7 +559,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/mDEzESGA0h8/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=mDEzESGA0h8",
     "supportsShuffle": false,
-    "durationSeconds": 238
+    "durationSeconds": 742
   },
   {
     "id": "hit-song-41",
@@ -573,7 +573,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/7GYJcXSLwYo/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=7GYJcXSLwYo",
     "supportsShuffle": false,
-    "durationSeconds": 255
+    "durationSeconds": 170
   },
   {
     "id": "hit-song-42",
@@ -587,7 +587,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/4ZWQYdzS_WY/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=4ZWQYdzS_WY",
     "supportsShuffle": false,
-    "durationSeconds": 215
+    "durationSeconds": 175
   },
   {
     "id": "hit-song-43",
@@ -601,7 +601,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/YnU9c1aj5hY/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=YnU9c1aj5hY",
     "supportsShuffle": false,
-    "durationSeconds": 248
+    "durationSeconds": 311
   },
   {
     "id": "hit-song-44",
@@ -615,7 +615,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/l6UHhF3a0Qg/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=l6UHhF3a0Qg",
     "supportsShuffle": false,
-    "durationSeconds": 272
+    "durationSeconds": 36
   },
   {
     "id": "hit-song-45",
@@ -629,7 +629,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/jyXKjDOANq0/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=jyXKjDOANq0",
     "supportsShuffle": false,
-    "durationSeconds": 198
+    "durationSeconds": 164
   },
   {
     "id": "hit-song-46",
@@ -643,7 +643,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/R4eFnxOibPs/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=R4eFnxOibPs",
     "supportsShuffle": false,
-    "durationSeconds": 225
+    "durationSeconds": 271
   },
   {
     "id": "hit-song-47",
@@ -657,7 +657,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/FpM4yZfktnM/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=FpM4yZfktnM",
     "supportsShuffle": false,
-    "durationSeconds": 260
+    "durationSeconds": 214
   },
   {
     "id": "hit-song-48",
@@ -671,7 +671,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/iBAwSUu30XQ/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=iBAwSUu30XQ",
     "supportsShuffle": false,
-    "durationSeconds": 284
+    "durationSeconds": 213
   },
   {
     "id": "hit-song-49",
@@ -685,7 +685,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/jun6WZMoNWM/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=jun6WZMoNWM",
     "supportsShuffle": false,
-    "durationSeconds": 210
+    "durationSeconds": 252
   },
   {
     "id": "hit-song-50",
@@ -699,7 +699,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/fCdS-UShx4c/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=fCdS-UShx4c",
     "supportsShuffle": false,
-    "durationSeconds": 238
+    "durationSeconds": 328
   },
   {
     "id": "hit-song-51",
@@ -713,7 +713,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/xlElO06nQy8/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=xlElO06nQy8",
     "supportsShuffle": false,
-    "durationSeconds": 255
+    "durationSeconds": 150
   },
   {
     "id": "hit-song-52",
@@ -727,7 +727,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/6xxW--m4f6I/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=6xxW--m4f6I",
     "supportsShuffle": false,
-    "durationSeconds": 215
+    "durationSeconds": 326
   },
   {
     "id": "hit-song-53",
@@ -741,7 +741,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/n1LORkMSIV0/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=n1LORkMSIV0",
     "supportsShuffle": false,
-    "durationSeconds": 248
+    "durationSeconds": 234
   },
   {
     "id": "hit-song-54",
@@ -755,7 +755,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/_GUdZJQun2I/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=_GUdZJQun2I",
     "supportsShuffle": false,
-    "durationSeconds": 272
+    "durationSeconds": 588
   },
   {
     "id": "hit-song-55",
@@ -769,7 +769,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/YXG0AW4eidI/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=YXG0AW4eidI",
     "supportsShuffle": false,
-    "durationSeconds": 198
+    "durationSeconds": 311
   },
   {
     "id": "hit-song-56",
@@ -783,7 +783,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/yrly1QZ5R6w/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=yrly1QZ5R6w",
     "supportsShuffle": false,
-    "durationSeconds": 225
+    "durationSeconds": 292
   },
   {
     "id": "hit-song-57",
@@ -797,7 +797,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/6xxW--m4f6I/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=6xxW--m4f6I",
     "supportsShuffle": false,
-    "durationSeconds": 260
+    "durationSeconds": 326
   },
   {
     "id": "hit-song-58",
@@ -811,7 +811,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/2Zqlb00ttCU/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=2Zqlb00ttCU",
     "supportsShuffle": false,
-    "durationSeconds": 284
+    "durationSeconds": 287
   },
   {
     "id": "hit-song-59",
@@ -825,7 +825,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/k5ePuH_0eI0/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=k5ePuH_0eI0",
     "supportsShuffle": false,
-    "durationSeconds": 210
+    "durationSeconds": 353
   },
   {
     "id": "hit-song-60",
@@ -839,7 +839,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/9Kouo0on9fw/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=9Kouo0on9fw",
     "supportsShuffle": false,
-    "durationSeconds": 238
+    "durationSeconds": 102
   },
   {
     "id": "og-single",
@@ -867,6 +867,6 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/A-nMCu2y_PM/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=A-nMCu2y_PM",
     "supportsShuffle": false,
-    "durationSeconds": 5400
+    "durationSeconds": 5153
   }
 ];
