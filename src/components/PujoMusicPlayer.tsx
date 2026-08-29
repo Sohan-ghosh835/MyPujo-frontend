@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PUJO_MUSIC_TRACKS, type PujoMusicTrack } from "@shared/durgaPujoMusicData";
 import { ExternalLink, X, Radio, Maximize2, Minimize2, ListMusic, Search, SkipForward, SkipBack, Play, Pause, Volume2, Volume1, VolumeX } from "lucide-react";
@@ -37,6 +37,35 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     }
   }, [isOpen, isMinimized]);
 
+  const currentSectionTracks = PUJO_MUSIC_TRACKS.filter(t => {
+    if (t.section !== activeSection) return false;
+    if (!searchFilter.trim()) return true;
+    const q = searchFilter.toLowerCase();
+    return t.title.toLowerCase().includes(q) || t.artist.toLowerCase().includes(q);
+  });
+
+  const handleNextTrack = useCallback(() => {
+    const currentIndex = currentSectionTracks.findIndex(t => t.id === activeTrackId);
+    const nextIndex = (currentIndex + 1) % currentSectionTracks.length;
+    if (currentSectionTracks[nextIndex]) {
+      setActiveTrackId(currentSectionTracks[nextIndex].id);
+      setCurrentTime(0);
+      setSeekTime(null);
+      setIsPlaying(true);
+    }
+  }, [currentSectionTracks, activeTrackId]);
+
+  const handlePrevTrack = useCallback(() => {
+    const currentIndex = currentSectionTracks.findIndex(t => t.id === activeTrackId);
+    const prevIndex = (currentIndex - 1 + currentSectionTracks.length) % currentSectionTracks.length;
+    if (currentSectionTracks[prevIndex]) {
+      setActiveTrackId(currentSectionTracks[prevIndex].id);
+      setCurrentTime(0);
+      setSeekTime(null);
+      setIsPlaying(true);
+    }
+  }, [currentSectionTracks, activeTrackId]);
+
   // Update track duration and reset timeline when track changes
   useEffect(() => {
     setCurrentTime(0);
@@ -45,29 +74,21 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     setDuration(activeTrack.durationSeconds || 240);
   }, [activeTrackId, activeTrack.durationSeconds]);
 
-  // Smooth timeline timer
+  // Smooth timeline timer with clean track end auto-advance
   useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (isPlaying) {
-      timer = setInterval(() => {
-        setCurrentTime(prev => {
-          if (prev >= duration) {
-            handleNextTrack();
-            return 0;
-          }
-          return prev + 1;
-        });
-      }, 1000);
-    }
+    if (!isPlaying) return;
+    const timer = setInterval(() => {
+      setCurrentTime(prev => {
+        if (prev + 1 >= duration) {
+          // Track finished -> auto advance smoothly
+          setTimeout(() => handleNextTrack(), 0);
+          return 0;
+        }
+        return prev + 1;
+      });
+    }, 1000);
     return () => clearInterval(timer);
-  }, [isPlaying, duration, activeTrackId]);
-
-  const currentSectionTracks = PUJO_MUSIC_TRACKS.filter(t => {
-    if (t.section !== activeSection) return false;
-    if (!searchFilter.trim()) return true;
-    const q = searchFilter.toLowerCase();
-    return t.title.toLowerCase().includes(q) || t.artist.toLowerCase().includes(q);
-  });
+  }, [isPlaying, duration, handleNextTrack]);
 
   const handleSectionSelect = (section: "hits" | "og" | "mahalaya") => {
     setActiveSection(section);
@@ -75,24 +96,8 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     const first = PUJO_MUSIC_TRACKS.find(t => t.section === section);
     if (first) {
       setActiveTrackId(first.id);
-      setIsPlaying(true);
-    }
-  };
-
-  const handleNextTrack = () => {
-    const currentIndex = currentSectionTracks.findIndex(t => t.id === activeTrackId);
-    const nextIndex = (currentIndex + 1) % currentSectionTracks.length;
-    if (currentSectionTracks[nextIndex]) {
-      setActiveTrackId(currentSectionTracks[nextIndex].id);
-      setIsPlaying(true);
-    }
-  };
-
-  const handlePrevTrack = () => {
-    const currentIndex = currentSectionTracks.findIndex(t => t.id === activeTrackId);
-    const prevIndex = (currentIndex - 1 + currentSectionTracks.length) % currentSectionTracks.length;
-    if (currentSectionTracks[prevIndex]) {
-      setActiveTrackId(currentSectionTracks[prevIndex].id);
+      setCurrentTime(0);
+      setSeekTime(null);
       setIsPlaying(true);
     }
   };
