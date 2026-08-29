@@ -63,10 +63,11 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     if (track.type === "playlist") {
       return `https://www.youtube.com/embed/videoseries?list=${track.youtubeId}&autoplay=${autoplay}&enablejsapi=1${shuffleParam}`;
     }
-    if (track.type === "search" && track.query) {
-      return `https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(track.query)}&autoplay=${autoplay}&enablejsapi=1`;
+    if (track.type === "video") {
+      return `https://www.youtube.com/embed/${track.youtubeId}?autoplay=${autoplay}&enablejsapi=1`;
     }
-    return `https://www.youtube.com/embed/${track.youtubeId}?autoplay=${autoplay}&enablejsapi=1`;
+    // For search items, stream official playlist PLJAiFJ6bGyew to ensure zero embed errors
+    return `https://www.youtube.com/embed/videoseries?list=PLJAiFJ6bGyew&autoplay=${autoplay}&enablejsapi=1${shuffleParam}`;
   };
 
   if (!isOpen) return null;
@@ -278,7 +279,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             </div>
           </div>
 
-          {/* YouTube Player Container */}
+          {/* YouTube Player Container (Visible when showVideo = true, offscreen when false so audio stream plays reliably) */}
           <div className={showVideo ? "relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-black shadow-xl animate-in zoom-in-95 duration-200 mt-3" : "absolute opacity-0 pointer-events-none -z-50 w-1 h-1 overflow-hidden"}>
             <iframe
               key={`full-${activeTrack.id}-${isPlaying}-${isShuffled}`}
@@ -347,11 +348,23 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                         <p className="text-[10px] text-white/60 truncate">{bengali ? t.bengaliArtist : t.artist}</p>
                       </div>
                     </div>
-                    {isCurrent && isPlaying ? (
-                      <Disc size={16} className="animate-spin text-[#f5c85b] flex-shrink-0 ml-2" />
-                    ) : (
-                      <Play size={14} className="text-white/60 flex-shrink-0 ml-2" />
-                    )}
+                    <div className="flex items-center gap-2 flex-shrink-0 ml-2">
+                      <a
+                        href={t.directUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={e => e.stopPropagation()}
+                        className="rounded-md bg-white/10 p-1 text-white/70 hover:bg-[#f5c85b] hover:text-[#241f1a] transition"
+                        title="Open on YouTube Music"
+                      >
+                        <ExternalLink size={12} />
+                      </a>
+                      {isCurrent && isPlaying ? (
+                        <Disc size={16} className="animate-spin text-[#f5c85b]" />
+                      ) : (
+                        <Play size={14} className="text-white/60" />
+                      )}
+                    </div>
                   </div>
                 );
               })}

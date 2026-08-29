@@ -23,7 +23,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliArtist": "অরিজিৎ সিং, শ্রেয়া ঘোষাল, মোনালী ঠাকুর ও আরও অনেক",
     "type": "playlist",
     "youtubeId": "PLJAiFJ6bGyew",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/playlist?list=PLJAiFJ6bGyew&si=-DCdPqbt80KSHoW-",
     "supportsShuffle": true
   },
@@ -37,7 +37,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Dugga Elo Monali Thakur Guddu",
     "youtubeId": "Dugga Elo Monali Thakur Guddu",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Dugga%20Elo%20Monali%20Thakur%20Guddu",
     "supportsShuffle": false
   },
@@ -51,7 +51,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Bolo Dugga Maiki Arijit Singh Arindom",
     "youtubeId": "Bolo Dugga Maiki Arijit Singh Arindom",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Bolo%20Dugga%20Maiki%20Arijit%20Singh%20Arindom",
     "supportsShuffle": false
   },
@@ -65,7 +65,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Ebar Jeno Onno Rokom Pujo Nakash Aziz Antara Mitra",
     "youtubeId": "Ebar Jeno Onno Rokom Pujo Nakash Aziz Antara Mitra",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Ebar%20Jeno%20Onno%20Rokom%20Pujo%20Nakash%20Aziz%20Antara%20Mitra",
     "supportsShuffle": false
   },
@@ -79,7 +79,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Dhak Baja Kashor Baja Shreya Ghoshal",
     "youtubeId": "Dhak Baja Kashor Baja Shreya Ghoshal",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Dhak%20Baja%20Kashor%20Baja%20Shreya%20Ghoshal",
     "supportsShuffle": false
   },
@@ -93,7 +93,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Bolo Dugga Elo Kaushik-Guddu Sunidhi Chauhan",
     "youtubeId": "Bolo Dugga Elo Kaushik-Guddu Sunidhi Chauhan",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Bolo%20Dugga%20Elo%20Kaushik-Guddu%20Sunidhi%20Chauhan",
     "supportsShuffle": false
   },
@@ -107,7 +107,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Aamaar Dugga Monali Thakur Anindya Chattopadhyay",
     "youtubeId": "Aamaar Dugga Monali Thakur Anindya Chattopadhyay",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Aamaar%20Dugga%20Monali%20Thakur%20Anindya%20Chattopadhyay",
     "supportsShuffle": false
   },
@@ -121,7 +121,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Dhaker Taley Abhijeet Bhattacharya Jeet Gannguli",
     "youtubeId": "Dhaker Taley Abhijeet Bhattacharya Jeet Gannguli",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Dhaker%20Taley%20Abhijeet%20Bhattacharya%20Jeet%20Gannguli",
     "supportsShuffle": false
   },
@@ -135,7 +135,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Dugga Elo Akriti Kakar Debanjali B Joshi",
     "youtubeId": "Dugga Elo Akriti Kakar Debanjali B Joshi",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Dugga%20Elo%20Akriti%20Kakar%20Debanjali%20B%20Joshi",
     "supportsShuffle": false
   },
@@ -149,7 +149,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Shundori Komola Armaan Malik Villain",
     "youtubeId": "Shundori Komola Armaan Malik Villain",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Shundori%20Komola%20Armaan%20Malik%20Villain",
     "supportsShuffle": false
   },
@@ -163,7 +163,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Elo Je Maa Abhijeet Bhattacharya Challenge 2",
     "youtubeId": "Elo Je Maa Abhijeet Bhattacharya Challenge 2",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Elo%20Je%20Maa%20Abhijeet%20Bhattacharya%20Challenge%202",
     "supportsShuffle": false
   },
@@ -177,7 +177,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "O Menoka O Menoka Antara Nandy Ankita Nandy",
     "youtubeId": "O Menoka O Menoka Antara Nandy Ankita Nandy",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=O%20Menoka%20O%20Menoka%20Antara%20Nandy%20Ankita%20Nandy",
     "supportsShuffle": false
   },
@@ -191,7 +191,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Ailo Uma Barite Antara Nandy Monami Ghosh",
     "youtubeId": "Ailo Uma Barite Antara Nandy Monami Ghosh",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Ailo%20Uma%20Barite%20Antara%20Nandy%20Monami%20Ghosh",
     "supportsShuffle": false
   },
@@ -205,7 +205,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Uma Ashe Notun Saje Ankita Bhattacharyya",
     "youtubeId": "Uma Ashe Notun Saje Ankita Bhattacharyya",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Uma%20Ashe%20Notun%20Saje%20Ankita%20Bhattacharyya",
     "supportsShuffle": false
   },
@@ -219,7 +219,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Abar Elo Maa Rahul Dutta Ankita Bhattacharyya",
     "youtubeId": "Abar Elo Maa Rahul Dutta Ankita Bhattacharyya",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Abar%20Elo%20Maa%20Rahul%20Dutta%20Ankita%20Bhattacharyya",
     "supportsShuffle": false
   },
@@ -233,7 +233,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Joy Joy Durga Ma Agnibha Bandopadhyay",
     "youtubeId": "Joy Joy Durga Ma Agnibha Bandopadhyay",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Joy%20Joy%20Durga%20Ma%20Agnibha%20Bandopadhyay",
     "supportsShuffle": false
   },
@@ -247,7 +247,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Durga Maa Akassh Haimanti",
     "youtubeId": "Durga Maa Akassh Haimanti",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Durga%20Maa%20Akassh%20Haimanti",
     "supportsShuffle": false
   },
@@ -261,7 +261,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Gouri Elo Dekhe Jalo Dohar",
     "youtubeId": "Gouri Elo Dekhe Jalo Dohar",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Gouri%20Elo%20Dekhe%20Jalo%20Dohar",
     "supportsShuffle": false
   },
@@ -275,7 +275,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Dhak Baaja Komor Nacha Jeet Akriti Kakar Dev Negi Switzerland",
     "youtubeId": "Dhak Baaja Komor Nacha Jeet Akriti Kakar Dev Negi Switzerland",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Dhak%20Baaja%20Komor%20Nacha%20Jeet%20Akriti%20Kakar%20Dev%20Negi%20Switzerland",
     "supportsShuffle": false
   },
@@ -289,7 +289,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Durge Durge Durgatinashini Asha Bhosle Durga Bandana",
     "youtubeId": "Durge Durge Durgatinashini Asha Bhosle Durga Bandana",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Durge%20Durge%20Durgatinashini%20Asha%20Bhosle%20Durga%20Bandana",
     "supportsShuffle": false
   },
@@ -303,7 +303,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Rupang Dehi Snita Pramanik Ghosh",
     "youtubeId": "Rupang Dehi Snita Pramanik Ghosh",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Rupang%20Dehi%20Snita%20Pramanik%20Ghosh",
     "supportsShuffle": false
   },
@@ -317,7 +317,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Aigiri Nandini Rajalakshmee Sanjay",
     "youtubeId": "Aigiri Nandini Rajalakshmee Sanjay",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Aigiri%20Nandini%20Rajalakshmee%20Sanjay",
     "supportsShuffle": false
   },
@@ -331,7 +331,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Baja Sanai Aar Baja Re Dhol Abhijeet Bhattacharya Nilakshi Bhattacharya Dev Sen Deewana",
     "youtubeId": "Baja Sanai Aar Baja Re Dhol Abhijeet Bhattacharya Nilakshi Bhattacharya Dev Sen Deewana",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Baja%20Sanai%20Aar%20Baja%20Re%20Dhol%20Abhijeet%20Bhattacharya%20Nilakshi%20Bhattacharya%20Dev%20Sen%20Deewana",
     "supportsShuffle": false
   },
@@ -345,7 +345,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Elo Je Maa Abhijeet Bhattacharya Challenge 2",
     "youtubeId": "Elo Je Maa Abhijeet Bhattacharya Challenge 2",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Elo%20Je%20Maa%20Abhijeet%20Bhattacharya%20Challenge%202",
     "supportsShuffle": false
   },
@@ -359,7 +359,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Maa Ashchhe Sanjeev Tiwari",
     "youtubeId": "Maa Ashchhe Sanjeev Tiwari",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Maa%20Ashchhe%20Sanjeev%20Tiwari",
     "supportsShuffle": false
   },
@@ -373,7 +373,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Esho Maa Durga Shamik Guha Roy Suman Mickey Chatterjee",
     "youtubeId": "Esho Maa Durga Shamik Guha Roy Suman Mickey Chatterjee",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Esho%20Maa%20Durga%20Shamik%20Guha%20Roy%20Suman%20Mickey%20Chatterjee",
     "supportsShuffle": false
   },
@@ -387,7 +387,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Maa Go Tui Somchanda Bhattacharya Manomay Bhattacharyya Durgeshgorer Guptodhon",
     "youtubeId": "Maa Go Tui Somchanda Bhattacharya Manomay Bhattacharyya Durgeshgorer Guptodhon",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Maa%20Go%20Tui%20Somchanda%20Bhattacharya%20Manomay%20Bhattacharyya%20Durgeshgorer%20Guptodhon",
     "supportsShuffle": false
   },
@@ -401,7 +401,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Jago Uma Rupankar Bagchi Uma",
     "youtubeId": "Jago Uma Rupankar Bagchi Uma",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Jago%20Uma%20Rupankar%20Bagchi%20Uma",
     "supportsShuffle": false
   },
@@ -415,7 +415,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Aigiri Nandini Rock Version Sowrabha",
     "youtubeId": "Aigiri Nandini Rock Version Sowrabha",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Aigiri%20Nandini%20Rock%20Version%20Sowrabha",
     "supportsShuffle": false
   },
@@ -429,7 +429,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Ailo Uma Barite Antara Nandy Monami Ghosh",
     "youtubeId": "Ailo Uma Barite Antara Nandy Monami Ghosh",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Ailo%20Uma%20Barite%20Antara%20Nandy%20Monami%20Ghosh",
     "supportsShuffle": false
   },
@@ -443,7 +443,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Aaj Baaje Somchanda Bhattacharya Durga Sohay",
     "youtubeId": "Aaj Baaje Somchanda Bhattacharya Durga Sohay",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Aaj%20Baaje%20Somchanda%20Bhattacharya%20Durga%20Sohay",
     "supportsShuffle": false
   },
@@ -457,7 +457,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Yoddhar Saathe Ebar Pujo Katan Nakash Aziz Yoddha",
     "youtubeId": "Yoddhar Saathe Ebar Pujo Katan Nakash Aziz Yoddha",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Yoddhar%20Saathe%20Ebar%20Pujo%20Katan%20Nakash%20Aziz%20Yoddha",
     "supportsShuffle": false
   },
@@ -471,7 +471,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Pujo Pujo Gondho Anupam Roy",
     "youtubeId": "Pujo Pujo Gondho Anupam Roy",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Pujo%20Pujo%20Gondho%20Anupam%20Roy",
     "supportsShuffle": false
   },
@@ -485,7 +485,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Pujor Dhaak Theme Bibhabendu Bhattacharya",
     "youtubeId": "Pujor Dhaak Theme Bibhabendu Bhattacharya",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Pujor%20Dhaak%20Theme%20Bibhabendu%20Bhattacharya",
     "supportsShuffle": false
   },
@@ -499,7 +499,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Jaago Uma Anupam Roy Rupankar Bagchi Uma",
     "youtubeId": "Jaago Uma Anupam Roy Rupankar Bagchi Uma",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Jaago%20Uma%20Anupam%20Roy%20Rupankar%20Bagchi%20Uma",
     "supportsShuffle": false
   },
@@ -513,7 +513,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Pujor Gaan Poushali Bhattacharya Abritte Talukdar",
     "youtubeId": "Pujor Gaan Poushali Bhattacharya Abritte Talukdar",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Pujor%20Gaan%20Poushali%20Bhattacharya%20Abritte%20Talukdar",
     "supportsShuffle": false
   },
@@ -527,7 +527,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Aamaar Dugga Monali Thakur Anindya Chattopadhyay",
     "youtubeId": "Aamaar Dugga Monali Thakur Anindya Chattopadhyay",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Aamaar%20Dugga%20Monali%20Thakur%20Anindya%20Chattopadhyay",
     "supportsShuffle": false
   },
@@ -541,7 +541,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Gouri Elo Dohar Tirtha Bhattacharya Raktabeej",
     "youtubeId": "Gouri Elo Dohar Tirtha Bhattacharya Raktabeej",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Gouri%20Elo%20Dohar%20Tirtha%20Bhattacharya%20Raktabeej",
     "supportsShuffle": false
   },
@@ -555,7 +555,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Aham Rudre Sourendro Soumyojit Academy of Music",
     "youtubeId": "Aham Rudre Sourendro Soumyojit Academy of Music",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Aham%20Rudre%20Sourendro%20Soumyojit%20Academy%20of%20Music",
     "supportsShuffle": false
   },
@@ -569,7 +569,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Elo Re Pujo Elo Dabbu Nakash Aziz Senjuti Das",
     "youtubeId": "Elo Re Pujo Elo Dabbu Nakash Aziz Senjuti Das",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Elo%20Re%20Pujo%20Elo%20Dabbu%20Nakash%20Aziz%20Senjuti%20Das",
     "supportsShuffle": false
   },
@@ -583,7 +583,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Chaarpashe Aalo Hok Ajoy Chakrabarty Kaushiki Chakraborty",
     "youtubeId": "Chaarpashe Aalo Hok Ajoy Chakrabarty Kaushiki Chakraborty",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Chaarpashe%20Aalo%20Hok%20Ajoy%20Chakrabarty%20Kaushiki%20Chakraborty",
     "supportsShuffle": false
   },
@@ -597,7 +597,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "O Thakur Upal Sengupta Prosmita Pal Belaseshe",
     "youtubeId": "O Thakur Upal Sengupta Prosmita Pal Belaseshe",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=O%20Thakur%20Upal%20Sengupta%20Prosmita%20Pal%20Belaseshe",
     "supportsShuffle": false
   },
@@ -611,7 +611,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Shubho Shubho Altamash Faridi Mrs Chatterjee Vs Norway",
     "youtubeId": "Shubho Shubho Altamash Faridi Mrs Chatterjee Vs Norway",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Shubho%20Shubho%20Altamash%20Faridi%20Mrs%20Chatterjee%20Vs%20Norway",
     "supportsShuffle": false
   },
@@ -625,7 +625,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "He Maa Durga Maa Aseema Panda",
     "youtubeId": "He Maa Durga Maa Aseema Panda",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=He%20Maa%20Durga%20Maa%20Aseema%20Panda",
     "supportsShuffle": false
   },
@@ -639,7 +639,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Durga Maa Eseche Akassh",
     "youtubeId": "Durga Maa Eseche Akassh",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Durga%20Maa%20Eseche%20Akassh",
     "supportsShuffle": false
   },
@@ -653,7 +653,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Eseche Maa Durga Maa DJ Remix Keshab Dey Ankita Bhattacharyya",
     "youtubeId": "Eseche Maa Durga Maa DJ Remix Keshab Dey Ankita Bhattacharyya",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Eseche%20Maa%20Durga%20Maa%20DJ%20Remix%20Keshab%20Dey%20Ankita%20Bhattacharyya",
     "supportsShuffle": false
   },
@@ -667,7 +667,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Kolki Monami Ghosh Prativa Dutta Rathijit Bhattacharjee",
     "youtubeId": "Kolki Monami Ghosh Prativa Dutta Rathijit Bhattacharjee",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Kolki%20Monami%20Ghosh%20Prativa%20Dutta%20Rathijit%20Bhattacharjee",
     "supportsShuffle": false
   },
@@ -681,7 +681,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Dugga Ma Asche Infra",
     "youtubeId": "Dugga Ma Asche Infra",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Dugga%20Ma%20Asche%20Infra",
     "supportsShuffle": false
   },
@@ -695,7 +695,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Debi Sajer Gaan Rupak Tiary Pragya Dutta",
     "youtubeId": "Debi Sajer Gaan Rupak Tiary Pragya Dutta",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Debi%20Sajer%20Gaan%20Rupak%20Tiary%20Pragya%20Dutta",
     "supportsShuffle": false
   },
@@ -709,7 +709,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Tomake Chai Arijit Singh Arindom Gangster",
     "youtubeId": "Tomake Chai Arijit Singh Arindom Gangster",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Tomake%20Chai%20Arijit%20Singh%20Arindom%20Gangster",
     "supportsShuffle": false
   },
@@ -723,7 +723,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Meri Maa Ke Barabar Koi Nahi Jubin Nautiyal",
     "youtubeId": "Meri Maa Ke Barabar Koi Nahi Jubin Nautiyal",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Meri%20Maa%20Ke%20Barabar%20Koi%20Nahi%20Jubin%20Nautiyal",
     "supportsShuffle": false
   },
@@ -737,7 +737,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Dugga Elo Monali Thakur Guddu",
     "youtubeId": "Dugga Elo Monali Thakur Guddu",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Dugga%20Elo%20Monali%20Thakur%20Guddu",
     "supportsShuffle": false
   },
@@ -751,7 +751,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Bajlo Tomar Aalor Benu Debolina Nandy Retro Cool Bengali Vol 3",
     "youtubeId": "Bajlo Tomar Aalor Benu Debolina Nandy Retro Cool Bengali Vol 3",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Bajlo%20Tomar%20Aalor%20Benu%20Debolina%20Nandy%20Retro%20Cool%20Bengali%20Vol%203",
     "supportsShuffle": false
   },
@@ -765,7 +765,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Durge Durge Durgatinashini Debolinaa Nandy Retro Cool Bengali",
     "youtubeId": "Durge Durge Durgatinashini Debolinaa Nandy Retro Cool Bengali",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Durge%20Durge%20Durgatinashini%20Debolinaa%20Nandy%20Retro%20Cool%20Bengali",
     "supportsShuffle": false
   },
@@ -779,7 +779,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Madhukaitava Vidhwangsi Tushar Dutta Trishit Supratik Das Roompa Durga",
     "youtubeId": "Madhukaitava Vidhwangsi Tushar Dutta Trishit Supratik Das Roompa Durga",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Madhukaitava%20Vidhwangsi%20Tushar%20Dutta%20Trishit%20Supratik%20Das%20Roompa%20Durga",
     "supportsShuffle": false
   },
@@ -793,7 +793,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Kalo Jole Kuchla Tole Iman Chakraborty",
     "youtubeId": "Kalo Jole Kuchla Tole Iman Chakraborty",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Kalo%20Jole%20Kuchla%20Tole%20Iman%20Chakraborty",
     "supportsShuffle": false
   },
@@ -807,7 +807,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Bajlo Tomar Alor Benu Sriparna Das",
     "youtubeId": "Bajlo Tomar Alor Benu Sriparna Das",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Bajlo%20Tomar%20Alor%20Benu%20Sriparna%20Das",
     "supportsShuffle": false
   },
@@ -821,7 +821,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Bajlo Tomar Aalor Benu Debolina Nandy",
     "youtubeId": "Bajlo Tomar Aalor Benu Debolina Nandy",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Bajlo%20Tomar%20Aalor%20Benu%20Debolina%20Nandy",
     "supportsShuffle": false
   },
@@ -835,7 +835,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Bajlo Tomar Aalor Benu With Narration Supriti Ghosh",
     "youtubeId": "Bajlo Tomar Aalor Benu With Narration Supriti Ghosh",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Bajlo%20Tomar%20Aalor%20Benu%20With%20Narration%20Supriti%20Ghosh",
     "supportsShuffle": false
   },
@@ -849,7 +849,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Mahishasura Mardhini Sri Vardhini Sharath Shakti",
     "youtubeId": "Mahishasura Mardhini Sri Vardhini Sharath Shakti",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Mahishasura%20Mardhini%20Sri%20Vardhini%20Sharath%20Shakti",
     "supportsShuffle": false
   },
@@ -863,7 +863,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Ya Chandi Chorus Mahishasura Mardini",
     "youtubeId": "Ya Chandi Chorus Mahishasura Mardini",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Ya%20Chandi%20Chorus%20Mahishasura%20Mardini",
     "supportsShuffle": false
   },
@@ -877,7 +877,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Jago Tumi Jago Trissha Chatterjee",
     "youtubeId": "Jago Tumi Jago Trissha Chatterjee",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Jago%20Tumi%20Jago%20Trissha%20Chatterjee",
     "supportsShuffle": false
   },
@@ -891,7 +891,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Borondala Saaja Madhuraa Bhattacharya Jeet Gannguli Arundhuti",
     "youtubeId": "Borondala Saaja Madhuraa Bhattacharya Jeet Gannguli Arundhuti",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Borondala%20Saaja%20Madhuraa%20Bhattacharya%20Jeet%20Gannguli%20Arundhuti",
     "supportsShuffle": false
   },
@@ -905,7 +905,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Phagun Haoyay Haoyay Jayati Chakraborty Dipanwita Choudhury",
     "youtubeId": "Phagun Haoyay Haoyay Jayati Chakraborty Dipanwita Choudhury",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Phagun%20Haoyay%20Haoyay%20Jayati%20Chakraborty%20Dipanwita%20Choudhury",
     "supportsShuffle": false
   },
@@ -919,7 +919,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Ogo Amar Agamani Alo Sipra Basu",
     "youtubeId": "Ogo Amar Agamani Alo Sipra Basu",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Ogo%20Amar%20Agamani%20Alo%20Sipra%20Basu",
     "supportsShuffle": false
   },
@@ -933,7 +933,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Raai Jago Go Pousali Banerjee",
     "youtubeId": "Raai Jago Go Pousali Banerjee",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Raai%20Jago%20Go%20Pousali%20Banerjee",
     "supportsShuffle": false
   },
@@ -947,7 +947,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Rupang Dehi Snita Pramanik Ghosh",
     "youtubeId": "Rupang Dehi Snita Pramanik Ghosh",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Rupang%20Dehi%20Snita%20Pramanik%20Ghosh",
     "supportsShuffle": false
   },
@@ -961,7 +961,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Ogo Amar Agomoni Alo Samadrita Ghosh",
     "youtubeId": "Ogo Amar Agomoni Alo Samadrita Ghosh",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Ogo%20Amar%20Agomoni%20Alo%20Samadrita%20Ghosh",
     "supportsShuffle": false
   },
@@ -975,7 +975,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Durge Durge Durgatinashini Asha Bhosle Bou Katha Kao",
     "youtubeId": "Durge Durge Durgatinashini Asha Bhosle Bou Katha Kao",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Durge%20Durge%20Durgatinashini%20Asha%20Bhosle%20Bou%20Katha%20Kao",
     "supportsShuffle": false
   },
@@ -989,7 +989,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Agomonir Gaan Anupam Roy Oriplast Originals",
     "youtubeId": "Agomonir Gaan Anupam Roy Oriplast Originals",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Agomonir%20Gaan%20Anupam%20Roy%20Oriplast%20Originals",
     "supportsShuffle": false
   },
@@ -1003,7 +1003,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Saajan Rock the Dotara Timir Biswas Iman Chakraborty Durga Sohay",
     "youtubeId": "Saajan Rock the Dotara Timir Biswas Iman Chakraborty Durga Sohay",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Saajan%20Rock%20the%20Dotara%20Timir%20Biswas%20Iman%20Chakraborty%20Durga%20Sohay",
     "supportsShuffle": false
   },
@@ -1017,7 +1017,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Pujar Gaan Hooligaanism Anirban Bhattacharya",
     "youtubeId": "Pujar Gaan Hooligaanism Anirban Bhattacharya",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Pujar%20Gaan%20Hooligaanism%20Anirban%20Bhattacharya",
     "supportsShuffle": false
   },
@@ -1031,7 +1031,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Asatoma Sadgamaya Arijit Singh Khaad",
     "youtubeId": "Asatoma Sadgamaya Arijit Singh Khaad",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Asatoma%20Sadgamaya%20Arijit%20Singh%20Khaad",
     "supportsShuffle": false
   },
@@ -1045,7 +1045,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Gouri Elo Aritra dasgupta",
     "youtubeId": "Gouri Elo Aritra dasgupta",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Gouri%20Elo%20Aritra%20dasgupta",
     "supportsShuffle": false
   },
@@ -1059,7 +1059,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Doob De Re Mon Nirmalya Roy Abir Chatterjee",
     "youtubeId": "Doob De Re Mon Nirmalya Roy Abir Chatterjee",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Doob%20De%20Re%20Mon%20Nirmalya%20Roy%20Abir%20Chatterjee",
     "supportsShuffle": false
   },
@@ -1073,7 +1073,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Apur Paayer Chhaap Arijit Singh Apur Panchali",
     "youtubeId": "Apur Paayer Chhaap Arijit Singh Apur Panchali",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Apur%20Paayer%20Chhaap%20Arijit%20Singh%20Apur%20Panchali",
     "supportsShuffle": false
   },
@@ -1087,7 +1087,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Esho Hey Shreya Ghoshal Ishan Mitra Ek Je Chhilo Raja",
     "youtubeId": "Esho Hey Shreya Ghoshal Ishan Mitra Ek Je Chhilo Raja",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Esho%20Hey%20Shreya%20Ghoshal%20Ishan%20Mitra%20Ek%20Je%20Chhilo%20Raja",
     "supportsShuffle": false
   },
@@ -1101,7 +1101,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Laage Ura Dhura Pritom Hasan Debosrie Antara Toofan",
     "youtubeId": "Laage Ura Dhura Pritom Hasan Debosrie Antara Toofan",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Laage%20Ura%20Dhura%20Pritom%20Hasan%20Debosrie%20Antara%20Toofan",
     "supportsShuffle": false
   },
@@ -1115,7 +1115,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Bholey Baba Badshah Nikhita Gandhi",
     "youtubeId": "Bholey Baba Badshah Nikhita Gandhi",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Bholey%20Baba%20Badshah%20Nikhita%20Gandhi",
     "supportsShuffle": false
   },
@@ -1129,7 +1129,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Dushtu Kokil Kona Akassh Toofan",
     "youtubeId": "Dushtu Kokil Kona Akassh Toofan",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Dushtu%20Kokil%20Kona%20Akassh%20Toofan",
     "supportsShuffle": false
   },
@@ -1143,7 +1143,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Mala Re Jeet Gannguli Romeo",
     "youtubeId": "Mala Re Jeet Gannguli Romeo",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Mala%20Re%20Jeet%20Gannguli%20Romeo",
     "supportsShuffle": false
   },
@@ -1157,7 +1157,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Koka Kola Samidh Mukherjee Kalpona Patoary",
     "youtubeId": "Koka Kola Samidh Mukherjee Kalpona Patoary",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Koka%20Kola%20Samidh%20Mukherjee%20Kalpona%20Patoary",
     "supportsShuffle": false
   },
@@ -1171,7 +1171,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Michhrir Dana Shreya Ghoshal Jeet Gannguli Bibaho Obhijaan",
     "youtubeId": "Michhrir Dana Shreya Ghoshal Jeet Gannguli Bibaho Obhijaan",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Michhrir%20Dana%20Shreya%20Ghoshal%20Jeet%20Gannguli%20Bibaho%20Obhijaan",
     "supportsShuffle": false
   },
@@ -1185,7 +1185,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Desi Chhori Satrujit Sen Neha Kakkar Yoddha",
     "youtubeId": "Desi Chhori Satrujit Sen Neha Kakkar Yoddha",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Desi%20Chhori%20Satrujit%20Sen%20Neha%20Kakkar%20Yoddha",
     "supportsShuffle": false
   },
@@ -1199,7 +1199,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Party Shoes Shadaab Hashmi Neha Kakkar Bindaas",
     "youtubeId": "Party Shoes Shadaab Hashmi Neha Kakkar Bindaas",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Party%20Shoes%20Shadaab%20Hashmi%20Neha%20Kakkar%20Bindaas",
     "supportsShuffle": false
   },
@@ -1213,7 +1213,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Bujhina Toh Tai Nusraat Faria Mumzy Stranger",
     "youtubeId": "Bujhina Toh Tai Nusraat Faria Mumzy Stranger",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Bujhina%20Toh%20Tai%20Nusraat%20Faria%20Mumzy%20Stranger",
     "supportsShuffle": false
   },
@@ -1227,7 +1227,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Lady Killer Romeo Jeet Gannguli Romeo",
     "youtubeId": "Lady Killer Romeo Jeet Gannguli Romeo",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Lady%20Killer%20Romeo%20Jeet%20Gannguli%20Romeo",
     "supportsShuffle": false
   },
@@ -1241,7 +1241,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Police Chorer Preme Porechhe Jeet Gannguli Abhijeet Akriti Kakar Challenge 2",
     "youtubeId": "Police Chorer Preme Porechhe Jeet Gannguli Abhijeet Akriti Kakar Challenge 2",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Police%20Chorer%20Preme%20Porechhe%20Jeet%20Gannguli%20Abhijeet%20Akriti%20Kakar%20Challenge%202",
     "supportsShuffle": false
   },
@@ -1255,7 +1255,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Baundule Ghuri Anupam Roy Arijit Singh Shreya Ghoshal Dawshom Awbotaar",
     "youtubeId": "Baundule Ghuri Anupam Roy Arijit Singh Shreya Ghoshal Dawshom Awbotaar",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Baundule%20Ghuri%20Anupam%20Roy%20Arijit%20Singh%20Shreya%20Ghoshal%20Dawshom%20Awbotaar",
     "supportsShuffle": false
   },
@@ -1269,7 +1269,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Tumi Jantei Paro Naa Mahtim Shakib Cheeni 2",
     "youtubeId": "Tumi Jantei Paro Naa Mahtim Shakib Cheeni 2",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Tumi%20Jantei%20Paro%20Naa%20Mahtim%20Shakib%20Cheeni%202",
     "supportsShuffle": false
   },
@@ -1283,7 +1283,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Taakey Olpo Kachhe Dakchhi Mahtim Shakib Prem Tame",
     "youtubeId": "Taakey Olpo Kachhe Dakchhi Mahtim Shakib Prem Tame",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Taakey%20Olpo%20Kachhe%20Dakchhi%20Mahtim%20Shakib%20Prem%20Tame",
     "supportsShuffle": false
   },
@@ -1297,7 +1297,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Egiye De Arijit Singh Madhubanti Bagchi Arindom",
     "youtubeId": "Egiye De Arijit Singh Madhubanti Bagchi Arindom",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Egiye%20De%20Arijit%20Singh%20Madhubanti%20Bagchi%20Arindom",
     "supportsShuffle": false
   },
@@ -1311,7 +1311,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Shudhu Tomari Jonyo Theme Arijit Singh Shreya Ghoshal",
     "youtubeId": "Shudhu Tomari Jonyo Theme Arijit Singh Shreya Ghoshal",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Shudhu%20Tomari%20Jonyo%20Theme%20Arijit%20Singh%20Shreya%20Ghoshal",
     "supportsShuffle": false
   },
@@ -1325,7 +1325,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Amake Nao Debayan Banerjee Srikanto",
     "youtubeId": "Amake Nao Debayan Banerjee Srikanto",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Amake%20Nao%20Debayan%20Banerjee%20Srikanto",
     "supportsShuffle": false
   },
@@ -1339,7 +1339,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Sajani Nilayan Chatterjee Dilkhush",
     "youtubeId": "Sajani Nilayan Chatterjee Dilkhush",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Sajani%20Nilayan%20Chatterjee%20Dilkhush",
     "supportsShuffle": false
   },
@@ -1353,7 +1353,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Pheshey Jaai Habib Wahid Shithi Saha Arafat Mohsin Toofan",
     "youtubeId": "Pheshey Jaai Habib Wahid Shithi Saha Arafat Mohsin Toofan",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Pheshey%20Jaai%20Habib%20Wahid%20Shithi%20Saha%20Arafat%20Mohsin%20Toofan",
     "supportsShuffle": false
   },
@@ -1367,7 +1367,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Ure Geche Ash King Monali Thakur Parbona Ami Charte Toke",
     "youtubeId": "Ure Geche Ash King Monali Thakur Parbona Ami Charte Toke",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Ure%20Geche%20Ash%20King%20Monali%20Thakur%20Parbona%20Ami%20Charte%20Toke",
     "supportsShuffle": false
   },
@@ -1381,7 +1381,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Aashona Arijit Singh Prashmita Paul Arindom Borbaad",
     "youtubeId": "Aashona Arijit Singh Prashmita Paul Arindom Borbaad",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Aashona%20Arijit%20Singh%20Prashmita%20Paul%20Arindom%20Borbaad",
     "supportsShuffle": false
   },
@@ -1395,7 +1395,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Era Sukher Laagi Chorus Debojyoti Mishra Chokher Bali",
     "youtubeId": "Era Sukher Laagi Chorus Debojyoti Mishra Chokher Bali",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Era%20Sukher%20Laagi%20Chorus%20Debojyoti%20Mishra%20Chokher%20Bali",
     "supportsShuffle": false
   },
@@ -1409,7 +1409,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Tumi Aashe Paashe Nakash Aziz Monali Thakur Parbona Ami Charte Toke",
     "youtubeId": "Tumi Aashe Paashe Nakash Aziz Monali Thakur Parbona Ami Charte Toke",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Tumi%20Aashe%20Paashe%20Nakash%20Aziz%20Monali%20Thakur%20Parbona%20Ami%20Charte%20Toke",
     "supportsShuffle": false
   },
@@ -1423,7 +1423,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Hey Shokha Somlata Acharyya Chowdhury Arindom",
     "youtubeId": "Hey Shokha Somlata Acharyya Chowdhury Arindom",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Hey%20Shokha%20Somlata%20Acharyya%20Chowdhury%20Arindom",
     "supportsShuffle": false
   },
@@ -1437,7 +1437,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Shaajo Shaajao Sahana Bajpaie Ballabhpurer Roopkotha",
     "youtubeId": "Shaajo Shaajao Sahana Bajpaie Ballabhpurer Roopkotha",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Shaajo%20Shaajao%20Sahana%20Bajpaie%20Ballabhpurer%20Roopkotha",
     "supportsShuffle": false
   },
@@ -1451,7 +1451,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Notun Premer Gaan Debraj Bhattacharya Surangana Bandyopadhyay Ballabhpurer Roopkotha",
     "youtubeId": "Notun Premer Gaan Debraj Bhattacharya Surangana Bandyopadhyay Ballabhpurer Roopkotha",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Notun%20Premer%20Gaan%20Debraj%20Bhattacharya%20Surangana%20Bandyopadhyay%20Ballabhpurer%20Roopkotha",
     "supportsShuffle": false
   },
@@ -1465,7 +1465,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Tumi Emni Emni Esho Sanchita Bhowmick Tamalika Golder Swadesh Misra Durgo Rawhoshyo",
     "youtubeId": "Tumi Emni Emni Esho Sanchita Bhowmick Tamalika Golder Swadesh Misra Durgo Rawhoshyo",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Tumi%20Emni%20Emni%20Esho%20Sanchita%20Bhowmick%20Tamalika%20Golder%20Swadesh%20Misra%20Durgo%20Rawhoshyo",
     "supportsShuffle": false
   },
@@ -1479,7 +1479,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Maa Go Tui Shovan Ganguly Durgapujor Gaan",
     "youtubeId": "Maa Go Tui Shovan Ganguly Durgapujor Gaan",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Maa%20Go%20Tui%20Shovan%20Ganguly%20Durgapujor%20Gaan",
     "supportsShuffle": false
   },
@@ -1493,7 +1493,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Khoka Babu Rishi Samidh Sedin Dekha Hoyechilo",
     "youtubeId": "Khoka Babu Rishi Samidh Sedin Dekha Hoyechilo",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Khoka%20Babu%20Rishi%20Samidh%20Sedin%20Dekha%20Hoyechilo",
     "supportsShuffle": false
   },
@@ -1507,7 +1507,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "type": "search",
     "query": "Pyaar Ka Bukhaar Jeet Gannguli Suraj Jagan Challenge 2",
     "youtubeId": "Pyaar Ka Bukhaar Jeet Gannguli Suraj Jagan Challenge 2",
-    "thumbnailUrl": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/search?q=Pyaar%20Ka%20Bukhaar%20Jeet%20Gannguli%20Suraj%20Jagan%20Challenge%202",
     "supportsShuffle": false
   },
