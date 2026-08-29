@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Music, Disc, ExternalLink, X, Play, Pause, Shuffle, Radio, Maximize2, Minimize2, Video, Volume2, SkipForward, SkipBack, ListMusic } from "lucide-react";
+import { Disc, ExternalLink, X, Play, Pause, Shuffle, Radio, Maximize2, Minimize2, Video, SkipForward, SkipBack, ListMusic } from "lucide-react";
 
 export interface PujoMusicTrack {
   id: string;
@@ -26,22 +26,9 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     bengaliArtist: "সেরা ঢাক ও পুজো হিট প্লেলিস্ট",
     type: "playlist",
     youtubeId: "PLJAiFJ6bGyew",
-    thumbnailUrl: "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    directUrl: "https://music.youtube.com/playlist?list=PLJAiFJ6bGyew&si=wK5E1TZsBmii-CwJ",
+    thumbnailUrl: "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?auto=format&fit=crop&w=600&q=80",
+    directUrl: "https://music.youtube.com/playlist?list=PLJAiFJ6bGyew&si=-DCdPqbt80KSHoW-",
     supportsShuffle: true,
-  },
-  {
-    id: "hits-dugga-elo",
-    section: "hits",
-    title: "Dugga Elo (Puja Special)",
-    bengaliTitle: "দুগ্গা এলো (পুজো স্পেশাল)",
-    artist: "Monali Thakur & Jeet Gannguli",
-    bengaliArtist: "মোনালী ঠাকুর ও জিৎ গাঙ্গুলী",
-    type: "video",
-    youtubeId: "oyBQywMMi24",
-    thumbnailUrl: "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    directUrl: "https://music.youtube.com/playlist?list=PLJAiFJ6bGyew&si=wK5E1TZsBmii-CwJ",
-    supportsShuffle: false,
   },
   {
     id: "og-single",
@@ -179,12 +166,13 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
           </button>
         </div>
 
-        {/* Hidden audio iframe running in background */}
+        {/* Offscreen audio iframe running YouTube stream without being muted by browser display:none rules */}
         <iframe
+          key={`min-${activeTrack.id}-${isPlaying}`}
           src={getEmbedUrl(activeTrack)}
           title="Audio Stream"
-          className="hidden"
-          allow="autoplay; encrypted-media"
+          className="absolute opacity-0 pointer-events-none -z-50 w-1 h-1 overflow-hidden"
+          allow="autoplay; encrypted-media; picture-in-picture"
         />
       </div>
     );
@@ -344,26 +332,17 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             </div>
           </div>
 
-          {/* Optional Video Mode Frame */}
-          {showVideo ? (
-            <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-black shadow-xl animate-in zoom-in-95 duration-200">
-              <iframe
-                src={getEmbedUrl(activeTrack)}
-                title={activeTrack.title}
-                className="h-full w-full border-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          ) : (
-            /* Hidden audio iframe keeping music active */
+          {/* YouTube Player Container (Visible when showVideo = true, offscreen when false so audio stream plays reliably) */}
+          <div className={showVideo ? "relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-black shadow-xl animate-in zoom-in-95 duration-200 mt-3" : "absolute opacity-0 pointer-events-none -z-50 w-1 h-1 overflow-hidden"}>
             <iframe
+              key={`full-${activeTrack.id}-${isPlaying}-${isShuffled}`}
               src={getEmbedUrl(activeTrack)}
-              title="Audio Engine"
-              className="hidden"
-              allow="autoplay; encrypted-media"
+              title={activeTrack.title}
+              className="h-full w-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
             />
-          )}
+          </div>
 
           {/* Section Playlist Queue List */}
           <div className="mt-3 rounded-2xl border border-white/10 bg-black/40 p-3">
