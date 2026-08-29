@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Music, Disc, ExternalLink, X, Play, Pause, Shuffle, Radio, ChevronDown, Maximize2, Minimize2 } from "lucide-react";
+import { Music, Disc, ExternalLink, X, Play, Pause, Shuffle, Radio, Maximize2, Minimize2, Video, Volume2, SkipForward, SkipBack, ListMusic } from "lucide-react";
 
 export interface PujoMusicTrack {
   id: string;
@@ -11,6 +11,7 @@ export interface PujoMusicTrack {
   bengaliArtist: string;
   type: "playlist" | "video";
   youtubeId: string;
+  thumbnailUrl: string;
   directUrl: string;
   supportsShuffle: boolean;
 }
@@ -25,6 +26,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     bengaliArtist: "সেরা ঢাক ও পুজো হিট গান",
     type: "playlist",
     youtubeId: "PLJAiFJ6bGyew",
+    thumbnailUrl: "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     directUrl: "https://music.youtube.com/playlist?list=PLJAiFJ6bGyew&si=wK5E1TZsBmii-CwJ",
     supportsShuffle: true,
   },
@@ -37,6 +39,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     bengaliArtist: "চিরসবুজ মেলোডি ও পুজো সুর",
     type: "video",
     youtubeId: "oyBQywMMi24",
+    thumbnailUrl: "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     directUrl: "https://music.youtube.com/watch?v=oyBQywMMi24&si=x0pifg0r0CsNqRXg",
     supportsShuffle: false,
   },
@@ -49,6 +52,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     bengaliArtist: "বীরেন্দ্রকৃষ্ণ ভদ্র ও পঙ্কজ মল্লিক",
     type: "video",
     youtubeId: "Oxs4vBNkqtM",
+    thumbnailUrl: "https://img.youtube.com/vi/Oxs4vBNkqtM/hqdefault.jpg",
     directUrl: "https://music.youtube.com/watch?v=Oxs4vBNkqtM&si=rO8k3_vfsdggGmyl",
     supportsShuffle: false,
   },
@@ -61,6 +65,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     bengaliArtist: "মহালয়া ও আগমনী চণ্ডীপাঠ সংকলন",
     type: "playlist",
     youtubeId: "PLORF1mEtpAB8",
+    thumbnailUrl: "https://img.youtube.com/vi/Oxs4vBNkqtM/maxresdefault.jpg",
     directUrl: "https://music.youtube.com/playlist?list=PLORF1mEtpAB8&si=fN_ZwGRhtL8MaOZC",
     supportsShuffle: true,
   },
@@ -77,27 +82,44 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
 
   const [activeSection, setActiveSection] = useState<"hits" | "og" | "mahalaya">("hits");
   const [activeTrackId, setActiveTrackId] = useState<string>("hits-playlist");
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [showVideo, setShowVideo] = useState<boolean>(false);
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
   const [isShuffled, setIsShuffled] = useState<boolean>(false);
 
   const activeTrack = PUJO_MUSIC_TRACKS.find(t => t.id === activeTrackId) || PUJO_MUSIC_TRACKS[0];
+  const currentSectionTracks = PUJO_MUSIC_TRACKS.filter(t => t.section === activeSection);
 
   const handleSectionSelect = (section: "hits" | "og" | "mahalaya") => {
     setActiveSection(section);
-    const firstInSection = PUJO_MUSIC_TRACKS.find(t => t.section === section);
-    if (firstInSection) {
-      setActiveTrackId(firstInSection.id);
+    const first = PUJO_MUSIC_TRACKS.find(t => t.section === section);
+    if (first) {
+      setActiveTrackId(first.id);
+      setIsPlaying(true);
     }
   };
 
-  const currentSectionTracks = PUJO_MUSIC_TRACKS.filter(t => t.section === activeSection);
+  const handleNextTrack = () => {
+    const currentIndex = currentSectionTracks.findIndex(t => t.id === activeTrackId);
+    const nextIndex = (currentIndex + 1) % currentSectionTracks.length;
+    setActiveTrackId(currentSectionTracks[nextIndex].id);
+    setIsPlaying(true);
+  };
+
+  const handlePrevTrack = () => {
+    const currentIndex = currentSectionTracks.findIndex(t => t.id === activeTrackId);
+    const prevIndex = (currentIndex - 1 + currentSectionTracks.length) % currentSectionTracks.length;
+    setActiveTrackId(currentSectionTracks[prevIndex].id);
+    setIsPlaying(true);
+  };
 
   const getEmbedUrl = (track: PujoMusicTrack) => {
+    const autoplay = isPlaying ? "1" : "0";
     const shuffleParam = isShuffled && track.supportsShuffle ? "&shuffle=1" : "";
     if (track.type === "playlist") {
-      return `https://www.youtube.com/embed/videoseries?list=${track.youtubeId}&autoplay=1&enablejsapi=1${shuffleParam}`;
+      return `https://www.youtube.com/embed/videoseries?list=${track.youtubeId}&autoplay=${autoplay}&enablejsapi=1${shuffleParam}`;
     }
-    return `https://www.youtube.com/embed/${track.youtubeId}?autoplay=1&enablejsapi=1`;
+    return `https://www.youtube.com/embed/${track.youtubeId}?autoplay=${autoplay}&enablejsapi=1`;
   };
 
   if (!isOpen) return null;
@@ -107,12 +129,14 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     return (
       <div className="fixed bottom-20 right-4 z-50 flex items-center gap-3 rounded-2xl border border-[#f5c85b]/40 bg-[#1e0f0f]/95 p-3 shadow-2xl backdrop-blur-2xl text-white sm:bottom-6">
         <div className="relative flex items-center gap-2.5">
-          <div className="grid size-9 place-items-center rounded-xl bg-[#8c1e21] text-[#f5c85b] animate-pulse">
-            <Disc size={18} className="animate-spin" style={{ animationDuration: "6s" }} />
-          </div>
-          <div className="max-w-[160px] truncate">
+          <img
+            src={activeTrack.thumbnailUrl}
+            alt={activeTrack.title}
+            className="size-10 rounded-xl object-cover border border-[#f5c85b]/50 shadow"
+          />
+          <div className="max-w-[150px] truncate">
             <p className="text-[10px] font-bold uppercase tracking-wider text-[#f5c85b]">
-              {bengali ? "পুজো মিউজিক চালু" : "Pujo Music Playing"}
+              {bengali ? "পুজো গান চালু" : "Pujo Music Playing"}
             </p>
             <p className="truncate text-xs font-bold text-white">
               {bengali ? activeTrack.bengaliTitle : activeTrack.title}
@@ -120,6 +144,12 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
           </div>
         </div>
         <div className="flex items-center gap-1.5">
+          <button
+            onClick={() => setIsPlaying(!isPlaying)}
+            className="grid size-8 place-items-center rounded-lg bg-[#8c1e21] text-[#f5c85b] hover:bg-[#6f1719]"
+          >
+            {isPlaying ? <Pause size={14} /> : <Play size={14} />}
+          </button>
           <button
             onClick={() => setIsMinimized(false)}
             className="grid size-8 place-items-center rounded-lg bg-white/10 text-white hover:bg-white/20"
@@ -135,27 +165,35 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             <X size={15} />
           </button>
         </div>
+
+        {/* Hidden audio iframe running in background */}
+        <iframe
+          src={getEmbedUrl(activeTrack)}
+          title="Audio Stream"
+          className="hidden"
+          allow="autoplay; encrypted-media"
+        />
       </div>
     );
   }
 
-  // Full Modal Player
+  // Full Player Modal
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-[#f5c85b]/30 bg-[#1e0f0f] shadow-2xl text-white">
+      <div className="relative w-full max-w-xl overflow-hidden rounded-3xl border border-[#f5c85b]/30 bg-[#1e0f0f] shadow-2xl text-white">
         
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-white/15 bg-[#2a1314] px-6 py-4">
-          <div className="flex items-center gap-3">
-            <div className="grid size-10 place-items-center rounded-xl bg-[#8c1e21] text-[#f5c85b] shadow-inner">
-              <Radio size={20} />
+        <div className="flex items-center justify-between border-b border-white/15 bg-[#2a1314] px-5 py-3.5">
+          <div className="flex items-center gap-2.5">
+            <div className="grid size-9 place-items-center rounded-xl bg-[#8c1e21] text-[#f5c85b] shadow-inner">
+              <Radio size={18} />
             </div>
             <div>
-              <h3 className="font-display text-lg font-bold text-[#f5c85b]">
+              <h3 className="font-display text-base font-bold text-[#f5c85b]">
                 {bengali ? "পুজো প্লেলিস্ট ও মহালয়া" : "Pujo Music Playlist"}
               </h3>
-              <p className="text-xs text-[#f8edd8]/70">
-                {bengali ? "উৎসবের সুর, আগমনী গান ও মহালয়া মহিষাসুরমর্দিনী" : "Festive Pujor Gaan, OG hits & Mahalaya Mahishasuramardini"}
+              <p className="text-[11px] text-[#f8edd8]/70">
+                {bengali ? "উৎসবের সুর, আগমনী গান ও মহালয়া" : "Festive Pujor Gaan, OG hits & Mahalaya"}
               </p>
             </div>
           </div>
@@ -163,26 +201,26 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsMinimized(true)}
-              className="grid size-9 place-items-center rounded-xl bg-white/10 text-white transition hover:bg-white/20"
+              className="grid size-8 place-items-center rounded-xl bg-white/10 text-white transition hover:bg-white/20"
               title={bengali ? "মিনি প্লেয়ার করুন" : "Minimize player"}
             >
-              <Minimize2 size={16} />
+              <Minimize2 size={15} />
             </button>
             <button
               onClick={onClose}
-              className="grid size-9 place-items-center rounded-xl bg-white/10 text-white transition hover:bg-white/20"
+              className="grid size-8 place-items-center rounded-xl bg-white/10 text-white transition hover:bg-white/20"
               title={bengali ? "বন্ধ করুন" : "Close player"}
             >
-              <X size={18} />
+              <X size={17} />
             </button>
           </div>
         </div>
 
-        {/* Section Selection Tabs */}
-        <div className="flex border-b border-white/10 bg-[#160a0a] p-2 text-xs font-bold sm:text-sm">
+        {/* Section Tabs */}
+        <div className="flex border-b border-white/10 bg-[#160a0a] p-1.5 text-xs font-bold sm:text-sm">
           <button
             onClick={() => handleSectionSelect("hits")}
-            className={`flex-1 rounded-xl py-2.5 transition ${
+            className={`flex-1 rounded-xl py-2 transition ${
               activeSection === "hits"
                 ? "bg-[#8c1e21] text-[#f5c85b] shadow-md"
                 : "text-[#f8edd8]/60 hover:bg-white/5 hover:text-white"
@@ -192,7 +230,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
           </button>
           <button
             onClick={() => handleSectionSelect("og")}
-            className={`flex-1 rounded-xl py-2.5 transition ${
+            className={`flex-1 rounded-xl py-2 transition ${
               activeSection === "og"
                 ? "bg-[#8c1e21] text-[#f5c85b] shadow-md"
                 : "text-[#f8edd8]/60 hover:bg-white/5 hover:text-white"
@@ -202,7 +240,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
           </button>
           <button
             onClick={() => handleSectionSelect("mahalaya")}
-            className={`flex-1 rounded-xl py-2.5 transition ${
+            className={`flex-1 rounded-xl py-2 transition ${
               activeSection === "mahalaya"
                 ? "bg-[#8c1e21] text-[#f5c85b] shadow-md"
                 : "text-[#f8edd8]/60 hover:bg-white/5 hover:text-white"
@@ -212,78 +250,162 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
           </button>
         </div>
 
-        {/* Sub-track Selector if multiple in section */}
-        {currentSectionTracks.length > 1 && (
-          <div className="flex items-center gap-2 border-b border-white/10 bg-[#241213] px-6 py-2 text-xs">
-            <span className="font-semibold text-[#f8edd8]/60">{bengali ? "ট্র্যাক নির্বাচন:" : "Select Track:"}</span>
-            {currentSectionTracks.map(t => (
-              <button
-                key={t.id}
-                onClick={() => setActiveTrackId(t.id)}
-                className={`rounded-lg px-3 py-1 font-bold transition ${
-                  activeTrackId === t.id
-                    ? "bg-[#f5c85b] text-[#241f1a]"
-                    : "bg-white/10 text-white hover:bg-white/20"
-                }`}
-              >
-                {bengali ? t.bengaliTitle : t.title}
-              </button>
-            ))}
-          </div>
-        )}
-
-        {/* Player Display Body */}
-        <div className="p-6 space-y-4">
-          <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 p-4">
-            <div className="flex items-center gap-3">
-              <Disc size={28} className="text-[#f5c85b] animate-spin" style={{ animationDuration: "8s" }} />
-              <div>
-                <h4 className="font-display text-base font-bold text-white">
-                  {bengali ? activeTrack.bengaliTitle : activeTrack.title}
-                </h4>
-                <p className="text-xs text-[#f5c85b]">
-                  {bengali ? activeTrack.bengaliArtist : activeTrack.artist}
-                </p>
-              </div>
+        {/* Audio Player Card with YT Album Cover Art */}
+        <div className="p-5 space-y-4">
+          <div className="flex flex-col items-center text-center">
+            {/* YouTube Album Cover Image */}
+            <div className="relative group">
+              <img
+                src={activeTrack.thumbnailUrl}
+                alt={activeTrack.title}
+                className="h-44 sm:h-52 w-full max-w-[320px] rounded-2xl object-cover border-2 border-[#f5c85b]/40 shadow-2xl transition duration-300 group-hover:scale-[1.02]"
+              />
+              {isPlaying && (
+                <div className="absolute top-3 right-3 flex items-center gap-1 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-bold text-[#f5c85b] backdrop-blur">
+                  <span className="h-2 w-2 rounded-full bg-[#f5c85b] animate-ping" />
+                  {bengali ? "প্লে হচ্ছে" : "Playing"}
+                </div>
+              )}
             </div>
 
-            <div className="flex items-center gap-2">
+            {/* Track Meta */}
+            <h4 className="mt-3 font-display text-lg font-bold text-white">
+              {bengali ? activeTrack.bengaliTitle : activeTrack.title}
+            </h4>
+            <p className="mt-0.5 text-xs text-[#f5c85b]">
+              {bengali ? activeTrack.bengaliArtist : activeTrack.artist}
+            </p>
+
+            {/* Controls Bar */}
+            <div className="mt-4 flex items-center gap-3">
               {activeTrack.supportsShuffle && (
                 <button
                   onClick={() => setIsShuffled(!isShuffled)}
-                  className={`flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-bold transition ${
+                  className={`grid size-9 place-items-center rounded-full border transition ${
                     isShuffled
                       ? "border-[#f5c85b] bg-[#f5c85b] text-[#241f1a]"
                       : "border-white/20 bg-white/10 text-white hover:bg-white/20"
                   }`}
-                  title={bengali ? "সাফল বোতাম" : "Shuffle Playlist"}
+                  title={bengali ? "সাফল অপশন" : "Shuffle"}
                 >
-                  <Shuffle size={14} />
-                  <span>{bengali ? "সাফল" : "Shuffle"}</span>
+                  <Shuffle size={16} />
                 </button>
               )}
 
+              <button
+                onClick={handlePrevTrack}
+                disabled={currentSectionTracks.length <= 1}
+                className="grid size-9 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20 disabled:opacity-30"
+              >
+                <SkipBack size={16} />
+              </button>
+
+              <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                className="grid size-12 place-items-center rounded-full bg-[#8c1e21] text-[#f5c85b] shadow-xl transition hover:scale-105 active:scale-95"
+              >
+                {isPlaying ? <Pause size={22} /> : <Play size={22} className="ml-0.5" />}
+              </button>
+
+              <button
+                onClick={handleNextTrack}
+                disabled={currentSectionTracks.length <= 1}
+                className="grid size-9 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20 disabled:opacity-30"
+              >
+                <SkipForward size={16} />
+              </button>
+
+              {/* Video Toggle Button */}
+              <button
+                onClick={() => setShowVideo(!showVideo)}
+                className={`flex items-center gap-1 rounded-full border px-3 py-1.5 text-xs font-bold transition ${
+                  showVideo
+                    ? "border-[#f5c85b] bg-[#f5c85b] text-[#241f1a]"
+                    : "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                }`}
+                title={bengali ? "ভিডিও মোড টগল করুন" : "Toggle Video Mode"}
+              >
+                <Video size={14} />
+                <span>{showVideo ? (bengali ? "ভিডিও বন্ধ" : "Hide Video") : (bengali ? "ভিডিও দেখুন" : "Video Mode")}</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Optional Video Mode Frame */}
+          {showVideo ? (
+            <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-black shadow-xl animate-in zoom-in-95 duration-200">
+              <iframe
+                src={getEmbedUrl(activeTrack)}
+                title={activeTrack.title}
+                className="h-full w-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          ) : (
+            /* Hidden audio iframe keeping music active */
+            <iframe
+              src={getEmbedUrl(activeTrack)}
+              title="Audio Engine"
+              className="hidden"
+              allow="autoplay; encrypted-media"
+            />
+          )}
+
+          {/* Section Playlist Queue List */}
+          <div className="mt-3 rounded-2xl border border-white/10 bg-black/40 p-3">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2 text-xs font-bold text-[#f5c85b]">
+              <span className="flex items-center gap-1.5">
+                <ListMusic size={14} />
+                {bengali ? "প্লেলিস্ট তালিকা" : "Playlist Queue"}
+              </span>
               <a
                 href={activeTrack.directUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-white/20"
+                className="flex items-center gap-1 text-[11px] text-white/80 hover:text-[#f5c85b]"
               >
-                <ExternalLink size={14} />
-                <span>YouTube Music</span>
+                <ExternalLink size={12} />
+                YouTube Music
               </a>
             </div>
-          </div>
 
-          {/* Embedded iFrame YouTube Player */}
-          <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-black shadow-xl">
-            <iframe
-              src={getEmbedUrl(activeTrack)}
-              title={activeTrack.title}
-              className="h-full w-full border-0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <div className="mt-2 max-h-36 space-y-1.5 overflow-y-auto pr-1">
+              {currentSectionTracks.map(t => {
+                const isCurrent = t.id === activeTrackId;
+                return (
+                  <div
+                    key={t.id}
+                    onClick={() => {
+                      setActiveTrackId(t.id);
+                      setIsPlaying(true);
+                    }}
+                    className={`flex cursor-pointer items-center justify-between rounded-xl p-2 transition ${
+                      isCurrent
+                        ? "bg-[#8c1e21] text-[#f5c85b] font-bold"
+                        : "bg-white/5 text-white/90 hover:bg-white/10"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5 truncate">
+                      <img
+                        src={t.thumbnailUrl}
+                        alt={t.title}
+                        className="size-8 rounded-lg object-cover"
+                      />
+                      <div className="truncate text-xs">
+                        <p className="truncate font-semibold">{bengali ? t.bengaliTitle : t.title}</p>
+                        <p className="text-[10px] text-white/60">{bengali ? t.bengaliArtist : t.artist}</p>
+                      </div>
+                    </div>
+                    {isCurrent && isPlaying ? (
+                      <Disc size={16} className="animate-spin text-[#f5c85b]" />
+                    ) : (
+                      <Play size={14} className="text-white/60" />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
