@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PUJO_MUSIC_TRACKS, type PujoMusicTrack } from "@shared/durgaPujoMusicData";
-import { ExternalLink, X, Radio, Maximize2, Minimize2, ListMusic, Search, SkipForward, SkipBack, Play, Pause, Volume2, VolumeX } from "lucide-react";
+import { ExternalLink, X, Radio, Maximize2, Minimize2, ListMusic, Search, SkipForward, SkipBack, Play, Pause, Volume2, Volume1, VolumeX } from "lucide-react";
 
 interface PujoMusicPlayerProps {
   isOpen: boolean;
@@ -20,6 +20,8 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   const [seekTime, setSeekTime] = useState<number | null>(null);
   const [duration, setDuration] = useState<number>(210); // Default 3m 30s
   const [isMuted, setIsMuted] = useState<boolean>(false);
+  const [volume, setVolume] = useState<number>(100);
+  const [showVolumeSlider, setShowVolumeSlider] = useState<boolean>(false);
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
 
   // Lock background website scrolling when modal is open
@@ -99,18 +101,28 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     setSeekTime(newTime);
   };
 
+  const toggleMute = () => {
+    if (isMuted) {
+      setIsMuted(false);
+      if (volume === 0) setVolume(100);
+    } else {
+      setIsMuted(true);
+    }
+  };
+
   const formatTime = (secs: number) => {
     const mins = Math.floor(secs / 60);
     const remainingSecs = Math.floor(secs % 60);
     return `${mins}:${remainingSecs < 10 ? "0" : ""}${remainingSecs}`;
   };
 
-  // Pure continuous iframe URL without 1-second reload loop
+  // Embed URL with active volume & mute parameter
   const getEmbedUrl = (track: PujoMusicTrack) => {
     const autoplay = isPlaying ? "1" : "0";
+    const muteParam = isMuted || volume === 0 ? "&mute=1" : "&mute=0";
     const videoId = track.youtubeId || "xlElO06nQy8";
     const startParam = seekTime !== null ? `&start=${seekTime}` : "";
-    return `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay}&enablejsapi=1&rel=0${startParam}`;
+    return `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay}&enablejsapi=1&rel=0${muteParam}${startParam}`;
   };
 
   if (!isOpen) return null;
@@ -159,7 +171,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
 
         {/* Offscreen Continuous Audio Stream Player */}
         <iframe
-          key={`min-${activeTrack.id}-${isPlaying}-${seekTime}`}
+          key={`min-${activeTrack.id}-${isPlaying}-${isMuted}-${volume}`}
           src={getEmbedUrl(activeTrack)}
           title="Audio Stream"
           className="absolute opacity-0 pointer-events-none -z-50 w-1 h-1 overflow-hidden"
@@ -248,7 +260,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
         {/* Player Body Container */}
         <div className="p-4 sm:p-5 space-y-5 overflow-y-auto flex-1 overscroll-contain">
           
-          {/* Pure Audio Card UI (No Video Box at all) */}
+          {/* Pure Audio Card UI */}
           <div className="flex flex-col items-center justify-center rounded-3xl border border-[#f5c85b]/30 bg-gradient-to-b from-[#2e1214] to-[#1a0b0c] p-6 text-center shadow-2xl">
             
             {/* Album Cover Art */}
@@ -291,7 +303,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             </div>
 
             {/* Audio Playback Control Bar */}
-            <div className="mt-4 flex items-center justify-center gap-4">
+            <div className="mt-4 flex items-center justify-center gap-4 relative">
               <button
                 onClick={handlePrevTrack}
                 disabled={currentSectionTracks.length <= 1}
@@ -318,17 +330,51 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                 <SkipForward size={18} />
               </button>
 
-              <button
-                onClick={() => setIsMuted(!isMuted)}
-                className={`grid size-10 place-items-center rounded-full border transition ${
-                  isMuted
-                    ? "border-red-500 bg-red-500/20 text-red-400"
-                    : "border-white/20 bg-white/10 text-white hover:bg-white/20"
-                }`}
-                title={isMuted ? "Unmute" : "Mute"}
-              >
-                {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-              </button>
+              {/* Working Interactive Volume & Mute Button */}
+              <div className="relative">
+                <button
+                  onClick={toggleMute}
+                  onMouseEnter={() => setShowVolumeSlider(true)}
+                  className={`grid size-10 place-items-center rounded-full border transition ${
+                    isMuted || volume === 0
+                      ? "border-red-500 bg-red-500/20 text-red-400"
+                      : "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                  }`}
+                  title={isMuted ? "Unmute" : `Volume (${volume}%)`}
+                >
+                  {isMuted || volume === 0 ? (
+                    <VolumeX size={18} />
+                  ) : volume < 50 ? (
+                    <Volume1 size={18} />
+                  ) : (
+                    <Volume2 size={18} />
+                  )}
+                </button>
+
+                {/* Hover/Click Volume Slider Popup */}
+                {showVolumeSlider && (
+                  <div
+                    onMouseLeave={() => setShowVolumeSlider(false)}
+                    className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-xl border border-white/20 bg-black/90 px-3 py-2 shadow-2xl backdrop-blur animate-in fade-in zoom-in-95 duration-150 z-20"
+                  >
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={isMuted ? 0 : volume}
+                      onChange={e => {
+                        const val = Number(e.target.value);
+                        setVolume(val);
+                        if (val > 0 && isMuted) setIsMuted(false);
+                      }}
+                      className="h-1.5 w-20 cursor-pointer appearance-none rounded-lg bg-white/30 accent-[#f5c85b]"
+                    />
+                    <span className="text-[10px] font-bold text-[#f5c85b] w-6 text-right">
+                      {isMuted ? "0%" : `${volume}%`}
+                    </span>
+                  </div>
+                )}
+              </div>
 
               <a
                 href={activeTrack.directUrl}
@@ -345,7 +391,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
 
           {/* Offscreen Audio Stream Engine */}
           <iframe
-            key={`audio-engine-${activeTrack.id}-${isPlaying}-${seekTime}`}
+            key={`audio-engine-${activeTrack.id}-${isPlaying}-${isMuted}-${volume}-${seekTime}`}
             src={getEmbedUrl(activeTrack)}
             title="Audio Stream Engine"
             className="absolute opacity-0 pointer-events-none -z-50 w-1 h-1 overflow-hidden"
