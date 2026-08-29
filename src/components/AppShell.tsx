@@ -118,13 +118,13 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(prev => !prev)}
-              className="grid size-11 place-items-center rounded-xl border border-white/20 bg-white/10 p-2 transition hover:bg-white/20 active:scale-95 shadow-md"
+              className="flex items-center justify-center p-1 transition active:scale-95 focus:outline-none"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {mobileMenuOpen ? (
-                <img src="/cross_icon.png" alt="Close menu" className="size-7 object-contain" />
+                <img src="/cross_icon.png" alt="Close menu" className="h-9 sm:h-10 w-auto object-contain" />
               ) : (
-                <img src="/hamburgur_icon.png" alt="Open menu" className="size-7 object-contain" />
+                <img src="/hamburgur_icon.png" alt="Open menu" className="h-9 sm:h-10 w-auto object-contain" />
               )}
             </button>
           </div>
@@ -141,10 +141,10 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="grid size-8 place-items-center rounded-lg bg-white/10 p-1 text-white hover:bg-white/20"
+                  className="flex items-center justify-center p-1 transition active:scale-95 focus:outline-none"
                   aria-label="Close menu"
                 >
-                  <img src="/cross_icon.png" alt="Close menu" className="size-5 object-contain" />
+                  <img src="/cross_icon.png" alt="Close menu" className="h-7 w-auto object-contain" />
                 </button>
               </div>
 
