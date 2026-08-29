@@ -858,14 +858,14 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
   {
     "id": "mahalaya-original",
     "section": "mahalaya",
-    "title": "Mahishasuramardini (Original)",
-    "bengaliTitle": "মহিষাসুরমর্দিনী (বীরেন্দ্রকৃষ্ণ ভদ্র)",
+    "title": "Mahishasuramardini Mahalaya (Full Audio)",
+    "bengaliTitle": "মহিষাসুরমর্দিনী মহালয়া (সম্পূর্ণ বীরেন্দ্রকৃষ্ণ ভদ্র)",
     "artist": "Birendra Krishna Bhadra & Pankaj Mullick",
     "bengaliArtist": "বীরেন্দ্রকৃষ্ণ ভদ্র ও পঙ্কজ মল্লিক",
     "type": "video",
-    "youtubeId": "Oxs4vBNkqtM",
-    "thumbnailUrl": "https://img.youtube.com/vi/Oxs4vBNkqtM/hqdefault.jpg",
-    "directUrl": "https://www.youtube.com/watch?v=Oxs4vBNkqtM",
+    "youtubeId": "A-nMCu2y_PM",
+    "thumbnailUrl": "https://img.youtube.com/vi/A-nMCu2y_PM/hqdefault.jpg",
+    "directUrl": "https://www.youtube.com/watch?v=A-nMCu2y_PM",
     "supportsShuffle": false,
     "durationSeconds": 5400
   }
