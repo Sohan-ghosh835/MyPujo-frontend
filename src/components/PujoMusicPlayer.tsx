@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PUJO_MUSIC_TRACKS, type PujoMusicTrack } from "@shared/durgaPujoMusicData";
-import { ExternalLink, X, Radio, Maximize2, Minimize2, ListMusic, Search, SkipForward, SkipBack, Play, Disc } from "lucide-react";
+import { ExternalLink, X, Radio, Maximize2, Minimize2, ListMusic, Search, SkipForward, SkipBack, Video, Volume2 } from "lucide-react";
 
 interface PujoMusicPlayerProps {
   isOpen: boolean;
@@ -15,6 +15,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   const [activeSection, setActiveSection] = useState<"hits" | "og" | "mahalaya">("hits");
   const [activeTrackId, setActiveTrackId] = useState<string>("hit-song-1");
   const [searchFilter, setSearchFilter] = useState<string>("");
+  const [showFullVideo, setShowFullVideo] = useState<boolean>(true);
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
 
   // Lock background website scrolling when modal is open
@@ -195,8 +196,8 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
         {/* Player Body Container */}
         <div className="p-4 sm:p-5 space-y-4 overflow-y-auto flex-1 overscroll-contain">
           
-          {/* Active Track Header */}
-          <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 p-3">
+          {/* Active Track Header + Mode Toggle */}
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/5 p-3">
             <div className="flex items-center gap-3 truncate">
               <img
                 src={activeTrack.thumbnailUrl}
@@ -232,6 +233,20 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                 <SkipForward size={14} />
               </button>
 
+              {/* Video vs Compact Audio Timeline Toggle */}
+              <button
+                onClick={() => setShowFullVideo(!showFullVideo)}
+                className={`flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-bold transition ${
+                  showFullVideo
+                    ? "border-[#f5c85b] bg-[#f5c85b] text-[#241f1a]"
+                    : "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                }`}
+                title={bengali ? "মোড পরিবর্তন করুন" : "Toggle Video/Compact Mode"}
+              >
+                {showFullVideo ? <Video size={13} /> : <Volume2 size={13} />}
+                <span>{showFullVideo ? (bengali ? "ভিডিও মোড" : "Full Video") : (bengali ? "কমপ্যাক্ট অডিও" : "Audio Timeline")}</span>
+              </button>
+
               <a
                 href={activeTrack.directUrl}
                 target="_blank"
@@ -244,12 +259,16 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             </div>
           </div>
 
-          {/* YouTube Video Player Frame */}
-          <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-black shadow-2xl">
+          {/* Player Frame (Full Widescreen Video OR Compact Height showing Timeline Bar) */}
+          <div
+            className={`relative w-full overflow-hidden rounded-2xl border border-white/15 bg-black shadow-2xl transition-all duration-300 ${
+              showFullVideo ? "aspect-video" : "h-[70px] sm:h-[80px]"
+            }`}
+          >
             <iframe
-              key={`player-${activeTrack.id}-${activeTrack.youtubeId}`}
+              key={`player-${activeTrack.id}-${activeTrack.youtubeId}-${showFullVideo}`}
               width="100%"
-              height="315"
+              height={showFullVideo ? "315" : "80"}
               src={getEmbedUrl(activeTrack)}
               title={activeTrack.title}
               frameBorder="0"
@@ -322,11 +341,6 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                       >
                         <ExternalLink size={12} />
                       </a>
-                      {isCurrent ? (
-                        <Disc size={16} className="animate-spin text-[#f5c85b]" />
-                      ) : (
-                        <Play size={14} className="text-white/60" />
-                      )}
                     </div>
                   </div>
                 );
