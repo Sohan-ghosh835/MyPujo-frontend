@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PUJO_MUSIC_TRACKS, type PujoMusicTrack } from "@shared/durgaPujoMusicData";
-import { ExternalLink, X, Radio, Maximize2, Minimize2, ListMusic, Search, SkipForward, SkipBack, Video, Volume2 } from "lucide-react";
+import { ExternalLink, X, Radio, Maximize2, Minimize2, ListMusic, Search, SkipForward, SkipBack, Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 interface PujoMusicPlayerProps {
   isOpen: boolean;
@@ -15,8 +15,13 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   const [activeSection, setActiveSection] = useState<"hits" | "og" | "mahalaya">("hits");
   const [activeTrackId, setActiveTrackId] = useState<string>("hit-song-1");
   const [searchFilter, setSearchFilter] = useState<string>("");
-  const [showFullVideo, setShowFullVideo] = useState<boolean>(true);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  const [duration, setDuration] = useState<number>(210); // Default 3m 30s
+  const [isMuted, setIsMuted] = useState<boolean>(false);
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
+
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   // Lock background website scrolling when modal is open
   useEffect(() => {
@@ -28,6 +33,29 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
       };
     }
   }, [isOpen, isMinimized]);
+
+  // Simulate playback timeline timer for pure audio UI
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (isPlaying) {
+      timer = setInterval(() => {
+        setCurrentTime(prev => {
+          if (prev >= duration) {
+            handleNextTrack();
+            return 0;
+          }
+          return prev + 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(timer);
+  }, [isPlaying, duration, activeTrackId]);
+
+  // Reset timer when track changes
+  useEffect(() => {
+    setCurrentTime(0);
+    setIsPlaying(true);
+  }, [activeTrackId]);
 
   const activeTrack = PUJO_MUSIC_TRACKS.find(t => t.id === activeTrackId) || PUJO_MUSIC_TRACKS[0];
 
@@ -44,6 +72,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     const first = PUJO_MUSIC_TRACKS.find(t => t.section === section);
     if (first) {
       setActiveTrackId(first.id);
+      setIsPlaying(true);
     }
   };
 
@@ -52,6 +81,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     const nextIndex = (currentIndex + 1) % currentSectionTracks.length;
     if (currentSectionTracks[nextIndex]) {
       setActiveTrackId(currentSectionTracks[nextIndex].id);
+      setIsPlaying(true);
     }
   };
 
@@ -60,12 +90,24 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     const prevIndex = (currentIndex - 1 + currentSectionTracks.length) % currentSectionTracks.length;
     if (currentSectionTracks[prevIndex]) {
       setActiveTrackId(currentSectionTracks[prevIndex].id);
+      setIsPlaying(true);
     }
   };
 
+  const handleSeek = (newTime: number) => {
+    setCurrentTime(newTime);
+  };
+
+  const formatTime = (secs: number) => {
+    const mins = Math.floor(secs / 60);
+    const remainingSecs = Math.floor(secs % 60);
+    return `${mins}:${remainingSecs < 10 ? "0" : ""}${remainingSecs}`;
+  };
+
   const getEmbedUrl = (track: PujoMusicTrack) => {
+    const autoplay = isPlaying ? "1" : "0";
     const videoId = track.youtubeId || "xlElO06nQy8";
-    return `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1&rel=0`;
+    return `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay}&enablejsapi=1&rel=0&start=${currentTime}`;
   };
 
   if (!isOpen) return null;
@@ -91,6 +133,12 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
         </div>
         <div className="flex items-center gap-1.5">
           <button
+            onClick={() => setIsPlaying(!isPlaying)}
+            className="grid size-8 place-items-center rounded-lg bg-[#8c1e21] text-[#f5c85b] hover:bg-[#6f1719]"
+          >
+            {isPlaying ? <Pause size={14} /> : <Play size={14} />}
+          </button>
+          <button
             onClick={() => setIsMinimized(false)}
             className="grid size-8 place-items-center rounded-lg bg-white/10 text-white hover:bg-white/20"
             title={bengali ? "প্লেয়ার প্রসারিত করুন" : "Expand Player"}
@@ -106,12 +154,13 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
           </button>
         </div>
 
+        {/* Offscreen Audio Stream Player */}
         <iframe
-          key={`min-${activeTrack.id}`}
+          key={`min-${activeTrack.id}-${isPlaying}`}
           src={getEmbedUrl(activeTrack)}
           title="Audio Stream"
           className="absolute opacity-0 pointer-events-none -z-50 w-1 h-1 overflow-hidden"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="autoplay; encrypted-media; picture-in-picture"
         />
       </div>
     );
@@ -133,10 +182,10 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             </div>
             <div>
               <h3 className="font-display text-base font-bold text-[#f5c85b]">
-                {bengali ? "পুজো প্লেলিস্ট ও মহালয়া" : "Pujo Music Playlist"}
+                {bengali ? "পুজো গান প্লেয়ার" : "Pujo Audio Player"}
               </h3>
               <p className="text-[11px] text-[#f8edd8]/70">
-                {bengali ? "৬০টি সেরা পুজো হিটস, ওজি ও মহালয়া" : "60 Handpicked Durga Puja Hits & Mahalaya"}
+                {bengali ? "৬০টি সেরা পুজো গান ও আগমনী সুর" : "60 Festive Pujor Gaan & Mahalaya"}
               </p>
             </div>
           </div>
@@ -194,89 +243,111 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
         </div>
 
         {/* Player Body Container */}
-        <div className="p-4 sm:p-5 space-y-4 overflow-y-auto flex-1 overscroll-contain">
+        <div className="p-4 sm:p-5 space-y-5 overflow-y-auto flex-1 overscroll-contain">
           
-          {/* Active Track Header + Mode Toggle */}
-          <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/5 p-3">
-            <div className="flex items-center gap-3 truncate">
+          {/* Pure Audio Card UI (No Video Box at all) */}
+          <div className="flex flex-col items-center justify-center rounded-3xl border border-[#f5c85b]/30 bg-gradient-to-b from-[#2e1214] to-[#1a0b0c] p-6 text-center shadow-2xl">
+            
+            {/* Album Cover Art */}
+            <div className="relative group mb-4">
               <img
                 src={activeTrack.thumbnailUrl}
                 alt={activeTrack.title}
-                className="size-11 rounded-xl object-cover border border-[#f5c85b]/40 shadow flex-shrink-0"
+                className="h-44 w-44 sm:h-52 sm:w-52 rounded-2xl object-cover border-2 border-[#f5c85b]/50 shadow-2xl transition duration-300 group-hover:scale-105"
               />
-              <div className="truncate text-left">
-                <h4 className="font-display text-sm font-bold text-white truncate">
-                  {bengali ? activeTrack.bengaliTitle : activeTrack.title}
-                </h4>
-                <p className="text-xs text-[#f5c85b] truncate">
-                  {bengali ? activeTrack.bengaliArtist : activeTrack.artist}
-                </p>
+              {isPlaying && (
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-black/70 px-2.5 py-1 text-[10px] font-bold text-[#f5c85b] backdrop-blur">
+                  <span className="h-2 w-2 rounded-full bg-[#f5c85b] animate-ping" />
+                  {bengali ? "প্লে হচ্ছে" : "Playing"}
+                </div>
+              )}
+            </div>
+
+            {/* Song Meta */}
+            <h4 className="font-display text-lg font-bold text-white px-2 truncate max-w-full">
+              {bengali ? activeTrack.bengaliTitle : activeTrack.title}
+            </h4>
+            <p className="mt-1 text-xs text-[#f5c85b] font-medium px-2 truncate max-w-full">
+              {bengali ? activeTrack.bengaliArtist : activeTrack.artist}
+            </p>
+
+            {/* Custom Interactive Timeline Slider Bar */}
+            <div className="w-full mt-5 px-2 space-y-1.5">
+              <input
+                type="range"
+                min="0"
+                max={duration}
+                value={currentTime}
+                onChange={e => handleSeek(Number(e.target.value))}
+                className="h-1.5 w-full cursor-pointer appearance-none rounded-lg bg-white/20 accent-[#f5c85b]"
+              />
+              <div className="flex justify-between text-[11px] font-semibold text-white/60">
+                <span>{formatTime(currentTime)}</span>
+                <span>{formatTime(duration)}</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 flex-shrink-0">
+            {/* Audio Playback Control Bar */}
+            <div className="mt-4 flex items-center justify-center gap-4">
               <button
                 onClick={handlePrevTrack}
                 disabled={currentSectionTracks.length <= 1}
-                className="grid size-8 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20 disabled:opacity-30"
+                className="grid size-10 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20 disabled:opacity-30"
                 title="Previous Track"
               >
-                <SkipBack size={14} />
+                <SkipBack size={18} />
+              </button>
+
+              <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                className="grid size-14 place-items-center rounded-full bg-[#8c1e21] text-[#f5c85b] shadow-2xl transition hover:scale-105 active:scale-95"
+                title={isPlaying ? "Pause" : "Play"}
+              >
+                {isPlaying ? <Pause size={24} /> : <Play size={24} className="ml-0.5" />}
               </button>
 
               <button
                 onClick={handleNextTrack}
                 disabled={currentSectionTracks.length <= 1}
-                className="grid size-8 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20 disabled:opacity-30"
+                className="grid size-10 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20 disabled:opacity-30"
                 title="Next Track"
               >
-                <SkipForward size={14} />
+                <SkipForward size={18} />
               </button>
 
-              {/* Video vs Compact Audio Timeline Toggle */}
               <button
-                onClick={() => setShowFullVideo(!showFullVideo)}
-                className={`flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-bold transition ${
-                  showFullVideo
-                    ? "border-[#f5c85b] bg-[#f5c85b] text-[#241f1a]"
+                onClick={() => setIsMuted(!isMuted)}
+                className={`grid size-10 place-items-center rounded-full border transition ${
+                  isMuted
+                    ? "border-red-500 bg-red-500/20 text-red-400"
                     : "border-white/20 bg-white/10 text-white hover:bg-white/20"
                 }`}
-                title={bengali ? "মোড পরিবর্তন করুন" : "Toggle Video/Compact Mode"}
+                title={isMuted ? "Unmute" : "Mute"}
               >
-                {showFullVideo ? <Video size={13} /> : <Volume2 size={13} />}
-                <span>{showFullVideo ? (bengali ? "ভিডিও মোড" : "Full Video") : (bengali ? "কমপ্যাক্ট অডিও" : "Audio Timeline")}</span>
+                {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
               </button>
 
               <a
                 href={activeTrack.directUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-white/20"
+                className="flex items-center gap-1.5 rounded-2xl border border-white/20 bg-white/10 px-3 py-2 text-xs font-bold text-white transition hover:bg-white/20"
+                title="Watch on YouTube"
               >
-                <ExternalLink size={13} />
+                <ExternalLink size={14} />
                 <span>YouTube</span>
               </a>
             </div>
           </div>
 
-          {/* Player Frame (Full Widescreen Video OR Compact Height showing Timeline Bar) */}
-          <div
-            className={`relative w-full overflow-hidden rounded-2xl border border-white/15 bg-black shadow-2xl transition-all duration-300 ${
-              showFullVideo ? "aspect-video" : "h-[70px] sm:h-[80px]"
-            }`}
-          >
-            <iframe
-              key={`player-${activeTrack.id}-${activeTrack.youtubeId}-${showFullVideo}`}
-              width="100%"
-              height={showFullVideo ? "315" : "80"}
-              src={getEmbedUrl(activeTrack)}
-              title={activeTrack.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="h-full w-full border-0"
-            />
-          </div>
+          {/* Offscreen Audio Stream Engine (No Video Frame Displayed Anywhere) */}
+          <iframe
+            key={`audio-engine-${activeTrack.id}-${isPlaying}-${isMuted}`}
+            src={getEmbedUrl(activeTrack)}
+            title="Audio Stream Engine"
+            className="absolute opacity-0 pointer-events-none -z-50 w-1 h-1 overflow-hidden"
+            allow="autoplay; encrypted-media; picture-in-picture"
+          />
 
           {/* Section Playlist Queue List (Scrollable 60-Song Queue, Isolated Scroll for PC) */}
           <div className="rounded-2xl border border-white/10 bg-black/40 p-3">
@@ -301,7 +372,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             {/* Dedicated Isolated Scroll Area for PC */}
             <div
               className="mt-2 space-y-1 overflow-y-auto overscroll-contain pr-1 touch-pan-y"
-              style={{ maxHeight: "min(50vh, 360px)", scrollbarWidth: "thin" }}
+              style={{ maxHeight: "min(45vh, 320px)", scrollbarWidth: "thin" }}
               onWheel={e => e.stopPropagation()}
             >
               {currentSectionTracks.map((t, idx) => {
@@ -311,6 +382,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                     key={`${t.id}-${idx}`}
                     onClick={() => {
                       setActiveTrackId(t.id);
+                      setIsPlaying(true);
                     }}
                     className={`flex cursor-pointer items-center justify-between rounded-xl p-2 transition ${
                       isCurrent
