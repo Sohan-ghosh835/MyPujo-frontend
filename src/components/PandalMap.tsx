@@ -1,42 +1,224 @@
-import type { PandalRecord } from "@shared/pujaData";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { findAddressPreviewRecords, hasSourceBackedCoordinate } from "@shared/mapRecordRules";
-import { mapSelectionFor } from "@shared/mapViewState";
-import { ExternalLink, MapPin, Search, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import { DURGA_PUJO_MAP_PANDALS, getCategoryColor, getCategoryLabel, type MapPandalCategory, type MapPandalItem } from "@shared/durgaPujoMapData";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { ExternalLink, Navigation, Search, MapPin, Sparkles, Filter } from "lucide-react";
+import { Link } from "wouter";
 
-const openStreetMapUrl = (pandal: PandalRecord | null) => pandal && hasSourceBackedCoordinate(pandal)
-  ? `https://www.openstreetmap.org/export/embed.html?bbox=88.33%2C22.45%2C88.43%2C22.65&layer=mapnik&marker=${pandal.latitude}%2C${pandal.longitude}`
-  : "https://www.openstreetmap.org/export/embed.html?bbox=88.31%2C22.45%2C88.45%2C22.65&layer=mapnik";
+function createPinSvg(color: string) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="42" viewBox="0 0 25 41">
+    <path d="M12.5 0C5.6 0 0 5.6 0 12.5c0 9.4 12.5 28.5 12.5 28.5S25 21.9 25 12.5C25 5.6 19.4 0 12.5 0z" fill="${color}" stroke="#000" stroke-width="1.2" stroke-opacity="0.4"/>
+    <circle cx="12.5" cy="12.5" r="5" fill="#fff" fill-opacity="0.95"/>
+  </svg>`;
+  return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+}
 
-const addressPreviewUrl = (pandal: PandalRecord) => `https://www.google.com/maps?q=${encodeURIComponent(`${pandal.name}, ${pandal.address}`)}&output=embed`;
+const iconsCache: Record<string, L.Icon> = {};
+function getMarkerIcon(category: MapPandalCategory): L.Icon {
+  const color = getCategoryColor(category);
+  if (!iconsCache[color]) {
+    iconsCache[color] = L.icon({
+      iconUrl: createPinSvg(color),
+      iconSize: [28, 42],
+      iconAnchor: [14, 42],
+      popupAnchor: [0, -38],
+    });
+  }
+  return iconsCache[color];
+}
 
-export function PandalMap({ pandals }: { pandals: PandalRecord[]; routePandals?: PandalRecord[]; onAddToRoute?: (pandal: PandalRecord) => void }) {
+function MapViewController({ center, zoom }: { center: [number, number]; zoom: number }) {
+  const map = useMap();
+  useEffect(() => {
+    map.setView(center, zoom, { animate: true });
+  }, [center, zoom, map]);
+  return null;
+}
+
+export function PandalMap({ initialCategory = "all" }: { initialCategory?: string }) {
   const { language } = useLanguage();
   const bengali = language === "bn";
-  const [selected, setSelected] = useState<PandalRecord | null>(null);
-  const [addressPreview, setAddressPreview] = useState<PandalRecord | null>(null);
-  const [addressSearch, setAddressSearch] = useState("");
-  const [pickerOpen, setPickerOpen] = useState(false);
-  const mappablePandals = useMemo(() => pandals.filter(hasSourceBackedCoordinate), [pandals]);
-  const addressCandidates = useMemo(() => findAddressPreviewRecords(pandals, addressSearch), [pandals, addressSearch]);
-  const selectRecord = (pandal: PandalRecord) => { const next = mapSelectionFor(pandal); setSelected(next.selected); setAddressPreview(next.addressPreview); };
+  const [selectedCat, setSelectedCat] = useState<string>(initialCategory);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [activePandal, setActivePandal] = useState<MapPandalItem | null>(null);
 
-  useEffect(() => { if (!selected && mappablePandals.length) selectRecord(mappablePandals[0]); }, [mappablePandals, selected]);
-  useEffect(() => {
-    const previewId = new URLSearchParams(window.location.search).get("preview");
-    const previewRecord = previewId ? pandals.find(record => record.id === previewId) : undefined;
-    if (previewRecord) selectRecord(previewRecord);
-  }, [pandals]);
+  const filteredPandals = useMemo(() => {
+    return DURGA_PUJO_MAP_PANDALS.filter(p => {
+      const matchesCat = selectedCat === "all" || p.cat === selectedCat;
+      const haystack = `${p.name} ${p.subArea} ${p.address} ${p.section}`.toLowerCase();
+      const matchesSearch = !searchQuery.trim() || haystack.includes(searchQuery.trim().toLowerCase());
+      return matchesCat && matchesSearch;
+    });
+  }, [selectedCat, searchQuery]);
 
-  const mapTitle = addressPreview ? "Address-preview map" : "Source-backed OpenStreetMap pin";
-  const currentMapUrl = addressPreview ? addressPreviewUrl(addressPreview) : openStreetMapUrl(selected);
+  const mapCenter: [number, number] = useMemo(() => {
+    if (activePandal) return [activePandal.lat, activePandal.lng];
+    if (filteredPandals.length > 0) return [filteredPandals[0].lat, filteredPandals[0].lng];
+    return [22.5726, 88.3639];
+  }, [activePandal, filteredPandals]);
 
-  return <div className="relative h-[min(690px,calc(100svh-10rem))] min-h-[520px] overflow-hidden rounded-[1.75rem] bg-[#0b0b0f] shadow-[0_24px_70px_rgba(18,10,14,.33)] ring-1 ring-white/10">
-    <iframe title={addressPreview ? `Address preview for ${addressPreview.name}` : "Source-backed OpenStreetMap coordinate"} src={currentMapUrl} className="map-ink absolute inset-0 z-10 h-full w-full border-0" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" />
-    <div className="absolute inset-0 z-[11] bg-[#0a0810]/20 pointer-events-none" />
-    <div className="absolute inset-x-3 top-3 z-20 sm:left-5 sm:right-auto sm:w-[360px]"><div className="rounded-2xl border border-white/10 bg-[#17161e]/95 p-2 shadow-2xl backdrop-blur-xl"><div className="flex items-center gap-2"><Search size={16} className="ml-2 shrink-0 text-[#f1bd57]" /><input value={addressSearch} onFocus={() => setPickerOpen(true)} onChange={event => { setAddressSearch(event.target.value); setPickerOpen(true); }} placeholder={bengali ? "প্যান্ডেল বা ঠিকানা খুঁজুন" : "Search a pandal or address"} aria-label={bengali ? "প্যান্ডেল ও ঠিকানা খুঁজুন" : "Search pandals and address previews"} className="h-10 min-w-0 flex-1 bg-transparent text-sm font-semibold text-white outline-none placeholder:text-[#aaa6b1]" />{pickerOpen && <button type="button" onClick={() => setPickerOpen(false)} className="grid h-8 w-8 place-items-center rounded-full text-[#cbc5cf] hover:bg-white/10" aria-label={bengali ? "ম্যাপ সার্চ বন্ধ করুন" : "Close map search"}><X size={16} /></button>}</div>{pickerOpen && <div className="mt-2 max-h-[250px] overflow-auto border-t border-white/10 pt-2"><p className="px-2 pb-1 text-[10px] font-extrabold uppercase tracking-[.14em] text-[#d9b774]">{bengali ? "উৎস-সমর্থিত পিন" : "Source-backed pins"} · {mappablePandals.length}</p>{(addressSearch ? addressCandidates : mappablePandals).slice(0, 12).map(pandal => <button key={pandal.id} onClick={() => { selectRecord(pandal); setPickerOpen(false); }} className="block w-full rounded-xl px-3 py-2 text-left text-xs font-semibold text-[#f4edf0] hover:bg-white/10"><span className="block truncate">{pandal.name}</span><span className="mt-0.5 block truncate text-[10px] font-normal text-[#aaa5ad]">{pandal.address}</span></button>)}</div>}</div></div>
-    <div className="absolute left-4 top-[78px] z-20 flex gap-2 sm:left-5"><span className="rounded-full border border-[#dd5f64]/45 bg-[#24171d]/95 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[.1em] text-[#ffd6d8]">{bengali ? "পিন" : "Pins"} <b className="ml-1 text-[#ff8a8f]">{mappablePandals.length}</b></span><span className="rounded-full border border-[#d2a746]/35 bg-[#201d19]/95 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[.1em] text-[#f7dc98]">{bengali ? "ঠিকানা অনুসন্ধান" : "Address lookup"}</span></div>
-    {selected && <aside className="absolute bottom-3 left-3 right-3 z-20 max-w-md rounded-2xl border border-white/10 bg-[#1c1b23]/95 p-4 shadow-2xl backdrop-blur-xl sm:bottom-5 sm:left-5"><div className="flex items-start gap-3"><div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#7d2028] text-[#ffe6b7]"><MapPin size={19} /></div><div className="min-w-0 flex-1"><p className="truncate font-display text-lg font-bold text-white">{selected.name}</p><p className="mt-0.5 truncate text-xs text-[#bcb6c1]">{selected.address}</p></div></div><p className="mt-3 text-[11px] leading-relaxed text-[#d6ced9]">{hasSourceBackedCoordinate(selected) ? (bengali ? `উৎস-সমর্থিত কোঅর্ডিনেট · ${selected.coordinateConfidence ?? "বিশ্বাসযোগ্যতার স্তর অজানা"}।` : `Source-backed coordinate · ${selected.coordinateConfidence ?? "confidence not rated"}.`) : (bengali ? "শুধু ঠিকানা প্রিভিউ — নতুন কোনও কোঅর্ডিনেট দাবি করা হয়নি।" : "Address preview only — no new coordinate is claimed.")}</p>{selected.mapSearchUrl ? <a href={selected.mapSearchUrl} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-1 rounded-xl bg-[#982c34] px-3 py-2 text-xs font-extrabold text-white hover:bg-[#ae3943]">{bengali ? "ম্যাপে খুলুন" : "Open in Maps"} <ExternalLink size={12} /></a> : <a href={selected.sources[0]?.url} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-1 rounded-xl bg-[#982c34] px-3 py-2 text-xs font-extrabold text-white hover:bg-[#ae3943]">{bengali ? "উৎস দেখুন" : "View source"} <ExternalLink size={12} /></a>}</aside>}
-  </div>;
+  const categoryCounts = useMemo(() => {
+    const counts = { all: DURGA_PUJO_MAP_PANDALS.length, north: 0, south: 0, salt_lake: 0, aristocratic: 0 };
+    DURGA_PUJO_MAP_PANDALS.forEach(p => {
+      if (counts[p.cat] !== undefined) counts[p.cat]++;
+    });
+    return counts;
+  }, []);
+
+  return (
+    <div className="space-y-4">
+      {/* Map Control Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/15 bg-[#17151e]/90 p-3 shadow-xl backdrop-blur-md">
+        <div className="relative min-w-[220px] flex-1">
+          <Search className="absolute left-3 top-2.5 text-[#f5c85b]" size={16} />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+            placeholder={bengali ? "ম্যাপে প্যান্ডেল বা এলাকা খুঁজুন..." : "Search pandal or locality on map..."}
+            className="h-9 w-full rounded-xl border border-white/15 bg-white/10 pl-9 pr-3 text-xs text-white placeholder:text-[#f8edd8]/50 focus:outline-none focus:ring-1 focus:ring-[#f5c85b]"
+          />
+        </div>
+
+        {/* Category Filters */}
+        <div className="flex flex-wrap items-center gap-1.5 text-xs">
+          <button
+            onClick={() => setSelectedCat("all")}
+            className={`rounded-full px-3 py-1.5 font-bold transition ${
+              selectedCat === "all" ? "bg-[#f5c85b] text-[#241f1a]" : "bg-white/10 text-white hover:bg-white/20"
+            }`}
+          >
+            {bengali ? "সবকটি" : "All"} ({categoryCounts.all})
+          </button>
+          <button
+            onClick={() => setSelectedCat("north")}
+            className={`flex items-center gap-1 rounded-full px-3 py-1.5 font-bold transition ${
+              selectedCat === "north" ? "bg-[#e0342c] text-white" : "bg-white/10 text-[#ff8b85] hover:bg-white/20"
+            }`}
+          >
+            <span className="h-2 w-2 rounded-full bg-[#e0342c]" />
+            {bengali ? "উত্তর কলকাতা" : "North"} ({categoryCounts.north})
+          </button>
+          <button
+            onClick={() => setSelectedCat("south")}
+            className={`flex items-center gap-1 rounded-full px-3 py-1.5 font-bold transition ${
+              selectedCat === "south" ? "bg-[#3388ff] text-white" : "bg-white/10 text-[#85b7ff] hover:bg-white/20"
+            }`}
+          >
+            <span className="h-2 w-2 rounded-full bg-[#3388ff]" />
+            {bengali ? "দক্ষিণ কলকাতা" : "South"} ({categoryCounts.south})
+          </button>
+          <button
+            onClick={() => setSelectedCat("salt_lake")}
+            className={`flex items-center gap-1 rounded-full px-3 py-1.5 font-bold transition ${
+              selectedCat === "salt_lake" ? "bg-[#2ecc40] text-white" : "bg-white/10 text-[#7aff89] hover:bg-white/20"
+            }`}
+          >
+            <span className="h-2 w-2 rounded-full bg-[#2ecc40]" />
+            {bengali ? "সল্টলেক" : "Salt Lake"} ({categoryCounts.salt_lake})
+          </button>
+          <button
+            onClick={() => setSelectedCat("aristocratic")}
+            className={`flex items-center gap-1 rounded-full px-3 py-1.5 font-bold transition ${
+              selectedCat === "aristocratic" ? "bg-[#ff9f1c] text-[#241f1a]" : "bg-white/10 text-[#ffd58b] hover:bg-white/20"
+            }`}
+          >
+            <span className="h-2 w-2 rounded-full bg-[#ff9f1c]" />
+            {bengali ? "বনেদি বাড়ি" : "Bonedi Bari"} ({categoryCounts.aristocratic})
+          </button>
+        </div>
+      </div>
+
+      {/* Interactive Leaflet Map Container */}
+      <div className="relative h-[min(680px,calc(100svh-12rem))] min-h-[500px] overflow-hidden rounded-[1.75rem] bg-[#0b0b0f] shadow-[0_24px_70px_rgba(18,10,14,.33)] ring-1 ring-white/15">
+        <MapContainer
+          center={[22.5726, 88.3639]}
+          zoom={12}
+          style={{ height: "100%", width: "100%" }}
+          zoomControl={true}
+          attributionControl={false}
+        >
+          <MapViewController center={mapCenter} zoom={activePandal ? 15 : 12} />
+
+          {/* Leaflet Dark Filter Tile Layer */}
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            className="leaflet-dark-tiles"
+          />
+
+          {filteredPandals.map(pandal => (
+            <Marker
+              key={pandal.id}
+              position={[pandal.lat, pandal.lng]}
+              icon={getMarkerIcon(pandal.cat)}
+              eventHandlers={{
+                click: () => setActivePandal(pandal),
+              }}
+            >
+              <Popup className="custom-pandal-popup">
+                <div className="p-1 min-w-[200px]">
+                  <div className="flex items-center gap-1.5">
+                    <span
+                      className="inline-block h-2.5 w-2.5 rounded-full"
+                      style={{ backgroundColor: getCategoryColor(pandal.cat) }}
+                    />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#a56922]">
+                      {getCategoryLabel(pandal.cat, bengali)}
+                    </span>
+                  </div>
+                  <h4 className="mt-1 font-display text-base font-bold text-[#4a2520]">{pandal.name}</h4>
+                  <p className="mt-0.5 text-xs text-[#75594c]">{pandal.address}</p>
+
+                  <div className="mt-3 flex items-center gap-2 border-t border-[#e8cda2]/50 pt-2">
+                    <Link
+                      href={`/navigate/${pandal.id}`}
+                      className="inline-flex items-center gap-1 rounded-lg bg-[#8c1e21] px-2.5 py-1 text-xs font-bold text-white transition hover:bg-[#6f1719]"
+                    >
+                      <Navigation size={12} />
+                      {bengali ? "নেভিগেট" : "Navigate"}
+                    </Link>
+                    <a
+                      href={`https://www.google.com/maps/dir/?api=1&destination=${pandal.lat},${pandal.lng}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 rounded-lg border border-[#8c1e21]/40 px-2.5 py-1 text-xs font-bold text-[#8c1e21] transition hover:bg-[#8c1e21]/10"
+                    >
+                      <ExternalLink size={12} />
+                      Google Maps
+                    </a>
+                  </div>
+                </div>
+              </Popup>
+            </Marker>
+          ))}
+        </MapContainer>
+
+        {/* Map Dark Styling Override */}
+        <style>{`
+          .leaflet-dark-tiles {
+            filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.92) saturate(0.85);
+          }
+          .custom-pandal-popup .leaflet-popup-content-wrapper {
+            background: #fff7e8;
+            border: 1px solid #e8cda2;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+          }
+          .custom-pandal-popup .leaflet-popup-tip {
+            background: #fff7e8;
+          }
+        `}</style>
+
+        {/* Bottom Floating Stats Pill */}
+        <div className="absolute bottom-4 left-4 z-[400] flex items-center gap-2 rounded-full border border-white/20 bg-[#17161e]/90 px-4 py-2 text-xs font-bold text-white shadow-xl backdrop-blur-md">
+          <MapPin size={14} className="text-[#f5c85b]" />
+          <span>
+            {bengali ? `${filteredPandals.length} টি প্যান্ডেল ম্যাপে প্রদর্শিত` : `Showing ${filteredPandals.length} pandals on map`}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
 }
