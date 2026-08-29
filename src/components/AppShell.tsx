@@ -124,7 +124,7 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
               {mobileMenuOpen ? (
                 <img src="/cross_icon.png" alt="Close menu" className="h-9 sm:h-10 w-auto object-contain" />
               ) : (
-                <img src="/hamburgur_icon.png" alt="Open menu" className="h-9 sm:h-10 w-auto object-contain" />
+                <img src="/hamburgur_icon.png" alt="Open menu" className="h-9 sm:h-10 w-auto object-contain translate-x-1.5 -translate-y-1" />
               )}
             </button>
           </div>
@@ -138,14 +138,6 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#f5c85b]">
                   {bengali ? "অপশন ও ভাষা" : "Options & Language"}
                 </span>
-                <button
-                  type="button"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center p-1 transition active:scale-95 focus:outline-none"
-                  aria-label="Close menu"
-                >
-                  <img src="/cross_icon.png" alt="Close menu" className="h-7 w-auto object-contain" />
-                </button>
               </div>
 
               {/* Language Switcher Button */}
