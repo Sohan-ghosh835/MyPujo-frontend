@@ -68,8 +68,8 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
           isTransparent ? "h-20 w-full px-6 sm:px-10 lg:px-16 xl:px-20" : "max-w-7xl px-5 py-5 lg:px-10"
         )}>
           <Link href="/" className="flex items-center gap-3">
-            <img src="/dm.jpg" alt="PujoParikroma logo" className="size-10 rounded-full border border-[#f5c85b]/70 object-cover shadow-md" />
-            <span className="font-display text-xl font-bold tracking-tight">PujoParikroma</span>
+            <img src="/dm.jpg" alt="PujoParikroma icon" className="size-10 rounded-full border border-[#f5c85b]/70 object-cover shadow-md" />
+            <img src="/puja_bengali_logo_transparent.png" alt="পূজা পরিক্রমা" className="h-10 sm:h-12 w-auto object-contain brightness-110 drop-shadow-md" />
           </Link>
 
           {/* Desktop Nav */}
