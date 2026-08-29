@@ -211,7 +211,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
           </div>
         </div>
 
-        {/* Section Tabs */}
+        {/* Section Tabs (Without Emojis) */}
         <div className="flex border-b border-white/10 bg-[#160a0a] p-1.5 text-xs font-bold sm:text-sm flex-shrink-0">
           <button
             onClick={() => handleSectionSelect("hits")}
@@ -221,7 +221,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                 : "text-[#f8edd8]/60 hover:bg-white/5 hover:text-white"
             }`}
           >
-            🔥 {bengali ? "দুর্গাপুজো হিটস" : "Durga Pujo Hits"} ({PUJO_MUSIC_TRACKS.filter(t => t.section === "hits").length})
+            {bengali ? "দুর্গাপুজো হিটস" : "Durga Pujo Hits"} ({PUJO_MUSIC_TRACKS.filter(t => t.section === "hits").length})
           </button>
           <button
             onClick={() => handleSectionSelect("og")}
@@ -231,7 +231,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                 : "text-[#f8edd8]/60 hover:bg-white/5 hover:text-white"
             }`}
           >
-            📻 {bengali ? "দুর্গাপুজো ওজি" : "Durga Pujo OG"}
+            {bengali ? "দুর্গাপুজো ওজি" : "Durga Pujo OG"}
           </button>
           <button
             onClick={() => handleSectionSelect("mahalaya")}
@@ -241,7 +241,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                 : "text-[#f8edd8]/60 hover:bg-white/5 hover:text-white"
             }`}
           >
-            🌅 {bengali ? "মহালয়া" : "Mahalaya"}
+            {bengali ? "মহালয়া" : "Mahalaya"}
           </button>
         </div>
 
@@ -343,7 +343,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             </div>
           </div>
 
-          {/* Offscreen Audio Stream Engine (Persisted without 1s re-mount loop) */}
+          {/* Offscreen Audio Stream Engine */}
           <iframe
             key={`audio-engine-${activeTrack.id}-${isPlaying}-${seekTime}`}
             src={getEmbedUrl(activeTrack)}
