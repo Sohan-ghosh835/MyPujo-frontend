@@ -21,8 +21,8 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "দুর্গাপুজো হিটস সম্পূর্ণ প্লেলিস্ট (১০৬ গান)",
     "artist": "Monali Thakur, Arijit Singh, Shreya Ghoshal & More",
     "bengaliArtist": "অরিজিৎ সিং, শ্রেয়া ঘোষাল, মোনালী ঠাকুর ও আরও অনেক",
-    "type": "playlist",
-    "youtubeId": "PLJAiFJ6bGyew",
+    "type": "video",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/playlist?list=PLJAiFJ6bGyew&si=-DCdPqbt80KSHoW-",
     "supportsShuffle": true
@@ -34,11 +34,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Dugga Elo",
     "artist": "Monali Thakur Guddu",
     "bengaliArtist": "Monali Thakur Guddu",
-    "type": "search",
+    "type": "video",
     "query": "Dugga Elo Monali Thakur Guddu",
-    "youtubeId": "Dugga Elo Monali Thakur Guddu",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Dugga%20Elo%20Monali%20Thakur%20Guddu",
+    "directUrl": "https://www.youtube.com/results?search_query=Dugga%20Elo%20Monali%20Thakur%20Guddu",
     "supportsShuffle": false
   },
   {
@@ -48,11 +48,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Bolo Dugga Maiki",
     "artist": "Arijit Singh Arindom",
     "bengaliArtist": "Arijit Singh Arindom",
-    "type": "search",
+    "type": "video",
     "query": "Bolo Dugga Maiki Arijit Singh Arindom",
-    "youtubeId": "Bolo Dugga Maiki Arijit Singh Arindom",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Bolo%20Dugga%20Maiki%20Arijit%20Singh%20Arindom",
+    "directUrl": "https://www.youtube.com/results?search_query=Bolo%20Dugga%20Maiki%20Arijit%20Singh%20Arindom",
     "supportsShuffle": false
   },
   {
@@ -62,11 +62,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Ebar Jeno Onno Rokom Pujo",
     "artist": "Nakash Aziz Antara Mitra",
     "bengaliArtist": "Nakash Aziz Antara Mitra",
-    "type": "search",
+    "type": "video",
     "query": "Ebar Jeno Onno Rokom Pujo Nakash Aziz Antara Mitra",
-    "youtubeId": "Ebar Jeno Onno Rokom Pujo Nakash Aziz Antara Mitra",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Ebar%20Jeno%20Onno%20Rokom%20Pujo%20Nakash%20Aziz%20Antara%20Mitra",
+    "directUrl": "https://www.youtube.com/results?search_query=Ebar%20Jeno%20Onno%20Rokom%20Pujo%20Nakash%20Aziz%20Antara%20Mitra",
     "supportsShuffle": false
   },
   {
@@ -76,11 +76,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Dhak Baja Kashor Baja",
     "artist": "Shreya Ghoshal",
     "bengaliArtist": "Shreya Ghoshal",
-    "type": "search",
+    "type": "video",
     "query": "Dhak Baja Kashor Baja Shreya Ghoshal",
-    "youtubeId": "Dhak Baja Kashor Baja Shreya Ghoshal",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Dhak%20Baja%20Kashor%20Baja%20Shreya%20Ghoshal",
+    "directUrl": "https://www.youtube.com/results?search_query=Dhak%20Baja%20Kashor%20Baja%20Shreya%20Ghoshal",
     "supportsShuffle": false
   },
   {
@@ -90,11 +90,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Bolo Dugga Elo",
     "artist": "Kaushik-Guddu Sunidhi Chauhan",
     "bengaliArtist": "Kaushik-Guddu Sunidhi Chauhan",
-    "type": "search",
+    "type": "video",
     "query": "Bolo Dugga Elo Kaushik-Guddu Sunidhi Chauhan",
-    "youtubeId": "Bolo Dugga Elo Kaushik-Guddu Sunidhi Chauhan",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Bolo%20Dugga%20Elo%20Kaushik-Guddu%20Sunidhi%20Chauhan",
+    "directUrl": "https://www.youtube.com/results?search_query=Bolo%20Dugga%20Elo%20Kaushik-Guddu%20Sunidhi%20Chauhan",
     "supportsShuffle": false
   },
   {
@@ -104,11 +104,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Aamaar Dugga",
     "artist": "Monali Thakur Anindya Chattopadhyay",
     "bengaliArtist": "Monali Thakur Anindya Chattopadhyay",
-    "type": "search",
+    "type": "video",
     "query": "Aamaar Dugga Monali Thakur Anindya Chattopadhyay",
-    "youtubeId": "Aamaar Dugga Monali Thakur Anindya Chattopadhyay",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Aamaar%20Dugga%20Monali%20Thakur%20Anindya%20Chattopadhyay",
+    "directUrl": "https://www.youtube.com/results?search_query=Aamaar%20Dugga%20Monali%20Thakur%20Anindya%20Chattopadhyay",
     "supportsShuffle": false
   },
   {
@@ -118,11 +118,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Dhaker Taley",
     "artist": "Abhijeet Bhattacharya Jeet Gannguli",
     "bengaliArtist": "Abhijeet Bhattacharya Jeet Gannguli",
-    "type": "search",
+    "type": "video",
     "query": "Dhaker Taley Abhijeet Bhattacharya Jeet Gannguli",
-    "youtubeId": "Dhaker Taley Abhijeet Bhattacharya Jeet Gannguli",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Dhaker%20Taley%20Abhijeet%20Bhattacharya%20Jeet%20Gannguli",
+    "directUrl": "https://www.youtube.com/results?search_query=Dhaker%20Taley%20Abhijeet%20Bhattacharya%20Jeet%20Gannguli",
     "supportsShuffle": false
   },
   {
@@ -132,11 +132,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Dugga Elo",
     "artist": "Akriti Kakar Debanjali B Joshi",
     "bengaliArtist": "Akriti Kakar Debanjali B Joshi",
-    "type": "search",
+    "type": "video",
     "query": "Dugga Elo Akriti Kakar Debanjali B Joshi",
-    "youtubeId": "Dugga Elo Akriti Kakar Debanjali B Joshi",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Dugga%20Elo%20Akriti%20Kakar%20Debanjali%20B%20Joshi",
+    "directUrl": "https://www.youtube.com/results?search_query=Dugga%20Elo%20Akriti%20Kakar%20Debanjali%20B%20Joshi",
     "supportsShuffle": false
   },
   {
@@ -146,11 +146,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Shundori Komola",
     "artist": "Armaan Malik Villain",
     "bengaliArtist": "Armaan Malik Villain",
-    "type": "search",
+    "type": "video",
     "query": "Shundori Komola Armaan Malik Villain",
-    "youtubeId": "Shundori Komola Armaan Malik Villain",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Shundori%20Komola%20Armaan%20Malik%20Villain",
+    "directUrl": "https://www.youtube.com/results?search_query=Shundori%20Komola%20Armaan%20Malik%20Villain",
     "supportsShuffle": false
   },
   {
@@ -160,11 +160,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Elo Je Maa",
     "artist": "Abhijeet Bhattacharya Challenge 2",
     "bengaliArtist": "Abhijeet Bhattacharya Challenge 2",
-    "type": "search",
+    "type": "video",
     "query": "Elo Je Maa Abhijeet Bhattacharya Challenge 2",
-    "youtubeId": "Elo Je Maa Abhijeet Bhattacharya Challenge 2",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Elo%20Je%20Maa%20Abhijeet%20Bhattacharya%20Challenge%202",
+    "directUrl": "https://www.youtube.com/results?search_query=Elo%20Je%20Maa%20Abhijeet%20Bhattacharya%20Challenge%202",
     "supportsShuffle": false
   },
   {
@@ -174,11 +174,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "O Menoka O Menoka",
     "artist": "Antara Nandy Ankita Nandy",
     "bengaliArtist": "Antara Nandy Ankita Nandy",
-    "type": "search",
+    "type": "video",
     "query": "O Menoka O Menoka Antara Nandy Ankita Nandy",
-    "youtubeId": "O Menoka O Menoka Antara Nandy Ankita Nandy",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=O%20Menoka%20O%20Menoka%20Antara%20Nandy%20Ankita%20Nandy",
+    "directUrl": "https://www.youtube.com/results?search_query=O%20Menoka%20O%20Menoka%20Antara%20Nandy%20Ankita%20Nandy",
     "supportsShuffle": false
   },
   {
@@ -188,11 +188,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Ailo Uma Barite",
     "artist": "Antara Nandy Monami Ghosh",
     "bengaliArtist": "Antara Nandy Monami Ghosh",
-    "type": "search",
+    "type": "video",
     "query": "Ailo Uma Barite Antara Nandy Monami Ghosh",
-    "youtubeId": "Ailo Uma Barite Antara Nandy Monami Ghosh",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Ailo%20Uma%20Barite%20Antara%20Nandy%20Monami%20Ghosh",
+    "directUrl": "https://www.youtube.com/results?search_query=Ailo%20Uma%20Barite%20Antara%20Nandy%20Monami%20Ghosh",
     "supportsShuffle": false
   },
   {
@@ -202,11 +202,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Uma Ashe Notun Saje",
     "artist": "Ankita Bhattacharyya",
     "bengaliArtist": "Ankita Bhattacharyya",
-    "type": "search",
+    "type": "video",
     "query": "Uma Ashe Notun Saje Ankita Bhattacharyya",
-    "youtubeId": "Uma Ashe Notun Saje Ankita Bhattacharyya",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Uma%20Ashe%20Notun%20Saje%20Ankita%20Bhattacharyya",
+    "directUrl": "https://www.youtube.com/results?search_query=Uma%20Ashe%20Notun%20Saje%20Ankita%20Bhattacharyya",
     "supportsShuffle": false
   },
   {
@@ -216,11 +216,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Abar Elo Maa",
     "artist": "Rahul Dutta Ankita Bhattacharyya",
     "bengaliArtist": "Rahul Dutta Ankita Bhattacharyya",
-    "type": "search",
+    "type": "video",
     "query": "Abar Elo Maa Rahul Dutta Ankita Bhattacharyya",
-    "youtubeId": "Abar Elo Maa Rahul Dutta Ankita Bhattacharyya",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Abar%20Elo%20Maa%20Rahul%20Dutta%20Ankita%20Bhattacharyya",
+    "directUrl": "https://www.youtube.com/results?search_query=Abar%20Elo%20Maa%20Rahul%20Dutta%20Ankita%20Bhattacharyya",
     "supportsShuffle": false
   },
   {
@@ -230,11 +230,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Joy Joy Durga Ma",
     "artist": "Agnibha Bandopadhyay",
     "bengaliArtist": "Agnibha Bandopadhyay",
-    "type": "search",
+    "type": "video",
     "query": "Joy Joy Durga Ma Agnibha Bandopadhyay",
-    "youtubeId": "Joy Joy Durga Ma Agnibha Bandopadhyay",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Joy%20Joy%20Durga%20Ma%20Agnibha%20Bandopadhyay",
+    "directUrl": "https://www.youtube.com/results?search_query=Joy%20Joy%20Durga%20Ma%20Agnibha%20Bandopadhyay",
     "supportsShuffle": false
   },
   {
@@ -244,11 +244,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Durga Maa",
     "artist": "Akassh Haimanti",
     "bengaliArtist": "Akassh Haimanti",
-    "type": "search",
+    "type": "video",
     "query": "Durga Maa Akassh Haimanti",
-    "youtubeId": "Durga Maa Akassh Haimanti",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Durga%20Maa%20Akassh%20Haimanti",
+    "directUrl": "https://www.youtube.com/results?search_query=Durga%20Maa%20Akassh%20Haimanti",
     "supportsShuffle": false
   },
   {
@@ -258,11 +258,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Gouri Elo Dekhe Jalo",
     "artist": "Dohar",
     "bengaliArtist": "Dohar",
-    "type": "search",
+    "type": "video",
     "query": "Gouri Elo Dekhe Jalo Dohar",
-    "youtubeId": "Gouri Elo Dekhe Jalo Dohar",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Gouri%20Elo%20Dekhe%20Jalo%20Dohar",
+    "directUrl": "https://www.youtube.com/results?search_query=Gouri%20Elo%20Dekhe%20Jalo%20Dohar",
     "supportsShuffle": false
   },
   {
@@ -272,11 +272,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Dhak Baaja Komor Nacha",
     "artist": "Jeet Akriti Kakar Dev Negi Switzerland",
     "bengaliArtist": "Jeet Akriti Kakar Dev Negi Switzerland",
-    "type": "search",
+    "type": "video",
     "query": "Dhak Baaja Komor Nacha Jeet Akriti Kakar Dev Negi Switzerland",
-    "youtubeId": "Dhak Baaja Komor Nacha Jeet Akriti Kakar Dev Negi Switzerland",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Dhak%20Baaja%20Komor%20Nacha%20Jeet%20Akriti%20Kakar%20Dev%20Negi%20Switzerland",
+    "directUrl": "https://www.youtube.com/results?search_query=Dhak%20Baaja%20Komor%20Nacha%20Jeet%20Akriti%20Kakar%20Dev%20Negi%20Switzerland",
     "supportsShuffle": false
   },
   {
@@ -286,11 +286,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Durge Durge Durgatinashini",
     "artist": "Asha Bhosle Durga Bandana",
     "bengaliArtist": "Asha Bhosle Durga Bandana",
-    "type": "search",
+    "type": "video",
     "query": "Durge Durge Durgatinashini Asha Bhosle Durga Bandana",
-    "youtubeId": "Durge Durge Durgatinashini Asha Bhosle Durga Bandana",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Durge%20Durge%20Durgatinashini%20Asha%20Bhosle%20Durga%20Bandana",
+    "directUrl": "https://www.youtube.com/results?search_query=Durge%20Durge%20Durgatinashini%20Asha%20Bhosle%20Durga%20Bandana",
     "supportsShuffle": false
   },
   {
@@ -300,11 +300,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Rupang Dehi",
     "artist": "Snita Pramanik Ghosh",
     "bengaliArtist": "Snita Pramanik Ghosh",
-    "type": "search",
+    "type": "video",
     "query": "Rupang Dehi Snita Pramanik Ghosh",
-    "youtubeId": "Rupang Dehi Snita Pramanik Ghosh",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Rupang%20Dehi%20Snita%20Pramanik%20Ghosh",
+    "directUrl": "https://www.youtube.com/results?search_query=Rupang%20Dehi%20Snita%20Pramanik%20Ghosh",
     "supportsShuffle": false
   },
   {
@@ -314,11 +314,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Aigiri Nandini",
     "artist": "Rajalakshmee Sanjay",
     "bengaliArtist": "Rajalakshmee Sanjay",
-    "type": "search",
+    "type": "video",
     "query": "Aigiri Nandini Rajalakshmee Sanjay",
-    "youtubeId": "Aigiri Nandini Rajalakshmee Sanjay",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Aigiri%20Nandini%20Rajalakshmee%20Sanjay",
+    "directUrl": "https://www.youtube.com/results?search_query=Aigiri%20Nandini%20Rajalakshmee%20Sanjay",
     "supportsShuffle": false
   },
   {
@@ -328,11 +328,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Baja Sanai Aar Baja Re Dhol",
     "artist": "Abhijeet Bhattacharya Nilakshi Bhattacharya Dev Sen Deewana",
     "bengaliArtist": "Abhijeet Bhattacharya Nilakshi Bhattacharya Dev Sen Deewana",
-    "type": "search",
+    "type": "video",
     "query": "Baja Sanai Aar Baja Re Dhol Abhijeet Bhattacharya Nilakshi Bhattacharya Dev Sen Deewana",
-    "youtubeId": "Baja Sanai Aar Baja Re Dhol Abhijeet Bhattacharya Nilakshi Bhattacharya Dev Sen Deewana",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Baja%20Sanai%20Aar%20Baja%20Re%20Dhol%20Abhijeet%20Bhattacharya%20Nilakshi%20Bhattacharya%20Dev%20Sen%20Deewana",
+    "directUrl": "https://www.youtube.com/results?search_query=Baja%20Sanai%20Aar%20Baja%20Re%20Dhol%20Abhijeet%20Bhattacharya%20Nilakshi%20Bhattacharya%20Dev%20Sen%20Deewana",
     "supportsShuffle": false
   },
   {
@@ -342,11 +342,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Elo Je Maa",
     "artist": "Abhijeet Bhattacharya Challenge 2",
     "bengaliArtist": "Abhijeet Bhattacharya Challenge 2",
-    "type": "search",
+    "type": "video",
     "query": "Elo Je Maa Abhijeet Bhattacharya Challenge 2",
-    "youtubeId": "Elo Je Maa Abhijeet Bhattacharya Challenge 2",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Elo%20Je%20Maa%20Abhijeet%20Bhattacharya%20Challenge%202",
+    "directUrl": "https://www.youtube.com/results?search_query=Elo%20Je%20Maa%20Abhijeet%20Bhattacharya%20Challenge%202",
     "supportsShuffle": false
   },
   {
@@ -356,11 +356,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Maa Ashchhe",
     "artist": "Sanjeev Tiwari",
     "bengaliArtist": "Sanjeev Tiwari",
-    "type": "search",
+    "type": "video",
     "query": "Maa Ashchhe Sanjeev Tiwari",
-    "youtubeId": "Maa Ashchhe Sanjeev Tiwari",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Maa%20Ashchhe%20Sanjeev%20Tiwari",
+    "directUrl": "https://www.youtube.com/results?search_query=Maa%20Ashchhe%20Sanjeev%20Tiwari",
     "supportsShuffle": false
   },
   {
@@ -370,11 +370,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Esho Maa Durga",
     "artist": "Shamik Guha Roy Suman Mickey Chatterjee",
     "bengaliArtist": "Shamik Guha Roy Suman Mickey Chatterjee",
-    "type": "search",
+    "type": "video",
     "query": "Esho Maa Durga Shamik Guha Roy Suman Mickey Chatterjee",
-    "youtubeId": "Esho Maa Durga Shamik Guha Roy Suman Mickey Chatterjee",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Esho%20Maa%20Durga%20Shamik%20Guha%20Roy%20Suman%20Mickey%20Chatterjee",
+    "directUrl": "https://www.youtube.com/results?search_query=Esho%20Maa%20Durga%20Shamik%20Guha%20Roy%20Suman%20Mickey%20Chatterjee",
     "supportsShuffle": false
   },
   {
@@ -384,11 +384,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Maa Go Tui",
     "artist": "Somchanda Bhattacharya Manomay Bhattacharyya Durgeshgorer Guptodhon",
     "bengaliArtist": "Somchanda Bhattacharya Manomay Bhattacharyya Durgeshgorer Guptodhon",
-    "type": "search",
+    "type": "video",
     "query": "Maa Go Tui Somchanda Bhattacharya Manomay Bhattacharyya Durgeshgorer Guptodhon",
-    "youtubeId": "Maa Go Tui Somchanda Bhattacharya Manomay Bhattacharyya Durgeshgorer Guptodhon",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Maa%20Go%20Tui%20Somchanda%20Bhattacharya%20Manomay%20Bhattacharyya%20Durgeshgorer%20Guptodhon",
+    "directUrl": "https://www.youtube.com/results?search_query=Maa%20Go%20Tui%20Somchanda%20Bhattacharya%20Manomay%20Bhattacharyya%20Durgeshgorer%20Guptodhon",
     "supportsShuffle": false
   },
   {
@@ -398,11 +398,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Jago Uma",
     "artist": "Rupankar Bagchi Uma",
     "bengaliArtist": "Rupankar Bagchi Uma",
-    "type": "search",
+    "type": "video",
     "query": "Jago Uma Rupankar Bagchi Uma",
-    "youtubeId": "Jago Uma Rupankar Bagchi Uma",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Jago%20Uma%20Rupankar%20Bagchi%20Uma",
+    "directUrl": "https://www.youtube.com/results?search_query=Jago%20Uma%20Rupankar%20Bagchi%20Uma",
     "supportsShuffle": false
   },
   {
@@ -412,11 +412,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Aigiri Nandini Rock Version",
     "artist": "Sowrabha",
     "bengaliArtist": "Sowrabha",
-    "type": "search",
+    "type": "video",
     "query": "Aigiri Nandini Rock Version Sowrabha",
-    "youtubeId": "Aigiri Nandini Rock Version Sowrabha",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Aigiri%20Nandini%20Rock%20Version%20Sowrabha",
+    "directUrl": "https://www.youtube.com/results?search_query=Aigiri%20Nandini%20Rock%20Version%20Sowrabha",
     "supportsShuffle": false
   },
   {
@@ -426,11 +426,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Ailo Uma Barite",
     "artist": "Antara Nandy Monami Ghosh",
     "bengaliArtist": "Antara Nandy Monami Ghosh",
-    "type": "search",
+    "type": "video",
     "query": "Ailo Uma Barite Antara Nandy Monami Ghosh",
-    "youtubeId": "Ailo Uma Barite Antara Nandy Monami Ghosh",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Ailo%20Uma%20Barite%20Antara%20Nandy%20Monami%20Ghosh",
+    "directUrl": "https://www.youtube.com/results?search_query=Ailo%20Uma%20Barite%20Antara%20Nandy%20Monami%20Ghosh",
     "supportsShuffle": false
   },
   {
@@ -440,11 +440,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Aaj Baaje",
     "artist": "Somchanda Bhattacharya Durga Sohay",
     "bengaliArtist": "Somchanda Bhattacharya Durga Sohay",
-    "type": "search",
+    "type": "video",
     "query": "Aaj Baaje Somchanda Bhattacharya Durga Sohay",
-    "youtubeId": "Aaj Baaje Somchanda Bhattacharya Durga Sohay",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Aaj%20Baaje%20Somchanda%20Bhattacharya%20Durga%20Sohay",
+    "directUrl": "https://www.youtube.com/results?search_query=Aaj%20Baaje%20Somchanda%20Bhattacharya%20Durga%20Sohay",
     "supportsShuffle": false
   },
   {
@@ -454,11 +454,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Yoddhar Saathe Ebar Pujo Katan",
     "artist": "Nakash Aziz Yoddha",
     "bengaliArtist": "Nakash Aziz Yoddha",
-    "type": "search",
+    "type": "video",
     "query": "Yoddhar Saathe Ebar Pujo Katan Nakash Aziz Yoddha",
-    "youtubeId": "Yoddhar Saathe Ebar Pujo Katan Nakash Aziz Yoddha",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Yoddhar%20Saathe%20Ebar%20Pujo%20Katan%20Nakash%20Aziz%20Yoddha",
+    "directUrl": "https://www.youtube.com/results?search_query=Yoddhar%20Saathe%20Ebar%20Pujo%20Katan%20Nakash%20Aziz%20Yoddha",
     "supportsShuffle": false
   },
   {
@@ -468,11 +468,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Pujo Pujo Gondho",
     "artist": "Anupam Roy",
     "bengaliArtist": "Anupam Roy",
-    "type": "search",
+    "type": "video",
     "query": "Pujo Pujo Gondho Anupam Roy",
-    "youtubeId": "Pujo Pujo Gondho Anupam Roy",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Pujo%20Pujo%20Gondho%20Anupam%20Roy",
+    "directUrl": "https://www.youtube.com/results?search_query=Pujo%20Pujo%20Gondho%20Anupam%20Roy",
     "supportsShuffle": false
   },
   {
@@ -482,11 +482,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Pujor Dhaak Theme",
     "artist": "Bibhabendu Bhattacharya",
     "bengaliArtist": "Bibhabendu Bhattacharya",
-    "type": "search",
+    "type": "video",
     "query": "Pujor Dhaak Theme Bibhabendu Bhattacharya",
-    "youtubeId": "Pujor Dhaak Theme Bibhabendu Bhattacharya",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Pujor%20Dhaak%20Theme%20Bibhabendu%20Bhattacharya",
+    "directUrl": "https://www.youtube.com/results?search_query=Pujor%20Dhaak%20Theme%20Bibhabendu%20Bhattacharya",
     "supportsShuffle": false
   },
   {
@@ -496,11 +496,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Jaago Uma",
     "artist": "Anupam Roy Rupankar Bagchi Uma",
     "bengaliArtist": "Anupam Roy Rupankar Bagchi Uma",
-    "type": "search",
+    "type": "video",
     "query": "Jaago Uma Anupam Roy Rupankar Bagchi Uma",
-    "youtubeId": "Jaago Uma Anupam Roy Rupankar Bagchi Uma",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Jaago%20Uma%20Anupam%20Roy%20Rupankar%20Bagchi%20Uma",
+    "directUrl": "https://www.youtube.com/results?search_query=Jaago%20Uma%20Anupam%20Roy%20Rupankar%20Bagchi%20Uma",
     "supportsShuffle": false
   },
   {
@@ -510,11 +510,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Pujor Gaan",
     "artist": "Poushali Bhattacharya Abritte Talukdar",
     "bengaliArtist": "Poushali Bhattacharya Abritte Talukdar",
-    "type": "search",
+    "type": "video",
     "query": "Pujor Gaan Poushali Bhattacharya Abritte Talukdar",
-    "youtubeId": "Pujor Gaan Poushali Bhattacharya Abritte Talukdar",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Pujor%20Gaan%20Poushali%20Bhattacharya%20Abritte%20Talukdar",
+    "directUrl": "https://www.youtube.com/results?search_query=Pujor%20Gaan%20Poushali%20Bhattacharya%20Abritte%20Talukdar",
     "supportsShuffle": false
   },
   {
@@ -524,11 +524,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Aamaar Dugga",
     "artist": "Monali Thakur Anindya Chattopadhyay",
     "bengaliArtist": "Monali Thakur Anindya Chattopadhyay",
-    "type": "search",
+    "type": "video",
     "query": "Aamaar Dugga Monali Thakur Anindya Chattopadhyay",
-    "youtubeId": "Aamaar Dugga Monali Thakur Anindya Chattopadhyay",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Aamaar%20Dugga%20Monali%20Thakur%20Anindya%20Chattopadhyay",
+    "directUrl": "https://www.youtube.com/results?search_query=Aamaar%20Dugga%20Monali%20Thakur%20Anindya%20Chattopadhyay",
     "supportsShuffle": false
   },
   {
@@ -538,11 +538,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Gouri Elo",
     "artist": "Dohar Tirtha Bhattacharya Raktabeej",
     "bengaliArtist": "Dohar Tirtha Bhattacharya Raktabeej",
-    "type": "search",
+    "type": "video",
     "query": "Gouri Elo Dohar Tirtha Bhattacharya Raktabeej",
-    "youtubeId": "Gouri Elo Dohar Tirtha Bhattacharya Raktabeej",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Gouri%20Elo%20Dohar%20Tirtha%20Bhattacharya%20Raktabeej",
+    "directUrl": "https://www.youtube.com/results?search_query=Gouri%20Elo%20Dohar%20Tirtha%20Bhattacharya%20Raktabeej",
     "supportsShuffle": false
   },
   {
@@ -552,11 +552,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Aham Rudre",
     "artist": "Sourendro Soumyojit Academy of Music",
     "bengaliArtist": "Sourendro Soumyojit Academy of Music",
-    "type": "search",
+    "type": "video",
     "query": "Aham Rudre Sourendro Soumyojit Academy of Music",
-    "youtubeId": "Aham Rudre Sourendro Soumyojit Academy of Music",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Aham%20Rudre%20Sourendro%20Soumyojit%20Academy%20of%20Music",
+    "directUrl": "https://www.youtube.com/results?search_query=Aham%20Rudre%20Sourendro%20Soumyojit%20Academy%20of%20Music",
     "supportsShuffle": false
   },
   {
@@ -566,11 +566,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Elo Re Pujo Elo",
     "artist": "Dabbu Nakash Aziz Senjuti Das",
     "bengaliArtist": "Dabbu Nakash Aziz Senjuti Das",
-    "type": "search",
+    "type": "video",
     "query": "Elo Re Pujo Elo Dabbu Nakash Aziz Senjuti Das",
-    "youtubeId": "Elo Re Pujo Elo Dabbu Nakash Aziz Senjuti Das",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Elo%20Re%20Pujo%20Elo%20Dabbu%20Nakash%20Aziz%20Senjuti%20Das",
+    "directUrl": "https://www.youtube.com/results?search_query=Elo%20Re%20Pujo%20Elo%20Dabbu%20Nakash%20Aziz%20Senjuti%20Das",
     "supportsShuffle": false
   },
   {
@@ -580,11 +580,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Chaarpashe Aalo Hok",
     "artist": "Ajoy Chakrabarty Kaushiki Chakraborty",
     "bengaliArtist": "Ajoy Chakrabarty Kaushiki Chakraborty",
-    "type": "search",
+    "type": "video",
     "query": "Chaarpashe Aalo Hok Ajoy Chakrabarty Kaushiki Chakraborty",
-    "youtubeId": "Chaarpashe Aalo Hok Ajoy Chakrabarty Kaushiki Chakraborty",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Chaarpashe%20Aalo%20Hok%20Ajoy%20Chakrabarty%20Kaushiki%20Chakraborty",
+    "directUrl": "https://www.youtube.com/results?search_query=Chaarpashe%20Aalo%20Hok%20Ajoy%20Chakrabarty%20Kaushiki%20Chakraborty",
     "supportsShuffle": false
   },
   {
@@ -594,11 +594,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "O Thakur",
     "artist": "Upal Sengupta Prosmita Pal Belaseshe",
     "bengaliArtist": "Upal Sengupta Prosmita Pal Belaseshe",
-    "type": "search",
+    "type": "video",
     "query": "O Thakur Upal Sengupta Prosmita Pal Belaseshe",
-    "youtubeId": "O Thakur Upal Sengupta Prosmita Pal Belaseshe",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=O%20Thakur%20Upal%20Sengupta%20Prosmita%20Pal%20Belaseshe",
+    "directUrl": "https://www.youtube.com/results?search_query=O%20Thakur%20Upal%20Sengupta%20Prosmita%20Pal%20Belaseshe",
     "supportsShuffle": false
   },
   {
@@ -608,11 +608,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Shubho Shubho",
     "artist": "Altamash Faridi Mrs Chatterjee Vs Norway",
     "bengaliArtist": "Altamash Faridi Mrs Chatterjee Vs Norway",
-    "type": "search",
+    "type": "video",
     "query": "Shubho Shubho Altamash Faridi Mrs Chatterjee Vs Norway",
-    "youtubeId": "Shubho Shubho Altamash Faridi Mrs Chatterjee Vs Norway",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Shubho%20Shubho%20Altamash%20Faridi%20Mrs%20Chatterjee%20Vs%20Norway",
+    "directUrl": "https://www.youtube.com/results?search_query=Shubho%20Shubho%20Altamash%20Faridi%20Mrs%20Chatterjee%20Vs%20Norway",
     "supportsShuffle": false
   },
   {
@@ -622,11 +622,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "He Maa Durga Maa",
     "artist": "Aseema Panda",
     "bengaliArtist": "Aseema Panda",
-    "type": "search",
+    "type": "video",
     "query": "He Maa Durga Maa Aseema Panda",
-    "youtubeId": "He Maa Durga Maa Aseema Panda",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=He%20Maa%20Durga%20Maa%20Aseema%20Panda",
+    "directUrl": "https://www.youtube.com/results?search_query=He%20Maa%20Durga%20Maa%20Aseema%20Panda",
     "supportsShuffle": false
   },
   {
@@ -636,11 +636,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Durga Maa Eseche",
     "artist": "Akassh",
     "bengaliArtist": "Akassh",
-    "type": "search",
+    "type": "video",
     "query": "Durga Maa Eseche Akassh",
-    "youtubeId": "Durga Maa Eseche Akassh",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Durga%20Maa%20Eseche%20Akassh",
+    "directUrl": "https://www.youtube.com/results?search_query=Durga%20Maa%20Eseche%20Akassh",
     "supportsShuffle": false
   },
   {
@@ -650,11 +650,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Eseche Maa Durga Maa DJ Remix",
     "artist": "Keshab Dey Ankita Bhattacharyya",
     "bengaliArtist": "Keshab Dey Ankita Bhattacharyya",
-    "type": "search",
+    "type": "video",
     "query": "Eseche Maa Durga Maa DJ Remix Keshab Dey Ankita Bhattacharyya",
-    "youtubeId": "Eseche Maa Durga Maa DJ Remix Keshab Dey Ankita Bhattacharyya",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Eseche%20Maa%20Durga%20Maa%20DJ%20Remix%20Keshab%20Dey%20Ankita%20Bhattacharyya",
+    "directUrl": "https://www.youtube.com/results?search_query=Eseche%20Maa%20Durga%20Maa%20DJ%20Remix%20Keshab%20Dey%20Ankita%20Bhattacharyya",
     "supportsShuffle": false
   },
   {
@@ -664,11 +664,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Kolki",
     "artist": "Monami Ghosh Prativa Dutta Rathijit Bhattacharjee",
     "bengaliArtist": "Monami Ghosh Prativa Dutta Rathijit Bhattacharjee",
-    "type": "search",
+    "type": "video",
     "query": "Kolki Monami Ghosh Prativa Dutta Rathijit Bhattacharjee",
-    "youtubeId": "Kolki Monami Ghosh Prativa Dutta Rathijit Bhattacharjee",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Kolki%20Monami%20Ghosh%20Prativa%20Dutta%20Rathijit%20Bhattacharjee",
+    "directUrl": "https://www.youtube.com/results?search_query=Kolki%20Monami%20Ghosh%20Prativa%20Dutta%20Rathijit%20Bhattacharjee",
     "supportsShuffle": false
   },
   {
@@ -678,11 +678,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Dugga Ma Asche",
     "artist": "Infra",
     "bengaliArtist": "Infra",
-    "type": "search",
+    "type": "video",
     "query": "Dugga Ma Asche Infra",
-    "youtubeId": "Dugga Ma Asche Infra",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Dugga%20Ma%20Asche%20Infra",
+    "directUrl": "https://www.youtube.com/results?search_query=Dugga%20Ma%20Asche%20Infra",
     "supportsShuffle": false
   },
   {
@@ -692,11 +692,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Debi Sajer Gaan",
     "artist": "Rupak Tiary Pragya Dutta",
     "bengaliArtist": "Rupak Tiary Pragya Dutta",
-    "type": "search",
+    "type": "video",
     "query": "Debi Sajer Gaan Rupak Tiary Pragya Dutta",
-    "youtubeId": "Debi Sajer Gaan Rupak Tiary Pragya Dutta",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Debi%20Sajer%20Gaan%20Rupak%20Tiary%20Pragya%20Dutta",
+    "directUrl": "https://www.youtube.com/results?search_query=Debi%20Sajer%20Gaan%20Rupak%20Tiary%20Pragya%20Dutta",
     "supportsShuffle": false
   },
   {
@@ -706,11 +706,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Tomake Chai",
     "artist": "Arijit Singh Arindom Gangster",
     "bengaliArtist": "Arijit Singh Arindom Gangster",
-    "type": "search",
+    "type": "video",
     "query": "Tomake Chai Arijit Singh Arindom Gangster",
-    "youtubeId": "Tomake Chai Arijit Singh Arindom Gangster",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Tomake%20Chai%20Arijit%20Singh%20Arindom%20Gangster",
+    "directUrl": "https://www.youtube.com/results?search_query=Tomake%20Chai%20Arijit%20Singh%20Arindom%20Gangster",
     "supportsShuffle": false
   },
   {
@@ -720,11 +720,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Meri Maa Ke Barabar Koi Nahi",
     "artist": "Jubin Nautiyal",
     "bengaliArtist": "Jubin Nautiyal",
-    "type": "search",
+    "type": "video",
     "query": "Meri Maa Ke Barabar Koi Nahi Jubin Nautiyal",
-    "youtubeId": "Meri Maa Ke Barabar Koi Nahi Jubin Nautiyal",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Meri%20Maa%20Ke%20Barabar%20Koi%20Nahi%20Jubin%20Nautiyal",
+    "directUrl": "https://www.youtube.com/results?search_query=Meri%20Maa%20Ke%20Barabar%20Koi%20Nahi%20Jubin%20Nautiyal",
     "supportsShuffle": false
   },
   {
@@ -734,11 +734,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Dugga Elo",
     "artist": "Monali Thakur Guddu",
     "bengaliArtist": "Monali Thakur Guddu",
-    "type": "search",
+    "type": "video",
     "query": "Dugga Elo Monali Thakur Guddu",
-    "youtubeId": "Dugga Elo Monali Thakur Guddu",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Dugga%20Elo%20Monali%20Thakur%20Guddu",
+    "directUrl": "https://www.youtube.com/results?search_query=Dugga%20Elo%20Monali%20Thakur%20Guddu",
     "supportsShuffle": false
   },
   {
@@ -748,11 +748,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Bajlo Tomar Aalor Benu",
     "artist": "Debolina Nandy Retro Cool Bengali Vol 3",
     "bengaliArtist": "Debolina Nandy Retro Cool Bengali Vol 3",
-    "type": "search",
+    "type": "video",
     "query": "Bajlo Tomar Aalor Benu Debolina Nandy Retro Cool Bengali Vol 3",
-    "youtubeId": "Bajlo Tomar Aalor Benu Debolina Nandy Retro Cool Bengali Vol 3",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Bajlo%20Tomar%20Aalor%20Benu%20Debolina%20Nandy%20Retro%20Cool%20Bengali%20Vol%203",
+    "directUrl": "https://www.youtube.com/results?search_query=Bajlo%20Tomar%20Aalor%20Benu%20Debolina%20Nandy%20Retro%20Cool%20Bengali%20Vol%203",
     "supportsShuffle": false
   },
   {
@@ -762,11 +762,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Durge Durge Durgatinashini",
     "artist": "Debolinaa Nandy Retro Cool Bengali",
     "bengaliArtist": "Debolinaa Nandy Retro Cool Bengali",
-    "type": "search",
+    "type": "video",
     "query": "Durge Durge Durgatinashini Debolinaa Nandy Retro Cool Bengali",
-    "youtubeId": "Durge Durge Durgatinashini Debolinaa Nandy Retro Cool Bengali",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Durge%20Durge%20Durgatinashini%20Debolinaa%20Nandy%20Retro%20Cool%20Bengali",
+    "directUrl": "https://www.youtube.com/results?search_query=Durge%20Durge%20Durgatinashini%20Debolinaa%20Nandy%20Retro%20Cool%20Bengali",
     "supportsShuffle": false
   },
   {
@@ -776,11 +776,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Madhukaitava Vidhwangsi",
     "artist": "Tushar Dutta Trishit Supratik Das Roompa Durga",
     "bengaliArtist": "Tushar Dutta Trishit Supratik Das Roompa Durga",
-    "type": "search",
+    "type": "video",
     "query": "Madhukaitava Vidhwangsi Tushar Dutta Trishit Supratik Das Roompa Durga",
-    "youtubeId": "Madhukaitava Vidhwangsi Tushar Dutta Trishit Supratik Das Roompa Durga",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Madhukaitava%20Vidhwangsi%20Tushar%20Dutta%20Trishit%20Supratik%20Das%20Roompa%20Durga",
+    "directUrl": "https://www.youtube.com/results?search_query=Madhukaitava%20Vidhwangsi%20Tushar%20Dutta%20Trishit%20Supratik%20Das%20Roompa%20Durga",
     "supportsShuffle": false
   },
   {
@@ -790,11 +790,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Kalo Jole Kuchla Tole",
     "artist": "Iman Chakraborty",
     "bengaliArtist": "Iman Chakraborty",
-    "type": "search",
+    "type": "video",
     "query": "Kalo Jole Kuchla Tole Iman Chakraborty",
-    "youtubeId": "Kalo Jole Kuchla Tole Iman Chakraborty",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Kalo%20Jole%20Kuchla%20Tole%20Iman%20Chakraborty",
+    "directUrl": "https://www.youtube.com/results?search_query=Kalo%20Jole%20Kuchla%20Tole%20Iman%20Chakraborty",
     "supportsShuffle": false
   },
   {
@@ -804,11 +804,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Bajlo Tomar Alor Benu",
     "artist": "Sriparna Das",
     "bengaliArtist": "Sriparna Das",
-    "type": "search",
+    "type": "video",
     "query": "Bajlo Tomar Alor Benu Sriparna Das",
-    "youtubeId": "Bajlo Tomar Alor Benu Sriparna Das",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Bajlo%20Tomar%20Alor%20Benu%20Sriparna%20Das",
+    "directUrl": "https://www.youtube.com/results?search_query=Bajlo%20Tomar%20Alor%20Benu%20Sriparna%20Das",
     "supportsShuffle": false
   },
   {
@@ -818,11 +818,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Bajlo Tomar Aalor Benu",
     "artist": "Debolina Nandy",
     "bengaliArtist": "Debolina Nandy",
-    "type": "search",
+    "type": "video",
     "query": "Bajlo Tomar Aalor Benu Debolina Nandy",
-    "youtubeId": "Bajlo Tomar Aalor Benu Debolina Nandy",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Bajlo%20Tomar%20Aalor%20Benu%20Debolina%20Nandy",
+    "directUrl": "https://www.youtube.com/results?search_query=Bajlo%20Tomar%20Aalor%20Benu%20Debolina%20Nandy",
     "supportsShuffle": false
   },
   {
@@ -832,11 +832,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Bajlo Tomar Aalor Benu With Narration",
     "artist": "Supriti Ghosh",
     "bengaliArtist": "Supriti Ghosh",
-    "type": "search",
+    "type": "video",
     "query": "Bajlo Tomar Aalor Benu With Narration Supriti Ghosh",
-    "youtubeId": "Bajlo Tomar Aalor Benu With Narration Supriti Ghosh",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Bajlo%20Tomar%20Aalor%20Benu%20With%20Narration%20Supriti%20Ghosh",
+    "directUrl": "https://www.youtube.com/results?search_query=Bajlo%20Tomar%20Aalor%20Benu%20With%20Narration%20Supriti%20Ghosh",
     "supportsShuffle": false
   },
   {
@@ -846,11 +846,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Mahishasura Mardhini",
     "artist": "Sri Vardhini Sharath Shakti",
     "bengaliArtist": "Sri Vardhini Sharath Shakti",
-    "type": "search",
+    "type": "video",
     "query": "Mahishasura Mardhini Sri Vardhini Sharath Shakti",
-    "youtubeId": "Mahishasura Mardhini Sri Vardhini Sharath Shakti",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Mahishasura%20Mardhini%20Sri%20Vardhini%20Sharath%20Shakti",
+    "directUrl": "https://www.youtube.com/results?search_query=Mahishasura%20Mardhini%20Sri%20Vardhini%20Sharath%20Shakti",
     "supportsShuffle": false
   },
   {
@@ -860,11 +860,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Ya Chandi",
     "artist": "Chorus Mahishasura Mardini",
     "bengaliArtist": "Chorus Mahishasura Mardini",
-    "type": "search",
+    "type": "video",
     "query": "Ya Chandi Chorus Mahishasura Mardini",
-    "youtubeId": "Ya Chandi Chorus Mahishasura Mardini",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Ya%20Chandi%20Chorus%20Mahishasura%20Mardini",
+    "directUrl": "https://www.youtube.com/results?search_query=Ya%20Chandi%20Chorus%20Mahishasura%20Mardini",
     "supportsShuffle": false
   },
   {
@@ -874,11 +874,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Jago Tumi Jago",
     "artist": "Trissha Chatterjee",
     "bengaliArtist": "Trissha Chatterjee",
-    "type": "search",
+    "type": "video",
     "query": "Jago Tumi Jago Trissha Chatterjee",
-    "youtubeId": "Jago Tumi Jago Trissha Chatterjee",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Jago%20Tumi%20Jago%20Trissha%20Chatterjee",
+    "directUrl": "https://www.youtube.com/results?search_query=Jago%20Tumi%20Jago%20Trissha%20Chatterjee",
     "supportsShuffle": false
   },
   {
@@ -888,11 +888,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Borondala Saaja",
     "artist": "Madhuraa Bhattacharya Jeet Gannguli Arundhuti",
     "bengaliArtist": "Madhuraa Bhattacharya Jeet Gannguli Arundhuti",
-    "type": "search",
+    "type": "video",
     "query": "Borondala Saaja Madhuraa Bhattacharya Jeet Gannguli Arundhuti",
-    "youtubeId": "Borondala Saaja Madhuraa Bhattacharya Jeet Gannguli Arundhuti",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Borondala%20Saaja%20Madhuraa%20Bhattacharya%20Jeet%20Gannguli%20Arundhuti",
+    "directUrl": "https://www.youtube.com/results?search_query=Borondala%20Saaja%20Madhuraa%20Bhattacharya%20Jeet%20Gannguli%20Arundhuti",
     "supportsShuffle": false
   },
   {
@@ -902,11 +902,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Phagun Haoyay Haoyay",
     "artist": "Jayati Chakraborty Dipanwita Choudhury",
     "bengaliArtist": "Jayati Chakraborty Dipanwita Choudhury",
-    "type": "search",
+    "type": "video",
     "query": "Phagun Haoyay Haoyay Jayati Chakraborty Dipanwita Choudhury",
-    "youtubeId": "Phagun Haoyay Haoyay Jayati Chakraborty Dipanwita Choudhury",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Phagun%20Haoyay%20Haoyay%20Jayati%20Chakraborty%20Dipanwita%20Choudhury",
+    "directUrl": "https://www.youtube.com/results?search_query=Phagun%20Haoyay%20Haoyay%20Jayati%20Chakraborty%20Dipanwita%20Choudhury",
     "supportsShuffle": false
   },
   {
@@ -916,11 +916,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Ogo Amar Agamani Alo",
     "artist": "Sipra Basu",
     "bengaliArtist": "Sipra Basu",
-    "type": "search",
+    "type": "video",
     "query": "Ogo Amar Agamani Alo Sipra Basu",
-    "youtubeId": "Ogo Amar Agamani Alo Sipra Basu",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Ogo%20Amar%20Agamani%20Alo%20Sipra%20Basu",
+    "directUrl": "https://www.youtube.com/results?search_query=Ogo%20Amar%20Agamani%20Alo%20Sipra%20Basu",
     "supportsShuffle": false
   },
   {
@@ -930,11 +930,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Raai Jago Go",
     "artist": "Pousali Banerjee",
     "bengaliArtist": "Pousali Banerjee",
-    "type": "search",
+    "type": "video",
     "query": "Raai Jago Go Pousali Banerjee",
-    "youtubeId": "Raai Jago Go Pousali Banerjee",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Raai%20Jago%20Go%20Pousali%20Banerjee",
+    "directUrl": "https://www.youtube.com/results?search_query=Raai%20Jago%20Go%20Pousali%20Banerjee",
     "supportsShuffle": false
   },
   {
@@ -944,11 +944,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Rupang Dehi",
     "artist": "Snita Pramanik Ghosh",
     "bengaliArtist": "Snita Pramanik Ghosh",
-    "type": "search",
+    "type": "video",
     "query": "Rupang Dehi Snita Pramanik Ghosh",
-    "youtubeId": "Rupang Dehi Snita Pramanik Ghosh",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Rupang%20Dehi%20Snita%20Pramanik%20Ghosh",
+    "directUrl": "https://www.youtube.com/results?search_query=Rupang%20Dehi%20Snita%20Pramanik%20Ghosh",
     "supportsShuffle": false
   },
   {
@@ -958,11 +958,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Ogo Amar Agomoni Alo",
     "artist": "Samadrita Ghosh",
     "bengaliArtist": "Samadrita Ghosh",
-    "type": "search",
+    "type": "video",
     "query": "Ogo Amar Agomoni Alo Samadrita Ghosh",
-    "youtubeId": "Ogo Amar Agomoni Alo Samadrita Ghosh",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Ogo%20Amar%20Agomoni%20Alo%20Samadrita%20Ghosh",
+    "directUrl": "https://www.youtube.com/results?search_query=Ogo%20Amar%20Agomoni%20Alo%20Samadrita%20Ghosh",
     "supportsShuffle": false
   },
   {
@@ -972,11 +972,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Durge Durge Durgatinashini",
     "artist": "Asha Bhosle Bou Katha Kao",
     "bengaliArtist": "Asha Bhosle Bou Katha Kao",
-    "type": "search",
+    "type": "video",
     "query": "Durge Durge Durgatinashini Asha Bhosle Bou Katha Kao",
-    "youtubeId": "Durge Durge Durgatinashini Asha Bhosle Bou Katha Kao",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Durge%20Durge%20Durgatinashini%20Asha%20Bhosle%20Bou%20Katha%20Kao",
+    "directUrl": "https://www.youtube.com/results?search_query=Durge%20Durge%20Durgatinashini%20Asha%20Bhosle%20Bou%20Katha%20Kao",
     "supportsShuffle": false
   },
   {
@@ -986,11 +986,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Agomonir Gaan",
     "artist": "Anupam Roy Oriplast Originals",
     "bengaliArtist": "Anupam Roy Oriplast Originals",
-    "type": "search",
+    "type": "video",
     "query": "Agomonir Gaan Anupam Roy Oriplast Originals",
-    "youtubeId": "Agomonir Gaan Anupam Roy Oriplast Originals",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Agomonir%20Gaan%20Anupam%20Roy%20Oriplast%20Originals",
+    "directUrl": "https://www.youtube.com/results?search_query=Agomonir%20Gaan%20Anupam%20Roy%20Oriplast%20Originals",
     "supportsShuffle": false
   },
   {
@@ -1000,11 +1000,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Saajan Rock the Dotara",
     "artist": "Timir Biswas Iman Chakraborty Durga Sohay",
     "bengaliArtist": "Timir Biswas Iman Chakraborty Durga Sohay",
-    "type": "search",
+    "type": "video",
     "query": "Saajan Rock the Dotara Timir Biswas Iman Chakraborty Durga Sohay",
-    "youtubeId": "Saajan Rock the Dotara Timir Biswas Iman Chakraborty Durga Sohay",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Saajan%20Rock%20the%20Dotara%20Timir%20Biswas%20Iman%20Chakraborty%20Durga%20Sohay",
+    "directUrl": "https://www.youtube.com/results?search_query=Saajan%20Rock%20the%20Dotara%20Timir%20Biswas%20Iman%20Chakraborty%20Durga%20Sohay",
     "supportsShuffle": false
   },
   {
@@ -1014,11 +1014,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Pujar Gaan",
     "artist": "Hooligaanism Anirban Bhattacharya",
     "bengaliArtist": "Hooligaanism Anirban Bhattacharya",
-    "type": "search",
+    "type": "video",
     "query": "Pujar Gaan Hooligaanism Anirban Bhattacharya",
-    "youtubeId": "Pujar Gaan Hooligaanism Anirban Bhattacharya",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Pujar%20Gaan%20Hooligaanism%20Anirban%20Bhattacharya",
+    "directUrl": "https://www.youtube.com/results?search_query=Pujar%20Gaan%20Hooligaanism%20Anirban%20Bhattacharya",
     "supportsShuffle": false
   },
   {
@@ -1028,11 +1028,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Asatoma Sadgamaya",
     "artist": "Arijit Singh Khaad",
     "bengaliArtist": "Arijit Singh Khaad",
-    "type": "search",
+    "type": "video",
     "query": "Asatoma Sadgamaya Arijit Singh Khaad",
-    "youtubeId": "Asatoma Sadgamaya Arijit Singh Khaad",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Asatoma%20Sadgamaya%20Arijit%20Singh%20Khaad",
+    "directUrl": "https://www.youtube.com/results?search_query=Asatoma%20Sadgamaya%20Arijit%20Singh%20Khaad",
     "supportsShuffle": false
   },
   {
@@ -1042,11 +1042,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Gouri Elo",
     "artist": "Aritra dasgupta",
     "bengaliArtist": "Aritra dasgupta",
-    "type": "search",
+    "type": "video",
     "query": "Gouri Elo Aritra dasgupta",
-    "youtubeId": "Gouri Elo Aritra dasgupta",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Gouri%20Elo%20Aritra%20dasgupta",
+    "directUrl": "https://www.youtube.com/results?search_query=Gouri%20Elo%20Aritra%20dasgupta",
     "supportsShuffle": false
   },
   {
@@ -1056,11 +1056,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Doob De Re Mon",
     "artist": "Nirmalya Roy Abir Chatterjee",
     "bengaliArtist": "Nirmalya Roy Abir Chatterjee",
-    "type": "search",
+    "type": "video",
     "query": "Doob De Re Mon Nirmalya Roy Abir Chatterjee",
-    "youtubeId": "Doob De Re Mon Nirmalya Roy Abir Chatterjee",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Doob%20De%20Re%20Mon%20Nirmalya%20Roy%20Abir%20Chatterjee",
+    "directUrl": "https://www.youtube.com/results?search_query=Doob%20De%20Re%20Mon%20Nirmalya%20Roy%20Abir%20Chatterjee",
     "supportsShuffle": false
   },
   {
@@ -1070,11 +1070,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Apur Paayer Chhaap",
     "artist": "Arijit Singh Apur Panchali",
     "bengaliArtist": "Arijit Singh Apur Panchali",
-    "type": "search",
+    "type": "video",
     "query": "Apur Paayer Chhaap Arijit Singh Apur Panchali",
-    "youtubeId": "Apur Paayer Chhaap Arijit Singh Apur Panchali",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Apur%20Paayer%20Chhaap%20Arijit%20Singh%20Apur%20Panchali",
+    "directUrl": "https://www.youtube.com/results?search_query=Apur%20Paayer%20Chhaap%20Arijit%20Singh%20Apur%20Panchali",
     "supportsShuffle": false
   },
   {
@@ -1084,11 +1084,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Esho Hey",
     "artist": "Shreya Ghoshal Ishan Mitra Ek Je Chhilo Raja",
     "bengaliArtist": "Shreya Ghoshal Ishan Mitra Ek Je Chhilo Raja",
-    "type": "search",
+    "type": "video",
     "query": "Esho Hey Shreya Ghoshal Ishan Mitra Ek Je Chhilo Raja",
-    "youtubeId": "Esho Hey Shreya Ghoshal Ishan Mitra Ek Je Chhilo Raja",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Esho%20Hey%20Shreya%20Ghoshal%20Ishan%20Mitra%20Ek%20Je%20Chhilo%20Raja",
+    "directUrl": "https://www.youtube.com/results?search_query=Esho%20Hey%20Shreya%20Ghoshal%20Ishan%20Mitra%20Ek%20Je%20Chhilo%20Raja",
     "supportsShuffle": false
   },
   {
@@ -1098,11 +1098,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Laage Ura Dhura",
     "artist": "Pritom Hasan Debosrie Antara Toofan",
     "bengaliArtist": "Pritom Hasan Debosrie Antara Toofan",
-    "type": "search",
+    "type": "video",
     "query": "Laage Ura Dhura Pritom Hasan Debosrie Antara Toofan",
-    "youtubeId": "Laage Ura Dhura Pritom Hasan Debosrie Antara Toofan",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Laage%20Ura%20Dhura%20Pritom%20Hasan%20Debosrie%20Antara%20Toofan",
+    "directUrl": "https://www.youtube.com/results?search_query=Laage%20Ura%20Dhura%20Pritom%20Hasan%20Debosrie%20Antara%20Toofan",
     "supportsShuffle": false
   },
   {
@@ -1112,11 +1112,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Bholey Baba",
     "artist": "Badshah Nikhita Gandhi",
     "bengaliArtist": "Badshah Nikhita Gandhi",
-    "type": "search",
+    "type": "video",
     "query": "Bholey Baba Badshah Nikhita Gandhi",
-    "youtubeId": "Bholey Baba Badshah Nikhita Gandhi",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Bholey%20Baba%20Badshah%20Nikhita%20Gandhi",
+    "directUrl": "https://www.youtube.com/results?search_query=Bholey%20Baba%20Badshah%20Nikhita%20Gandhi",
     "supportsShuffle": false
   },
   {
@@ -1126,11 +1126,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Dushtu Kokil",
     "artist": "Kona Akassh Toofan",
     "bengaliArtist": "Kona Akassh Toofan",
-    "type": "search",
+    "type": "video",
     "query": "Dushtu Kokil Kona Akassh Toofan",
-    "youtubeId": "Dushtu Kokil Kona Akassh Toofan",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Dushtu%20Kokil%20Kona%20Akassh%20Toofan",
+    "directUrl": "https://www.youtube.com/results?search_query=Dushtu%20Kokil%20Kona%20Akassh%20Toofan",
     "supportsShuffle": false
   },
   {
@@ -1140,11 +1140,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Mala Re",
     "artist": "Jeet Gannguli Romeo",
     "bengaliArtist": "Jeet Gannguli Romeo",
-    "type": "search",
+    "type": "video",
     "query": "Mala Re Jeet Gannguli Romeo",
-    "youtubeId": "Mala Re Jeet Gannguli Romeo",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Mala%20Re%20Jeet%20Gannguli%20Romeo",
+    "directUrl": "https://www.youtube.com/results?search_query=Mala%20Re%20Jeet%20Gannguli%20Romeo",
     "supportsShuffle": false
   },
   {
@@ -1154,11 +1154,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Koka Kola",
     "artist": "Samidh Mukherjee Kalpona Patoary",
     "bengaliArtist": "Samidh Mukherjee Kalpona Patoary",
-    "type": "search",
+    "type": "video",
     "query": "Koka Kola Samidh Mukherjee Kalpona Patoary",
-    "youtubeId": "Koka Kola Samidh Mukherjee Kalpona Patoary",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Koka%20Kola%20Samidh%20Mukherjee%20Kalpona%20Patoary",
+    "directUrl": "https://www.youtube.com/results?search_query=Koka%20Kola%20Samidh%20Mukherjee%20Kalpona%20Patoary",
     "supportsShuffle": false
   },
   {
@@ -1168,11 +1168,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Michhrir Dana",
     "artist": "Shreya Ghoshal Jeet Gannguli Bibaho Obhijaan",
     "bengaliArtist": "Shreya Ghoshal Jeet Gannguli Bibaho Obhijaan",
-    "type": "search",
+    "type": "video",
     "query": "Michhrir Dana Shreya Ghoshal Jeet Gannguli Bibaho Obhijaan",
-    "youtubeId": "Michhrir Dana Shreya Ghoshal Jeet Gannguli Bibaho Obhijaan",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Michhrir%20Dana%20Shreya%20Ghoshal%20Jeet%20Gannguli%20Bibaho%20Obhijaan",
+    "directUrl": "https://www.youtube.com/results?search_query=Michhrir%20Dana%20Shreya%20Ghoshal%20Jeet%20Gannguli%20Bibaho%20Obhijaan",
     "supportsShuffle": false
   },
   {
@@ -1182,11 +1182,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Desi Chhori",
     "artist": "Satrujit Sen Neha Kakkar Yoddha",
     "bengaliArtist": "Satrujit Sen Neha Kakkar Yoddha",
-    "type": "search",
+    "type": "video",
     "query": "Desi Chhori Satrujit Sen Neha Kakkar Yoddha",
-    "youtubeId": "Desi Chhori Satrujit Sen Neha Kakkar Yoddha",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Desi%20Chhori%20Satrujit%20Sen%20Neha%20Kakkar%20Yoddha",
+    "directUrl": "https://www.youtube.com/results?search_query=Desi%20Chhori%20Satrujit%20Sen%20Neha%20Kakkar%20Yoddha",
     "supportsShuffle": false
   },
   {
@@ -1196,11 +1196,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Party Shoes",
     "artist": "Shadaab Hashmi Neha Kakkar Bindaas",
     "bengaliArtist": "Shadaab Hashmi Neha Kakkar Bindaas",
-    "type": "search",
+    "type": "video",
     "query": "Party Shoes Shadaab Hashmi Neha Kakkar Bindaas",
-    "youtubeId": "Party Shoes Shadaab Hashmi Neha Kakkar Bindaas",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Party%20Shoes%20Shadaab%20Hashmi%20Neha%20Kakkar%20Bindaas",
+    "directUrl": "https://www.youtube.com/results?search_query=Party%20Shoes%20Shadaab%20Hashmi%20Neha%20Kakkar%20Bindaas",
     "supportsShuffle": false
   },
   {
@@ -1210,11 +1210,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Bujhina Toh Tai",
     "artist": "Nusraat Faria Mumzy Stranger",
     "bengaliArtist": "Nusraat Faria Mumzy Stranger",
-    "type": "search",
+    "type": "video",
     "query": "Bujhina Toh Tai Nusraat Faria Mumzy Stranger",
-    "youtubeId": "Bujhina Toh Tai Nusraat Faria Mumzy Stranger",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Bujhina%20Toh%20Tai%20Nusraat%20Faria%20Mumzy%20Stranger",
+    "directUrl": "https://www.youtube.com/results?search_query=Bujhina%20Toh%20Tai%20Nusraat%20Faria%20Mumzy%20Stranger",
     "supportsShuffle": false
   },
   {
@@ -1224,11 +1224,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Lady Killer Romeo",
     "artist": "Jeet Gannguli Romeo",
     "bengaliArtist": "Jeet Gannguli Romeo",
-    "type": "search",
+    "type": "video",
     "query": "Lady Killer Romeo Jeet Gannguli Romeo",
-    "youtubeId": "Lady Killer Romeo Jeet Gannguli Romeo",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Lady%20Killer%20Romeo%20Jeet%20Gannguli%20Romeo",
+    "directUrl": "https://www.youtube.com/results?search_query=Lady%20Killer%20Romeo%20Jeet%20Gannguli%20Romeo",
     "supportsShuffle": false
   },
   {
@@ -1238,11 +1238,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Police Chorer Preme Porechhe",
     "artist": "Jeet Gannguli Abhijeet Akriti Kakar Challenge 2",
     "bengaliArtist": "Jeet Gannguli Abhijeet Akriti Kakar Challenge 2",
-    "type": "search",
+    "type": "video",
     "query": "Police Chorer Preme Porechhe Jeet Gannguli Abhijeet Akriti Kakar Challenge 2",
-    "youtubeId": "Police Chorer Preme Porechhe Jeet Gannguli Abhijeet Akriti Kakar Challenge 2",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Police%20Chorer%20Preme%20Porechhe%20Jeet%20Gannguli%20Abhijeet%20Akriti%20Kakar%20Challenge%202",
+    "directUrl": "https://www.youtube.com/results?search_query=Police%20Chorer%20Preme%20Porechhe%20Jeet%20Gannguli%20Abhijeet%20Akriti%20Kakar%20Challenge%202",
     "supportsShuffle": false
   },
   {
@@ -1252,11 +1252,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Baundule Ghuri",
     "artist": "Anupam Roy Arijit Singh Shreya Ghoshal Dawshom Awbotaar",
     "bengaliArtist": "Anupam Roy Arijit Singh Shreya Ghoshal Dawshom Awbotaar",
-    "type": "search",
+    "type": "video",
     "query": "Baundule Ghuri Anupam Roy Arijit Singh Shreya Ghoshal Dawshom Awbotaar",
-    "youtubeId": "Baundule Ghuri Anupam Roy Arijit Singh Shreya Ghoshal Dawshom Awbotaar",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Baundule%20Ghuri%20Anupam%20Roy%20Arijit%20Singh%20Shreya%20Ghoshal%20Dawshom%20Awbotaar",
+    "directUrl": "https://www.youtube.com/results?search_query=Baundule%20Ghuri%20Anupam%20Roy%20Arijit%20Singh%20Shreya%20Ghoshal%20Dawshom%20Awbotaar",
     "supportsShuffle": false
   },
   {
@@ -1266,11 +1266,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Tumi Jantei Paro Naa",
     "artist": "Mahtim Shakib Cheeni 2",
     "bengaliArtist": "Mahtim Shakib Cheeni 2",
-    "type": "search",
+    "type": "video",
     "query": "Tumi Jantei Paro Naa Mahtim Shakib Cheeni 2",
-    "youtubeId": "Tumi Jantei Paro Naa Mahtim Shakib Cheeni 2",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Tumi%20Jantei%20Paro%20Naa%20Mahtim%20Shakib%20Cheeni%202",
+    "directUrl": "https://www.youtube.com/results?search_query=Tumi%20Jantei%20Paro%20Naa%20Mahtim%20Shakib%20Cheeni%202",
     "supportsShuffle": false
   },
   {
@@ -1280,11 +1280,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Taakey Olpo Kachhe Dakchhi",
     "artist": "Mahtim Shakib Prem Tame",
     "bengaliArtist": "Mahtim Shakib Prem Tame",
-    "type": "search",
+    "type": "video",
     "query": "Taakey Olpo Kachhe Dakchhi Mahtim Shakib Prem Tame",
-    "youtubeId": "Taakey Olpo Kachhe Dakchhi Mahtim Shakib Prem Tame",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Taakey%20Olpo%20Kachhe%20Dakchhi%20Mahtim%20Shakib%20Prem%20Tame",
+    "directUrl": "https://www.youtube.com/results?search_query=Taakey%20Olpo%20Kachhe%20Dakchhi%20Mahtim%20Shakib%20Prem%20Tame",
     "supportsShuffle": false
   },
   {
@@ -1294,11 +1294,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Egiye De",
     "artist": "Arijit Singh Madhubanti Bagchi Arindom",
     "bengaliArtist": "Arijit Singh Madhubanti Bagchi Arindom",
-    "type": "search",
+    "type": "video",
     "query": "Egiye De Arijit Singh Madhubanti Bagchi Arindom",
-    "youtubeId": "Egiye De Arijit Singh Madhubanti Bagchi Arindom",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Egiye%20De%20Arijit%20Singh%20Madhubanti%20Bagchi%20Arindom",
+    "directUrl": "https://www.youtube.com/results?search_query=Egiye%20De%20Arijit%20Singh%20Madhubanti%20Bagchi%20Arindom",
     "supportsShuffle": false
   },
   {
@@ -1308,11 +1308,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Shudhu Tomari Jonyo Theme",
     "artist": "Arijit Singh Shreya Ghoshal",
     "bengaliArtist": "Arijit Singh Shreya Ghoshal",
-    "type": "search",
+    "type": "video",
     "query": "Shudhu Tomari Jonyo Theme Arijit Singh Shreya Ghoshal",
-    "youtubeId": "Shudhu Tomari Jonyo Theme Arijit Singh Shreya Ghoshal",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Shudhu%20Tomari%20Jonyo%20Theme%20Arijit%20Singh%20Shreya%20Ghoshal",
+    "directUrl": "https://www.youtube.com/results?search_query=Shudhu%20Tomari%20Jonyo%20Theme%20Arijit%20Singh%20Shreya%20Ghoshal",
     "supportsShuffle": false
   },
   {
@@ -1322,11 +1322,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Amake Nao",
     "artist": "Debayan Banerjee Srikanto",
     "bengaliArtist": "Debayan Banerjee Srikanto",
-    "type": "search",
+    "type": "video",
     "query": "Amake Nao Debayan Banerjee Srikanto",
-    "youtubeId": "Amake Nao Debayan Banerjee Srikanto",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Amake%20Nao%20Debayan%20Banerjee%20Srikanto",
+    "directUrl": "https://www.youtube.com/results?search_query=Amake%20Nao%20Debayan%20Banerjee%20Srikanto",
     "supportsShuffle": false
   },
   {
@@ -1336,11 +1336,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Sajani",
     "artist": "Nilayan Chatterjee Dilkhush",
     "bengaliArtist": "Nilayan Chatterjee Dilkhush",
-    "type": "search",
+    "type": "video",
     "query": "Sajani Nilayan Chatterjee Dilkhush",
-    "youtubeId": "Sajani Nilayan Chatterjee Dilkhush",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Sajani%20Nilayan%20Chatterjee%20Dilkhush",
+    "directUrl": "https://www.youtube.com/results?search_query=Sajani%20Nilayan%20Chatterjee%20Dilkhush",
     "supportsShuffle": false
   },
   {
@@ -1350,11 +1350,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Pheshey Jaai",
     "artist": "Habib Wahid Shithi Saha Arafat Mohsin Toofan",
     "bengaliArtist": "Habib Wahid Shithi Saha Arafat Mohsin Toofan",
-    "type": "search",
+    "type": "video",
     "query": "Pheshey Jaai Habib Wahid Shithi Saha Arafat Mohsin Toofan",
-    "youtubeId": "Pheshey Jaai Habib Wahid Shithi Saha Arafat Mohsin Toofan",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Pheshey%20Jaai%20Habib%20Wahid%20Shithi%20Saha%20Arafat%20Mohsin%20Toofan",
+    "directUrl": "https://www.youtube.com/results?search_query=Pheshey%20Jaai%20Habib%20Wahid%20Shithi%20Saha%20Arafat%20Mohsin%20Toofan",
     "supportsShuffle": false
   },
   {
@@ -1364,11 +1364,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Ure Geche",
     "artist": "Ash King Monali Thakur Parbona Ami Charte Toke",
     "bengaliArtist": "Ash King Monali Thakur Parbona Ami Charte Toke",
-    "type": "search",
+    "type": "video",
     "query": "Ure Geche Ash King Monali Thakur Parbona Ami Charte Toke",
-    "youtubeId": "Ure Geche Ash King Monali Thakur Parbona Ami Charte Toke",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Ure%20Geche%20Ash%20King%20Monali%20Thakur%20Parbona%20Ami%20Charte%20Toke",
+    "directUrl": "https://www.youtube.com/results?search_query=Ure%20Geche%20Ash%20King%20Monali%20Thakur%20Parbona%20Ami%20Charte%20Toke",
     "supportsShuffle": false
   },
   {
@@ -1378,11 +1378,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Aashona",
     "artist": "Arijit Singh Prashmita Paul Arindom Borbaad",
     "bengaliArtist": "Arijit Singh Prashmita Paul Arindom Borbaad",
-    "type": "search",
+    "type": "video",
     "query": "Aashona Arijit Singh Prashmita Paul Arindom Borbaad",
-    "youtubeId": "Aashona Arijit Singh Prashmita Paul Arindom Borbaad",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Aashona%20Arijit%20Singh%20Prashmita%20Paul%20Arindom%20Borbaad",
+    "directUrl": "https://www.youtube.com/results?search_query=Aashona%20Arijit%20Singh%20Prashmita%20Paul%20Arindom%20Borbaad",
     "supportsShuffle": false
   },
   {
@@ -1392,11 +1392,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Era Sukher Laagi",
     "artist": "Chorus Debojyoti Mishra Chokher Bali",
     "bengaliArtist": "Chorus Debojyoti Mishra Chokher Bali",
-    "type": "search",
+    "type": "video",
     "query": "Era Sukher Laagi Chorus Debojyoti Mishra Chokher Bali",
-    "youtubeId": "Era Sukher Laagi Chorus Debojyoti Mishra Chokher Bali",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Era%20Sukher%20Laagi%20Chorus%20Debojyoti%20Mishra%20Chokher%20Bali",
+    "directUrl": "https://www.youtube.com/results?search_query=Era%20Sukher%20Laagi%20Chorus%20Debojyoti%20Mishra%20Chokher%20Bali",
     "supportsShuffle": false
   },
   {
@@ -1406,11 +1406,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Tumi Aashe Paashe",
     "artist": "Nakash Aziz Monali Thakur Parbona Ami Charte Toke",
     "bengaliArtist": "Nakash Aziz Monali Thakur Parbona Ami Charte Toke",
-    "type": "search",
+    "type": "video",
     "query": "Tumi Aashe Paashe Nakash Aziz Monali Thakur Parbona Ami Charte Toke",
-    "youtubeId": "Tumi Aashe Paashe Nakash Aziz Monali Thakur Parbona Ami Charte Toke",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Tumi%20Aashe%20Paashe%20Nakash%20Aziz%20Monali%20Thakur%20Parbona%20Ami%20Charte%20Toke",
+    "directUrl": "https://www.youtube.com/results?search_query=Tumi%20Aashe%20Paashe%20Nakash%20Aziz%20Monali%20Thakur%20Parbona%20Ami%20Charte%20Toke",
     "supportsShuffle": false
   },
   {
@@ -1420,11 +1420,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Hey Shokha",
     "artist": "Somlata Acharyya Chowdhury Arindom",
     "bengaliArtist": "Somlata Acharyya Chowdhury Arindom",
-    "type": "search",
+    "type": "video",
     "query": "Hey Shokha Somlata Acharyya Chowdhury Arindom",
-    "youtubeId": "Hey Shokha Somlata Acharyya Chowdhury Arindom",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Hey%20Shokha%20Somlata%20Acharyya%20Chowdhury%20Arindom",
+    "directUrl": "https://www.youtube.com/results?search_query=Hey%20Shokha%20Somlata%20Acharyya%20Chowdhury%20Arindom",
     "supportsShuffle": false
   },
   {
@@ -1434,11 +1434,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Shaajo Shaajao",
     "artist": "Sahana Bajpaie Ballabhpurer Roopkotha",
     "bengaliArtist": "Sahana Bajpaie Ballabhpurer Roopkotha",
-    "type": "search",
+    "type": "video",
     "query": "Shaajo Shaajao Sahana Bajpaie Ballabhpurer Roopkotha",
-    "youtubeId": "Shaajo Shaajao Sahana Bajpaie Ballabhpurer Roopkotha",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Shaajo%20Shaajao%20Sahana%20Bajpaie%20Ballabhpurer%20Roopkotha",
+    "directUrl": "https://www.youtube.com/results?search_query=Shaajo%20Shaajao%20Sahana%20Bajpaie%20Ballabhpurer%20Roopkotha",
     "supportsShuffle": false
   },
   {
@@ -1448,11 +1448,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Notun Premer Gaan",
     "artist": "Debraj Bhattacharya Surangana Bandyopadhyay Ballabhpurer Roopkotha",
     "bengaliArtist": "Debraj Bhattacharya Surangana Bandyopadhyay Ballabhpurer Roopkotha",
-    "type": "search",
+    "type": "video",
     "query": "Notun Premer Gaan Debraj Bhattacharya Surangana Bandyopadhyay Ballabhpurer Roopkotha",
-    "youtubeId": "Notun Premer Gaan Debraj Bhattacharya Surangana Bandyopadhyay Ballabhpurer Roopkotha",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Notun%20Premer%20Gaan%20Debraj%20Bhattacharya%20Surangana%20Bandyopadhyay%20Ballabhpurer%20Roopkotha",
+    "directUrl": "https://www.youtube.com/results?search_query=Notun%20Premer%20Gaan%20Debraj%20Bhattacharya%20Surangana%20Bandyopadhyay%20Ballabhpurer%20Roopkotha",
     "supportsShuffle": false
   },
   {
@@ -1462,11 +1462,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Tumi Emni Emni Esho",
     "artist": "Sanchita Bhowmick Tamalika Golder Swadesh Misra Durgo Rawhoshyo",
     "bengaliArtist": "Sanchita Bhowmick Tamalika Golder Swadesh Misra Durgo Rawhoshyo",
-    "type": "search",
+    "type": "video",
     "query": "Tumi Emni Emni Esho Sanchita Bhowmick Tamalika Golder Swadesh Misra Durgo Rawhoshyo",
-    "youtubeId": "Tumi Emni Emni Esho Sanchita Bhowmick Tamalika Golder Swadesh Misra Durgo Rawhoshyo",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Tumi%20Emni%20Emni%20Esho%20Sanchita%20Bhowmick%20Tamalika%20Golder%20Swadesh%20Misra%20Durgo%20Rawhoshyo",
+    "directUrl": "https://www.youtube.com/results?search_query=Tumi%20Emni%20Emni%20Esho%20Sanchita%20Bhowmick%20Tamalika%20Golder%20Swadesh%20Misra%20Durgo%20Rawhoshyo",
     "supportsShuffle": false
   },
   {
@@ -1476,11 +1476,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Maa Go Tui",
     "artist": "Shovan Ganguly Durgapujor Gaan",
     "bengaliArtist": "Shovan Ganguly Durgapujor Gaan",
-    "type": "search",
+    "type": "video",
     "query": "Maa Go Tui Shovan Ganguly Durgapujor Gaan",
-    "youtubeId": "Maa Go Tui Shovan Ganguly Durgapujor Gaan",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Maa%20Go%20Tui%20Shovan%20Ganguly%20Durgapujor%20Gaan",
+    "directUrl": "https://www.youtube.com/results?search_query=Maa%20Go%20Tui%20Shovan%20Ganguly%20Durgapujor%20Gaan",
     "supportsShuffle": false
   },
   {
@@ -1490,11 +1490,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Khoka Babu",
     "artist": "Rishi Samidh Sedin Dekha Hoyechilo",
     "bengaliArtist": "Rishi Samidh Sedin Dekha Hoyechilo",
-    "type": "search",
+    "type": "video",
     "query": "Khoka Babu Rishi Samidh Sedin Dekha Hoyechilo",
-    "youtubeId": "Khoka Babu Rishi Samidh Sedin Dekha Hoyechilo",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Khoka%20Babu%20Rishi%20Samidh%20Sedin%20Dekha%20Hoyechilo",
+    "directUrl": "https://www.youtube.com/results?search_query=Khoka%20Babu%20Rishi%20Samidh%20Sedin%20Dekha%20Hoyechilo",
     "supportsShuffle": false
   },
   {
@@ -1504,11 +1504,11 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "Pyaar Ka Bukhaar",
     "artist": "Jeet Gannguli Suraj Jagan Challenge 2",
     "bengaliArtist": "Jeet Gannguli Suraj Jagan Challenge 2",
-    "type": "search",
+    "type": "video",
     "query": "Pyaar Ka Bukhaar Jeet Gannguli Suraj Jagan Challenge 2",
-    "youtubeId": "Pyaar Ka Bukhaar Jeet Gannguli Suraj Jagan Challenge 2",
+    "youtubeId": "oyBQywMMi24",
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
-    "directUrl": "https://music.youtube.com/search?q=Pyaar%20Ka%20Bukhaar%20Jeet%20Gannguli%20Suraj%20Jagan%20Challenge%202",
+    "directUrl": "https://www.youtube.com/results?search_query=Pyaar%20Ka%20Bukhaar%20Jeet%20Gannguli%20Suraj%20Jagan%20Challenge%202",
     "supportsShuffle": false
   },
   {
@@ -1544,9 +1544,9 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "bengaliTitle": "মহালয়া বিশেষ প্লেলিস্ট",
     "artist": "Mahalaya Songs & Chandi Path",
     "bengaliArtist": "মহালয়া ও আগমনী চণ্ডীপাঠ সংকলন",
-    "type": "playlist",
-    "youtubeId": "PLORF1mEtpAB8",
-    "thumbnailUrl": "https://img.youtube.com/vi/Oxs4vBNkqtM/maxresdefault.jpg",
+    "type": "video",
+    "youtubeId": "oyBQywMMi24",
+    "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://music.youtube.com/playlist?list=PLORF1mEtpAB8&si=fN_ZwGRhtL8MaOZC",
     "supportsShuffle": true
   }

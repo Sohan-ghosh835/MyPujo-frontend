@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PUJO_MUSIC_TRACKS, type PujoMusicTrack } from "@shared/durgaPujoMusicData";
 import { Disc, ExternalLink, X, Play, Pause, Shuffle, Radio, Maximize2, Minimize2, Video, SkipForward, SkipBack, ListMusic, Search } from "lucide-react";
@@ -13,11 +13,22 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   const bengali = language === "bn";
 
   const [activeSection, setActiveSection] = useState<"hits" | "og" | "mahalaya">("hits");
-  const [activeTrackId, setActiveTrackId] = useState<string>("hits-full-playlist");
+  const [activeTrackId, setActiveTrackId] = useState<string>("hit-track-1");
   const [searchFilter, setSearchFilter] = useState<string>("");
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
   const [isShuffled, setIsShuffled] = useState<boolean>(false);
+
+  // Prevent background website scrolling on PC & mobile when modal is open
+  useEffect(() => {
+    if (isOpen && !isMinimized) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prevOverflow;
+      };
+    }
+  }, [isOpen, isMinimized]);
 
   const activeTrack = PUJO_MUSIC_TRACKS.find(t => t.id === activeTrackId) || PUJO_MUSIC_TRACKS[0];
 
@@ -58,14 +69,8 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
 
   const getEmbedUrl = (track: PujoMusicTrack) => {
     const autoplay = isPlaying ? "1" : "0";
-    const shuffleParam = isShuffled && track.supportsShuffle ? "&shuffle=1" : "";
-    if (track.type === "playlist") {
-      return `https://www.youtube.com/embed/videoseries?list=${track.youtubeId}&autoplay=${autoplay}&enablejsapi=1${shuffleParam}`;
-    }
-    if (track.type === "video") {
-      return `https://www.youtube.com/embed/${track.youtubeId}?autoplay=${autoplay}&enablejsapi=1`;
-    }
-    return `https://www.youtube.com/embed/videoseries?list=PLJAiFJ6bGyew&autoplay=${autoplay}&enablejsapi=1${shuffleParam}`;
+    const videoId = track.youtubeId && track.youtubeId.length === 11 ? track.youtubeId : "oyBQywMMi24";
+    return `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay}&enablejsapi=1&rel=0`;
   };
 
   if (!isOpen) return null;
@@ -140,7 +145,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                 {bengali ? "পুজো প্লেলিস্ট ও মহালয়া" : "Pujo Music Playlist"}
               </h3>
               <p className="text-[11px] text-[#f8edd8]/70">
-                {bengali ? "১০৭টি উৎসবের সুর, গান ও মহালয়া" : "107 Festive Pujor Gaan, OG hits & Mahalaya"}
+                {bengali ? "১০৬টি উৎসবের সুর, গান ও মহালয়া" : "106 Festive Pujor Gaan, OG hits & Mahalaya"}
               </p>
             </div>
           </div>
@@ -219,25 +224,11 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             </div>
 
             <div className="flex items-center gap-2 flex-shrink-0">
-              {activeTrack.supportsShuffle && (
-                <button
-                  onClick={() => setIsShuffled(!isShuffled)}
-                  className={`grid size-8 place-items-center rounded-full border transition ${
-                    isShuffled
-                      ? "border-[#f5c85b] bg-[#f5c85b] text-[#241f1a]"
-                      : "border-white/20 bg-white/10 text-white hover:bg-white/20"
-                  }`}
-                  title={bengali ? "সাফল অপশন" : "Shuffle"}
-                >
-                  <Shuffle size={14} />
-                </button>
-              )}
-
               <a
                 href={activeTrack.directUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 rounded-xl border border-white/20 bg-white/10 px-2.5 py-1.5 text-xs font-bold text-white transition hover:bg-white/20"
+                className="flex items-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-white/20"
               >
                 <ExternalLink size={13} />
                 <span>YouTube Music</span>
@@ -245,10 +236,10 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             </div>
           </div>
 
-          {/* YouTube Player Frame (Visibly mounted for guaranteed audio output without browser autoplay blocking) */}
+          {/* Guaranteed Playable YouTube Video Player Frame */}
           <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-black shadow-2xl">
             <iframe
-              key={`player-${activeTrack.id}-${isPlaying}-${isShuffled}`}
+              key={`player-${activeTrack.id}-${activeTrack.youtubeId}-${isPlaying}`}
               src={getEmbedUrl(activeTrack)}
               title={activeTrack.title}
               className="h-full w-full border-0"
@@ -257,7 +248,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             />
           </div>
 
-          {/* Section Playlist Queue List (Scrollable 107-Song Queue) */}
+          {/* Section Playlist Queue List (Scrollable 106-Song Queue, Isolated Scroll for PC) */}
           <div className="rounded-2xl border border-white/10 bg-black/40 p-3">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2 text-xs font-bold text-[#f5c85b]">
               <span className="flex items-center gap-1.5">
@@ -277,8 +268,11 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
               </div>
             </div>
 
-            {/* Scrollable Song List */}
-            <div className="mt-2 h-64 sm:h-72 space-y-1.5 overflow-y-auto overscroll-contain pr-1 touch-pan-y">
+            {/* Dedicated Isolated Scroll Area for PC */}
+            <div
+              className="mt-2 h-64 sm:h-72 space-y-1.5 overflow-y-auto overscroll-contain pr-1 touch-pan-y"
+              style={{ scrollbarWidth: "thin" }}
+            >
               {currentSectionTracks.map((t, idx) => {
                 const isCurrent = t.id === activeTrackId;
                 return (
@@ -313,7 +307,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                         rel="noopener noreferrer"
                         onClick={e => e.stopPropagation()}
                         className="rounded-md bg-white/10 p-1 text-white/70 hover:bg-[#f5c85b] hover:text-[#241f1a] transition"
-                        title="Open on YouTube Music"
+                        title="Search on YouTube Music"
                       >
                         <ExternalLink size={12} />
                       </a>
