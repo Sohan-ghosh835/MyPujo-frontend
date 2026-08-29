@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Compass, Download, Heart, Map, Route, Sparkles } from "lucide-react";
+import { Compass, Download, Heart, Map, Route, Sparkles, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useEffect, useState, type ReactNode } from "react";
 
@@ -20,6 +20,7 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
   const bengali = language === "bn";
   const isTransparent = variant === "transparent";
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [canInstall, setCanInstall] = useState(false);
 
@@ -65,7 +66,7 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
       >
         <div className={cn(
           "mx-auto flex items-center justify-between",
-          isTransparent ? "h-20 w-full px-6 sm:px-10 lg:px-16 xl:px-20" : "max-w-7xl px-5 py-5 lg:px-10"
+          isTransparent ? "h-20 w-full px-6 sm:px-10 lg:px-16 xl:px-20" : "max-w-7xl px-5 py-4 lg:px-10"
         )}>
           <Link href="/" className="flex items-center gap-3">
             <img src="/dm.jpg" alt="PujoParikroma icon" className="size-10 rounded-full border border-[#f5c85b]/70 object-cover shadow-md" />
@@ -91,7 +92,8 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
             })}
           </nav>
 
-          <div className="flex items-center gap-3">
+          {/* Desktop Right Controls */}
+          <div className="hidden items-center gap-3 lg:flex">
             <button
               type="button"
               onClick={toggleLanguage}
@@ -100,7 +102,7 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
               {bengali ? "EN / English" : "বাংলা / BN"}
             </button>
 
-            <span className="hidden font-bengali text-xs text-white/75 sm:inline">কলকাতা · ১৪ ৩৩</span>
+            <span className="font-bengali text-xs text-white/75 sm:inline">কলকাতা · ১৪ ৩৩</span>
 
             <Link
               href="/my-puja"
@@ -110,7 +112,77 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
               <Heart size={16} />
             </Link>
           </div>
+
+          {/* Mobile Right Controls - Hamburger Menu Button */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(prev => !prev)}
+              className="grid size-11 place-items-center rounded-xl border border-white/20 bg-white/10 p-2 transition hover:bg-white/20 active:scale-95 shadow-md"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileMenuOpen ? (
+                <img src="/cross_icon.png" alt="Close menu" className="size-7 object-contain" />
+              ) : (
+                <img src="/hamburgur_icon.png" alt="Open menu" className="size-7 object-contain" />
+              )}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Dropdown Menu Drawer */}
+        {mobileMenuOpen && (
+          <div className="animate-in fade-in slide-in-from-top-2 duration-200 border-t border-white/15 bg-[#1e0f0f]/98 px-5 py-4 shadow-2xl backdrop-blur-2xl lg:hidden">
+            <div className="mx-auto max-w-md space-y-3">
+              <div className="flex items-center justify-between border-b border-white/15 pb-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#f5c85b]">
+                  {bengali ? "অপশন ও ভাষা" : "Options & Language"}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="grid size-8 place-items-center rounded-lg bg-white/10 p-1 text-white hover:bg-white/20"
+                  aria-label="Close menu"
+                >
+                  <img src="/cross_icon.png" alt="Close menu" className="size-5 object-contain" />
+                </button>
+              </div>
+
+              {/* Language Switcher Button */}
+              <div className="flex items-center justify-between rounded-xl border border-white/15 bg-white/10 p-3">
+                <span className="text-xs font-bold text-[#f8edd8]">
+                  {bengali ? "ভাষা পরিবর্তন করুন" : "Toggle Language"}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    toggleLanguage();
+                  }}
+                  className="rounded-full border border-[#f5c85b]/60 bg-[#f5c85b] px-4 py-1.5 text-xs font-extrabold text-[#241f1a] shadow transition active:scale-95"
+                >
+                  {bengali ? "EN / English" : "বাংলা / BN"}
+                </button>
+              </div>
+
+              {/* Amar Pujo Link */}
+              <Link
+                href="/my-puja"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between rounded-xl bg-[#f5c85b] p-3 font-bold text-[#241f1a] shadow-lg transition active:scale-98"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="grid size-7 place-items-center rounded-full bg-[#241f1a] text-[#f5c85b]">
+                    <Heart size={15} className="fill-current" />
+                  </div>
+                  <span className="text-sm font-extrabold">
+                    {bengali ? "আমার পুজো (সংরক্ষিত তালিকা)" : "Amar Pujo (Saved Pujas)"}
+                  </span>
+                </div>
+                <span className="text-xs font-bold">→</span>
+              </Link>
+            </div>
+          </div>
+        )}
       </header>
 
       <main className="site-main">{children}</main>
