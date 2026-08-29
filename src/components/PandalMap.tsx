@@ -4,7 +4,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { DURGA_PUJO_MAP_PANDALS, getCategoryColor, getCategoryLabel, type MapPandalCategory, type MapPandalItem } from "@shared/durgaPujoMapData";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ExternalLink, Navigation, Search, MapPin, Sparkles, Filter } from "lucide-react";
+import { ExternalLink, Navigation, Search, MapPin, Info } from "lucide-react";
 import { Link } from "wouter";
 
 function createPinSvg(color: string) {
@@ -142,7 +142,6 @@ export function PandalMap({ initialCategory = "all" }: { initialCategory?: strin
         >
           <MapViewController center={mapCenter} zoom={activePandal ? 15 : 12} />
 
-          {/* Leaflet Dark Filter Tile Layer */}
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             className="leaflet-dark-tiles"
@@ -158,36 +157,50 @@ export function PandalMap({ initialCategory = "all" }: { initialCategory?: strin
               }}
             >
               <Popup className="custom-pandal-popup">
-                <div className="p-1 min-w-[200px]">
-                  <div className="flex items-center gap-1.5">
-                    <span
-                      className="inline-block h-2.5 w-2.5 rounded-full"
-                      style={{ backgroundColor: getCategoryColor(pandal.cat) }}
-                    />
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#a56922]">
-                      {getCategoryLabel(pandal.cat, bengali)}
-                    </span>
+                <div className="p-1 min-w-[210px]">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-1.5">
+                      <span
+                        className="inline-block h-2.5 w-2.5 rounded-full"
+                        style={{ backgroundColor: getCategoryColor(pandal.cat) }}
+                      />
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#a56922]">
+                        {getCategoryLabel(pandal.cat, bengali)}
+                      </span>
+                    </div>
                   </div>
                   <h4 className="mt-1 font-display text-base font-bold text-[#4a2520]">{pandal.name}</h4>
                   <p className="mt-0.5 text-xs text-[#75594c]">{pandal.address}</p>
 
-                  <div className="mt-3 flex items-center gap-2 border-t border-[#e8cda2]/50 pt-2">
-                    <Link
-                      href={`/navigate/${pandal.id}`}
-                      className="inline-flex items-center gap-1 rounded-lg bg-[#8c1e21] px-2.5 py-1 text-xs font-bold text-white transition hover:bg-[#6f1719]"
-                    >
-                      <Navigation size={12} />
-                      {bengali ? "নেভিগেট" : "Navigate"}
-                    </Link>
-                    <a
-                      href={`https://www.google.com/maps/dir/?api=1&destination=${pandal.lat},${pandal.lng}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 rounded-lg border border-[#8c1e21]/40 px-2.5 py-1 text-xs font-bold text-[#8c1e21] transition hover:bg-[#8c1e21]/10"
-                    >
-                      <ExternalLink size={12} />
-                      Google Maps
-                    </a>
+                  <div className="mt-3 flex flex-wrap items-center gap-2 border-t border-[#e8cda2]/50 pt-2">
+                    {pandal.websitePandalId ? (
+                      <>
+                        <Link
+                          href={`/navigate/${pandal.websitePandalId}`}
+                          className="inline-flex items-center gap-1 rounded-lg bg-[#8c1e21] px-2.5 py-1 text-xs font-bold text-white transition hover:bg-[#6f1719]"
+                        >
+                          <Navigation size={12} />
+                          {bengali ? "নেভিগেট" : "Navigate"}
+                        </Link>
+                        <Link
+                          href={`/pandals/${pandal.websitePandalId}`}
+                          className="inline-flex items-center gap-1 rounded-lg border border-[#8c1e21]/40 px-2.5 py-1 text-xs font-bold text-[#8c1e21] transition hover:bg-[#8c1e21]/10"
+                        >
+                          <Info size={12} />
+                          {bengali ? "গাইড" : "Guide"}
+                        </Link>
+                      </>
+                    ) : (
+                      <a
+                        href={`https://www.google.com/maps/dir/?api=1&destination=${pandal.lat},${pandal.lng}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-lg bg-[#8c1e21] px-3 py-1.5 text-xs font-bold text-white shadow transition hover:bg-[#6f1719]"
+                      >
+                        <ExternalLink size={13} />
+                        {bengali ? "Google Maps-এ রুট দেখুন" : "Directions on Google Maps"}
+                      </a>
+                    )}
                   </div>
                 </div>
               </Popup>
@@ -195,7 +208,6 @@ export function PandalMap({ initialCategory = "all" }: { initialCategory?: strin
           ))}
         </MapContainer>
 
-        {/* Map Dark Styling Override */}
         <style>{`
           .leaflet-dark-tiles {
             filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.92) saturate(0.85);
@@ -211,7 +223,6 @@ export function PandalMap({ initialCategory = "all" }: { initialCategory?: strin
           }
         `}</style>
 
-        {/* Bottom Floating Stats Pill */}
         <div className="absolute bottom-4 left-4 z-[400] flex items-center gap-2 rounded-full border border-white/20 bg-[#17161e]/90 px-4 py-2 text-xs font-bold text-white shadow-xl backdrop-blur-md">
           <MapPin size={14} className="text-[#f5c85b]" />
           <span>
