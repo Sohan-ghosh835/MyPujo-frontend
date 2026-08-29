@@ -844,8 +844,8 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
   {
     "id": "og-single",
     "section": "og",
-    "title": "Durga Pujo OG (Dugga Elo)",
-    "bengaliTitle": "দুর্গাপুজো ওজি (দুগ্গা এলো)",
+    "title": "Durga Pujo OG Hits Collection",
+    "bengaliTitle": "দুর্গাপুজো ওজি ক্লাসিক কালেকশন",
     "artist": "Classic Evergreen Pujo Gaan",
     "bengaliArtist": "চিরসবুজ মেলোডি ও পুজো সুর",
     "type": "video",
@@ -853,7 +853,7 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "thumbnailUrl": "https://img.youtube.com/vi/oyBQywMMi24/hqdefault.jpg",
     "directUrl": "https://www.youtube.com/watch?v=oyBQywMMi24",
     "supportsShuffle": false,
-    "durationSeconds": 265
+    "durationSeconds": 2975
   },
   {
     "id": "mahalaya-original",
