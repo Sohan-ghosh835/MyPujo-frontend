@@ -18,11 +18,13 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [seekTime, setSeekTime] = useState<number | null>(null);
-  const [duration, setDuration] = useState<number>(210); // Default 3m 30s
   const [isMuted, setIsMuted] = useState<boolean>(false);
   const [volume, setVolume] = useState<number>(100);
   const [showVolumeSlider, setShowVolumeSlider] = useState<boolean>(false);
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
+
+  const activeTrack = PUJO_MUSIC_TRACKS.find(t => t.id === activeTrackId) || PUJO_MUSIC_TRACKS[0];
+  const [duration, setDuration] = useState<number>(activeTrack.durationSeconds || 210);
 
   // Lock background website scrolling when modal is open
   useEffect(() => {
@@ -35,7 +37,15 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     }
   }, [isOpen, isMinimized]);
 
-  // Smooth timeline timer without reloading iframe
+  // Update track duration and reset timeline when track changes
+  useEffect(() => {
+    setCurrentTime(0);
+    setSeekTime(null);
+    setIsPlaying(true);
+    setDuration(activeTrack.durationSeconds || 240);
+  }, [activeTrackId, activeTrack.durationSeconds]);
+
+  // Smooth timeline timer
   useEffect(() => {
     let timer: NodeJS.Timeout;
     if (isPlaying) {
@@ -51,15 +61,6 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     }
     return () => clearInterval(timer);
   }, [isPlaying, duration, activeTrackId]);
-
-  // Reset timeline state when track changes
-  useEffect(() => {
-    setCurrentTime(0);
-    setSeekTime(null);
-    setIsPlaying(true);
-  }, [activeTrackId]);
-
-  const activeTrack = PUJO_MUSIC_TRACKS.find(t => t.id === activeTrackId) || PUJO_MUSIC_TRACKS[0];
 
   const currentSectionTracks = PUJO_MUSIC_TRACKS.filter(t => {
     if (t.section !== activeSection) return false;
@@ -111,8 +112,12 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   };
 
   const formatTime = (secs: number) => {
-    const mins = Math.floor(secs / 60);
+    const hours = Math.floor(secs / 3600);
+    const mins = Math.floor((secs % 3600) / 60);
     const remainingSecs = Math.floor(secs % 60);
+    if (hours > 0) {
+      return `${hours}:${mins < 10 ? "0" : ""}${mins}:${remainingSecs < 10 ? "0" : ""}${remainingSecs}`;
+    }
     return `${mins}:${remainingSecs < 10 ? "0" : ""}${remainingSecs}`;
   };
 
@@ -426,6 +431,13 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             >
               {currentSectionTracks.map((t, idx) => {
                 const isCurrent = t.id === activeTrackId;
+                const formatTrackDuration = (secs?: number) => {
+                  if (!secs) return "3:30";
+                  const mins = Math.floor(secs / 60);
+                  const remaining = Math.floor(secs % 60);
+                  return `${mins}:${remaining < 10 ? "0" : ""}${remaining}`;
+                };
+
                 return (
                   <div
                     key={`${t.id}-${idx}`}
@@ -452,6 +464,9 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                       </div>
                     </div>
                     <div className="flex items-center gap-2 flex-shrink-0 ml-2">
+                      <span className="text-[10px] font-semibold text-white/40">
+                        {formatTrackDuration(t.durationSeconds)}
+                      </span>
                       <a
                         href={t.directUrl}
                         target="_blank"
