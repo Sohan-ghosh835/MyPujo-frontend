@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PUJO_MUSIC_TRACKS, type PujoMusicTrack } from "@shared/durgaPujoMusicData";
 import { ExternalLink, X, Radio, Maximize2, Minimize2, ListMusic, Search, SkipForward, SkipBack, Play, Pause, Volume2, VolumeX } from "lucide-react";
@@ -17,11 +17,10 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   const [searchFilter, setSearchFilter] = useState<string>("");
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [currentTime, setCurrentTime] = useState<number>(0);
+  const [seekTime, setSeekTime] = useState<number | null>(null);
   const [duration, setDuration] = useState<number>(210); // Default 3m 30s
   const [isMuted, setIsMuted] = useState<boolean>(false);
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
-
-  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   // Lock background website scrolling when modal is open
   useEffect(() => {
@@ -34,7 +33,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     }
   }, [isOpen, isMinimized]);
 
-  // Simulate playback timeline timer for pure audio UI
+  // Smooth timeline timer without reloading iframe
   useEffect(() => {
     let timer: NodeJS.Timeout;
     if (isPlaying) {
@@ -51,9 +50,10 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     return () => clearInterval(timer);
   }, [isPlaying, duration, activeTrackId]);
 
-  // Reset timer when track changes
+  // Reset timeline state when track changes
   useEffect(() => {
     setCurrentTime(0);
+    setSeekTime(null);
     setIsPlaying(true);
   }, [activeTrackId]);
 
@@ -96,6 +96,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
 
   const handleSeek = (newTime: number) => {
     setCurrentTime(newTime);
+    setSeekTime(newTime);
   };
 
   const formatTime = (secs: number) => {
@@ -104,10 +105,12 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     return `${mins}:${remainingSecs < 10 ? "0" : ""}${remainingSecs}`;
   };
 
+  // Pure continuous iframe URL without 1-second reload loop
   const getEmbedUrl = (track: PujoMusicTrack) => {
     const autoplay = isPlaying ? "1" : "0";
     const videoId = track.youtubeId || "xlElO06nQy8";
-    return `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay}&enablejsapi=1&rel=0&start=${currentTime}`;
+    const startParam = seekTime !== null ? `&start=${seekTime}` : "";
+    return `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay}&enablejsapi=1&rel=0${startParam}`;
   };
 
   if (!isOpen) return null;
@@ -154,9 +157,9 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
           </button>
         </div>
 
-        {/* Offscreen Audio Stream Player */}
+        {/* Offscreen Continuous Audio Stream Player */}
         <iframe
-          key={`min-${activeTrack.id}-${isPlaying}`}
+          key={`min-${activeTrack.id}-${isPlaying}-${seekTime}`}
           src={getEmbedUrl(activeTrack)}
           title="Audio Stream"
           className="absolute opacity-0 pointer-events-none -z-50 w-1 h-1 overflow-hidden"
@@ -340,9 +343,9 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             </div>
           </div>
 
-          {/* Offscreen Audio Stream Engine (No Video Frame Displayed Anywhere) */}
+          {/* Offscreen Audio Stream Engine (Persisted without 1s re-mount loop) */}
           <iframe
-            key={`audio-engine-${activeTrack.id}-${isPlaying}-${isMuted}`}
+            key={`audio-engine-${activeTrack.id}-${isPlaying}-${seekTime}`}
             src={getEmbedUrl(activeTrack)}
             title="Audio Stream Engine"
             className="absolute opacity-0 pointer-events-none -z-50 w-1 h-1 overflow-hidden"
