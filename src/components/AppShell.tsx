@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Compass, Download, Heart, Map, Route, Sparkles, X } from "lucide-react";
+import { Compass, Disc, Download, Heart, Map, Music, Route, Sparkles, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useEffect, useState, type ReactNode } from "react";
+import { PujoMusicPlayer } from "@/components/PujoMusicPlayer";
 
 const links = [
   { href: "/", label: "Home", bengaliLabel: "হোম", icon: Compass },
@@ -21,6 +22,7 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
   const isTransparent = variant === "transparent";
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMusicPlayerOpen, setIsMusicPlayerOpen] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [canInstall, setCanInstall] = useState(false);
 
@@ -92,7 +94,7 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
             })}
           </nav>
 
-          {/* Desktop Right Controls */}
+          {/* Desktop Right Controls - Pujo Music Button */}
           <div className="hidden items-center gap-3 lg:flex">
             <button
               type="button"
@@ -104,13 +106,15 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
 
             <span className="font-bengali text-xs text-white/75 sm:inline">কলকাতা · ১৪ ৩৩</span>
 
-            <Link
-              href="/my-puja"
+            <button
+              type="button"
+              onClick={() => setIsMusicPlayerOpen(true)}
               className="grid size-10 place-items-center rounded-full bg-[#f5c85b] text-[#241f1a] shadow-md transition hover:scale-105"
-              aria-label="Saved pujas"
+              aria-label={bengali ? "পুজো প্লেলিস্ট ও মহালয়া" : "Pujo Music Playlist"}
+              title={bengali ? "পুজো গান ও মহালয়া" : "Pujo Music Playlist"}
             >
-              <Heart size={16} />
-            </Link>
+              <Disc size={20} className="animate-spin" style={{ animationDuration: "9s" }} />
+            </button>
           </div>
 
           {/* Mobile Right Controls - Hamburger Menu Button */}
@@ -136,7 +140,7 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
             <div className="mx-auto max-w-md space-y-3">
               <div className="flex items-center justify-between border-b border-white/15 pb-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#f5c85b]">
-                  {bengali ? "অপশন ও ভাষা" : "Options & Language"}
+                  {bengali ? "অপশন ও মিউজিক" : "Options & Music"}
                 </span>
               </div>
 
@@ -156,22 +160,30 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
                 </button>
               </div>
 
-              {/* Amar Pujo Link */}
-              <Link
-                href="/my-puja"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between rounded-xl bg-[#f5c85b] p-3 font-bold text-[#241f1a] shadow-lg transition active:scale-98"
+              {/* Pujo Music Playlist Button */}
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMusicPlayerOpen(true);
+                  setMobileMenuOpen(false);
+                }}
+                className="flex w-full items-center justify-between rounded-xl bg-[#f5c85b] p-3 font-bold text-[#241f1a] shadow-lg transition active:scale-98"
               >
                 <div className="flex items-center gap-2.5">
-                  <div className="grid size-7 place-items-center rounded-full bg-[#241f1a] text-[#f5c85b]">
-                    <Heart size={15} className="fill-current" />
+                  <div className="grid size-8 place-items-center rounded-full bg-[#241f1a] text-[#f5c85b]">
+                    <Disc size={16} className="animate-spin" style={{ animationDuration: "8s" }} />
                   </div>
-                  <span className="text-sm font-extrabold">
-                    {bengali ? "আমার পুজো (সংরক্ষিত তালিকা)" : "Amar Pujo (Saved Pujas)"}
-                  </span>
+                  <div className="text-left">
+                    <span className="block text-sm font-extrabold">
+                      {bengali ? "পুজো প্লেলিস্ট ও মহালয়া" : "Pujo Music Playlist"}
+                    </span>
+                    <span className="text-[10px] font-semibold text-[#4a3a14]">
+                      {bengali ? "গান, মহালয়া চণ্ডীপাঠ ও হিটস" : "Hits, Classics & Mahalaya"}
+                    </span>
+                  </div>
                 </div>
-                <span className="text-xs font-bold">→</span>
-              </Link>
+                <span className="text-xs font-bold">♪</span>
+              </button>
             </div>
           </div>
         )}
@@ -224,6 +236,9 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
           })}
         </div>
       </nav>
+
+      {/* Interactive Pujo Music Player */}
+      <PujoMusicPlayer isOpen={isMusicPlayerOpen} onClose={() => setIsMusicPlayerOpen(false)} />
     </div>
   );
 }
