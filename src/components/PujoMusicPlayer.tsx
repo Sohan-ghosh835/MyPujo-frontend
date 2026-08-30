@@ -25,6 +25,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
 
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const volumeContainerRef = useRef<HTMLDivElement>(null);
   const playerReadyRef = useRef<boolean>(false);
   const hasStartedRef = useRef<boolean>(false);
 
@@ -38,6 +39,21 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
       setIsPlaying(true);
     }
   }, [isOpen]);
+
+  // Close volume popup when tapping/clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (volumeContainerRef.current && !volumeContainerRef.current.contains(e.target as Node)) {
+        setShowVolumeSlider(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, []);
 
   // ---- YouTube IFrame API postMessage helpers ----
   const sendCommand = useCallback((command: string, args?: unknown[]) => {
@@ -452,11 +468,18 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                     <SkipForward size={18} />
                   </button>
 
-                  {/* Working Interactive Volume & Mute Button */}
-                  <div className="relative">
+                  {/* Dual Hover (PC) & Click/Tap (Mobile) Volume & Mute Control */}
+                  <div
+                    ref={volumeContainerRef}
+                    className="relative"
+                    onMouseEnter={() => setShowVolumeSlider(true)}
+                    onMouseLeave={() => setShowVolumeSlider(false)}
+                  >
                     <button
-                      onClick={toggleMute}
-                      onMouseEnter={() => setShowVolumeSlider(true)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setShowVolumeSlider(prev => !prev);
+                      }}
                       className={`grid size-10 place-items-center rounded-full border transition ${
                         isMuted || volume === 0
                           ? "border-red-500 bg-red-500/20 text-red-400"
@@ -473,12 +496,19 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                       )}
                     </button>
 
-                    {/* Hover/Click Volume Slider Popup */}
+                    {/* Volume Slider Popup */}
                     {showVolumeSlider && (
                       <div
-                        onMouseLeave={() => setShowVolumeSlider(false)}
-                        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-xl border border-white/20 bg-black/90 px-3 py-2 shadow-2xl backdrop-blur animate-in fade-in zoom-in-95 duration-150 z-20"
+                        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-xl border border-white/20 bg-[#160a0a]/95 px-3 py-2.5 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150 z-30"
+                        onClick={e => e.stopPropagation()}
                       >
+                        <button
+                          onClick={toggleMute}
+                          className="text-[#f5c85b] hover:text-white transition p-0.5"
+                          title={isMuted ? "Unmute" : "Mute"}
+                        >
+                          {isMuted || volume === 0 ? <VolumeX size={14} /> : <Volume2 size={14} />}
+                        </button>
                         <input
                           type="range"
                           min="0"
@@ -488,9 +518,9 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                           style={{
                             background: `linear-gradient(to right, #f5c85b 0%, #f5c85b ${activeVolumePercent}%, rgba(255, 255, 255, 0.3) ${activeVolumePercent}%, rgba(255, 255, 255, 0.3) 100%)`,
                           }}
-                          className="h-1.5 w-20 cursor-pointer appearance-none rounded-lg accent-[#f5c85b] transition-all"
+                          className="h-1.5 w-24 cursor-pointer appearance-none rounded-lg accent-[#f5c85b] transition-all"
                         />
-                        <span className="text-[10px] font-bold text-[#f5c85b] w-6 text-right">
+                        <span className="text-[10px] font-bold text-[#f5c85b] w-7 text-right">
                           {isMuted ? "0%" : `${volume}%`}
                         </span>
                       </div>
