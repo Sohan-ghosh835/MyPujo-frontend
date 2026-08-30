@@ -225,6 +225,10 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   // Single permanent iframe key based ONLY on track ID and seek timestamp
   const embedKey = `pujo-audio-engine-${activeTrack.id}-${seekTime || 0}`;
 
+  // Spotify-style played progress percentage for two-tone timeline track
+  const progressPercent = duration > 0 ? Math.min(100, Math.max(0, (currentTime / duration) * 100)) : 0;
+  const activeVolumePercent = isMuted ? 0 : volume;
+
   return (
     <>
       {/* 1. SINGLE PERMANENT AUDIO ENGINE IFRAME - MOUNTED ONLY WHEN PLAYING */}
@@ -401,7 +405,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                   {bengali ? activeTrack.bengaliArtist : activeTrack.artist}
                 </p>
 
-                {/* Custom Interactive Timeline Slider Bar */}
+                {/* Spotify-style Two-Tone Interactive Timeline Slider Bar */}
                 <div className="w-full mt-5 px-2 space-y-1.5">
                   <input
                     type="range"
@@ -409,7 +413,10 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                     max={duration}
                     value={currentTime}
                     onChange={e => handleSeek(Number(e.target.value))}
-                    className="h-1.5 w-full cursor-pointer appearance-none rounded-lg bg-white/20 accent-[#f5c85b]"
+                    style={{
+                      background: `linear-gradient(to right, #f5c85b 0%, #f5c85b ${progressPercent}%, rgba(255, 255, 255, 0.2) ${progressPercent}%, rgba(255, 255, 255, 0.2) 100%)`,
+                    }}
+                    className="h-1.5 w-full cursor-pointer appearance-none rounded-lg accent-[#f5c85b] transition-all"
                   />
                   <div className="flex justify-between text-[11px] font-semibold text-white/60">
                     <span>{formatTime(currentTime)}</span>
@@ -478,7 +485,10 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                           max="100"
                           value={isMuted ? 0 : volume}
                           onChange={e => handleVolumeChange(Number(e.target.value))}
-                          className="h-1.5 w-20 cursor-pointer appearance-none rounded-lg bg-white/30 accent-[#f5c85b]"
+                          style={{
+                            background: `linear-gradient(to right, #f5c85b 0%, #f5c85b ${activeVolumePercent}%, rgba(255, 255, 255, 0.3) ${activeVolumePercent}%, rgba(255, 255, 255, 0.3) 100%)`,
+                          }}
+                          className="h-1.5 w-20 cursor-pointer appearance-none rounded-lg accent-[#f5c85b] transition-all"
                         />
                         <span className="text-[10px] font-bold text-[#f5c85b] w-6 text-right">
                           {isMuted ? "0%" : `${volume}%`}
