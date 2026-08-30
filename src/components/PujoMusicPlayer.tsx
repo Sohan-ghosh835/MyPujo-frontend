@@ -194,28 +194,26 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     return `${mins}:${remainingSecs < 10 ? "0" : ""}${remainingSecs}`;
   };
 
-  // Embed URL generator
+  // Clean Embed URL generator without invalid query params
   const getEmbedUrl = (track: PujoMusicTrack) => {
-    const autoplay = isPlaying ? "1" : "0";
     const videoId = track.youtubeId || "xlElO06nQy8";
-    const startParam = seekTime !== null ? `&start=${seekTime}` : "";
-    const vol = isMuted ? 0 : volume;
-    return `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay}&enablejsapi=1&rel=0&origin=${encodeURIComponent(window.location.origin)}${startParam}&volume=${vol}`;
+    const startParam = seekTime ? `&start=${seekTime}` : "";
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1&rel=0${startParam}`;
   };
 
-  // Single permanent iframe key based ONLY on track ID and manual seek timestamp
-  const embedKey = `pujo-audio-engine-${activeTrack.id}-${seekTime}`;
+  // Single permanent iframe key based ONLY on track ID and seek timestamp
+  const embedKey = `pujo-audio-engine-${activeTrack.id}-${seekTime || 0}`;
 
   return (
     <>
-      {/* 1. SINGLE PERMANENT AUDIO ENGINE IFRAME - NEVER UNMOUNTS WHEN CLOSING MODAL */}
+      {/* 1. SINGLE PERMANENT AUDIO ENGINE IFRAME - NEVER UNMOUNTS WHEN TOGGLING UI */}
       {isPlaying && (
         <iframe
           ref={iframeRef}
           key={embedKey}
           src={getEmbedUrl(activeTrack)}
           title="Pujo Audio Engine"
-          className="fixed opacity-0 pointer-events-none -z-50 w-1 h-1 overflow-hidden"
+          className="fixed top-0 left-0 w-[1px] h-[1px] opacity-[0.01] pointer-events-none z-[-1]"
           allow="autoplay; encrypted-media; picture-in-picture"
           onLoad={() => {
             playerReadyRef.current = false;
@@ -228,7 +226,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
               } else {
                 sendCommand("unMute");
               }
-            }, 1500);
+            }, 1000);
           }}
         />
       )}
@@ -524,6 +522,8 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                         key={`${t.id}-${idx}`}
                         onClick={() => {
                           setActiveTrackId(t.id);
+                          setCurrentTime(0);
+                          setSeekTime(null);
                           setIsPlaying(true);
                         }}
                         className={`flex cursor-pointer items-center justify-between rounded-xl p-2 transition ${
