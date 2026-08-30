@@ -372,8 +372,8 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
               </button>
             </div>
 
-            {/* Player Body Container */}
-            <div className="p-4 sm:p-5 space-y-5 overflow-y-auto flex-1 overscroll-contain">
+            {/* Player Body Container with Custom Pujo Scrollbar */}
+            <div className="p-4 sm:p-5 space-y-5 overflow-y-auto flex-1 overscroll-contain pujo-scrollbar">
               
               {/* Pure Audio Card UI */}
               <div className="flex flex-col items-center justify-center rounded-3xl border border-[#f5c85b]/30 bg-gradient-to-b from-[#2e1214] to-[#1a0b0c] p-6 text-center shadow-2xl">
@@ -500,7 +500,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                 </div>
               </div>
 
-              {/* Section Playlist Queue List (Scrollable Song Queue, Isolated Scroll for PC) */}
+              {/* Section Playlist Queue List (Scrollable Song Queue with Custom Pujo Scrollbar) */}
               <div className="rounded-2xl border border-white/10 bg-black/40 p-3">
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2 text-xs font-bold text-[#f5c85b]">
                   <span className="flex items-center gap-1.5">
@@ -520,10 +520,10 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                   </div>
                 </div>
 
-                {/* Dedicated Isolated Scroll Area for PC */}
+                {/* Dedicated Custom Pujo Theme Scroll Area */}
                 <div
-                  className="mt-2 space-y-1 overflow-y-auto overscroll-contain pr-1 touch-pan-y"
-                  style={{ maxHeight: "min(45vh, 320px)", scrollbarWidth: "thin" }}
+                  className="mt-2 space-y-1 overflow-y-auto overscroll-contain pr-1.5 touch-pan-y pujo-scrollbar"
+                  style={{ maxHeight: "min(45vh, 320px)" }}
                   onWheel={e => e.stopPropagation()}
                 >
                   {currentSectionTracks.map((t, idx) => {
