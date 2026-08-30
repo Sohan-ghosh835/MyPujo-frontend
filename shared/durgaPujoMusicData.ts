@@ -1514,6 +1514,20 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "durationSeconds": 625
   },
   {
+    "id": "og-dhak-2",
+    "section": "og",
+    "title": "Pujor Dhaak & Sanai Theme",
+    "bengaliTitle": "পুজোর ঢাক ও সানাই থিম",
+    "artist": "Traditional Dhak & Sanai",
+    "bengaliArtist": "ঐতিহ্যবাহী ঢাক ও সানাই",
+    "type": "video",
+    "youtubeId": "uVTuUieyO7o",
+    "thumbnailUrl": "https://img.youtube.com/vi/uVTuUieyO7o/hqdefault.jpg",
+    "directUrl": "https://www.youtube.com/watch?v=uVTuUieyO7o",
+    "supportsShuffle": false,
+    "durationSeconds": 1005
+  },
+  {
     "id": "mahalaya-original",
     "section": "mahalaya",
     "title": "Mahishasuramardini Mahalaya (Full Audio)",
