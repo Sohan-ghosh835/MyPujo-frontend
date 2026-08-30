@@ -15,7 +15,8 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   const [activeSection, setActiveSection] = useState<"hits" | "og" | "mahalaya">("hits");
   const [activeTrackId, setActiveTrackId] = useState<string>("hit-song-1");
   const [searchFilter, setSearchFilter] = useState<string>("");
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isAudioStarted, setIsAudioStarted] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [seekTime, setSeekTime] = useState<number | null>(null);
   const [isMuted, setIsMuted] = useState<boolean>(false);
@@ -25,9 +26,18 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
 
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const playerReadyRef = useRef<boolean>(false);
+  const hasStartedRef = useRef<boolean>(false);
 
   const activeTrack = PUJO_MUSIC_TRACKS.find(t => t.id === activeTrackId) || PUJO_MUSIC_TRACKS[0];
   const [duration, setDuration] = useState<number>(activeTrack.durationSeconds || 210);
+
+  // Auto-start playback on first modal open (triggered by user gesture click)
+  useEffect(() => {
+    if (isOpen && !hasStartedRef.current) {
+      hasStartedRef.current = true;
+      setIsPlaying(true);
+    }
+  }, [isOpen]);
 
   // ---- YouTube IFrame API postMessage helpers ----
   const sendCommand = useCallback((command: string, args?: unknown[]) => {
@@ -53,7 +63,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     }
   }, [volume, isMuted, sendCommand]);
 
-  // Listen for YouTube player ready events via postMessage
+  // Listen for YouTube player ready and state events via postMessage
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       if (typeof event.data !== "string") return;
@@ -61,12 +71,19 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
         const data = JSON.parse(event.data);
         if (data.event === "onReady" || data.event === "initialDelivery") {
           playerReadyRef.current = true;
+          setIsAudioStarted(true);
           const effectiveVolume = isMuted ? 0 : volume;
           sendCommand("setVolume", [effectiveVolume]);
           if (isMuted || volume === 0) {
             sendCommand("mute");
           } else {
             sendCommand("unMute");
+          }
+        }
+        if (data.info && typeof data.info.playerState === "number") {
+          if (data.info.playerState === 1) { // 1 = PLAYING
+            playerReadyRef.current = true;
+            setIsAudioStarted(true);
           }
         }
       } catch {
@@ -103,6 +120,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
       setCurrentTime(0);
       setSeekTime(null);
       setIsPlaying(true);
+      setIsAudioStarted(false);
     }
   }, [currentSectionTracks, activeTrackId]);
 
@@ -114,6 +132,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
       setCurrentTime(0);
       setSeekTime(null);
       setIsPlaying(true);
+      setIsAudioStarted(false);
     }
   }, [currentSectionTracks, activeTrackId]);
 
@@ -121,14 +140,14 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   useEffect(() => {
     setCurrentTime(0);
     setSeekTime(null);
-    setIsPlaying(true);
+    setIsAudioStarted(false);
     setDuration(activeTrack.durationSeconds || 240);
     playerReadyRef.current = false;
   }, [activeTrackId, activeTrack.durationSeconds]);
 
-  // Smooth timeline timer with clean track end auto-advance
+  // Smooth timeline timer - only ticks when audio is actively playing
   useEffect(() => {
-    if (!isPlaying) return;
+    if (!isPlaying || !isAudioStarted) return;
     const timer = setInterval(() => {
       setCurrentTime(prev => {
         if (prev + 1 >= duration) {
@@ -140,7 +159,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
       });
     }, 1000);
     return () => clearInterval(timer);
-  }, [isPlaying, duration, handleNextTrack]);
+  }, [isPlaying, isAudioStarted, duration, handleNextTrack]);
 
   const handleSectionSelect = (section: "hits" | "og" | "mahalaya") => {
     setActiveSection(section);
@@ -151,12 +170,14 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
       setCurrentTime(0);
       setSeekTime(null);
       setIsPlaying(true);
+      setIsAudioStarted(false);
     }
   };
 
   const handleSeek = (newTime: number) => {
     setCurrentTime(newTime);
     setSeekTime(newTime);
+    setIsAudioStarted(true);
     sendCommand("seekTo", [newTime, true]);
   };
 
@@ -194,7 +215,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     return `${mins}:${remainingSecs < 10 ? "0" : ""}${remainingSecs}`;
   };
 
-  // Clean Embed URL generator without invalid query params
+  // Clean Embed URL generator
   const getEmbedUrl = (track: PujoMusicTrack) => {
     const videoId = track.youtubeId || "xlElO06nQy8";
     const startParam = seekTime ? `&start=${seekTime}` : "";
@@ -206,7 +227,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
 
   return (
     <>
-      {/* 1. SINGLE PERMANENT AUDIO ENGINE IFRAME - NEVER UNMOUNTS WHEN TOGGLING UI */}
+      {/* 1. SINGLE PERMANENT AUDIO ENGINE IFRAME - MOUNTED ONLY WHEN PLAYING */}
       {isPlaying && (
         <iframe
           ref={iframeRef}
@@ -219,6 +240,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             playerReadyRef.current = false;
             setTimeout(() => {
               playerReadyRef.current = true;
+              setIsAudioStarted(true);
               const effectiveVolume = isMuted ? 0 : volume;
               sendCommand("setVolume", [effectiveVolume]);
               if (isMuted || volume === 0) {
@@ -226,7 +248,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
               } else {
                 sendCommand("unMute");
               }
-            }, 1000);
+            }, 800);
           }}
         />
       )}
@@ -363,7 +385,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                     alt={activeTrack.title}
                     className="h-44 w-44 sm:h-52 sm:w-52 rounded-2xl object-cover border-2 border-[#f5c85b]/50 shadow-2xl transition duration-300 group-hover:scale-105"
                   />
-                  {isPlaying && (
+                  {isPlaying && isAudioStarted && (
                     <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-black/70 px-2.5 py-1 text-[10px] font-bold text-[#f5c85b] backdrop-blur">
                       <span className="h-2 w-2 rounded-full bg-[#f5c85b] animate-ping" />
                       {bengali ? "প্লে হচ্ছে" : "Playing"}
@@ -525,6 +547,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                           setCurrentTime(0);
                           setSeekTime(null);
                           setIsPlaying(true);
+                          setIsAudioStarted(false);
                         }}
                         className={`flex cursor-pointer items-center justify-between rounded-xl p-2 transition ${
                           isCurrent
