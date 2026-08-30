@@ -1500,6 +1500,20 @@ export const PUJO_MUSIC_TRACKS: PujoMusicTrack[] = [
     "durationSeconds": 2975
   },
   {
+    "id": "og-dhak-1",
+    "section": "og",
+    "title": "Dhak Baja Kasor Baja (Evergreen Pujo)",
+    "bengaliTitle": "ঢাক বাজা কাঁসর বাজা (চিরসবুজ পুজো সুর)",
+    "artist": "Classic Evergreen Pujo Gaan",
+    "bengaliArtist": "চিরসবুজ মেলোডি ও পুজো সুর",
+    "type": "video",
+    "youtubeId": "CWfQqgDNr68",
+    "thumbnailUrl": "https://img.youtube.com/vi/CWfQqgDNr68/hqdefault.jpg",
+    "directUrl": "https://www.youtube.com/watch?v=CWfQqgDNr68",
+    "supportsShuffle": false,
+    "durationSeconds": 625
+  },
+  {
     "id": "mahalaya-original",
     "section": "mahalaya",
     "title": "Mahishasuramardini Mahalaya (Full Audio)",
