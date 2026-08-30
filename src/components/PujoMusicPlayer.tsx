@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PUJO_MUSIC_TRACKS, type PujoMusicTrack } from "@shared/durgaPujoMusicData";
 import { ExternalLink, X, Radio, Maximize2, Minimize2, ListMusic, Search, SkipForward, SkipBack, Play, Pause, Volume2, Volume1, VolumeX } from "lucide-react";
@@ -23,8 +23,63 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   const [showVolumeSlider, setShowVolumeSlider] = useState<boolean>(false);
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
 
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const miniIframeRef = useRef<HTMLIFrameElement>(null);
+  const playerReadyRef = useRef<boolean>(false);
+  // Track the last embed URL to avoid unnecessary reloads
+  const lastEmbedKeyRef = useRef<string>("");
+
   const activeTrack = PUJO_MUSIC_TRACKS.find(t => t.id === activeTrackId) || PUJO_MUSIC_TRACKS[0];
   const [duration, setDuration] = useState<number>(activeTrack.durationSeconds || 210);
+
+  // ---- YouTube IFrame API postMessage helpers ----
+  const sendCommand = useCallback((command: string, args?: unknown[]) => {
+    const iframe = iframeRef.current || miniIframeRef.current;
+    if (!iframe?.contentWindow) return;
+    const msg = JSON.stringify({
+      event: "command",
+      func: command,
+      args: args || [],
+    });
+    iframe.contentWindow.postMessage(msg, "*");
+  }, []);
+
+  // Send volume to the YouTube player whenever volume/mute changes
+  useEffect(() => {
+    if (!playerReadyRef.current) return;
+    const effectiveVolume = isMuted ? 0 : volume;
+    sendCommand("setVolume", [effectiveVolume]);
+    if (isMuted || volume === 0) {
+      sendCommand("mute");
+    } else {
+      sendCommand("unMute");
+    }
+  }, [volume, isMuted, sendCommand]);
+
+  // Listen for YouTube player ready events via postMessage
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (typeof event.data !== "string") return;
+      try {
+        const data = JSON.parse(event.data);
+        if (data.event === "onReady" || data.event === "initialDelivery") {
+          playerReadyRef.current = true;
+          // Apply current volume immediately on ready
+          const effectiveVolume = isMuted ? 0 : volume;
+          sendCommand("setVolume", [effectiveVolume]);
+          if (isMuted || volume === 0) {
+            sendCommand("mute");
+          } else {
+            sendCommand("unMute");
+          }
+        }
+      } catch {
+        // Not a JSON message, ignore
+      }
+    };
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, [isMuted, volume, sendCommand]);
 
   // Lock background website scrolling when modal is open
   useEffect(() => {
@@ -72,6 +127,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     setSeekTime(null);
     setIsPlaying(true);
     setDuration(activeTrack.durationSeconds || 240);
+    playerReadyRef.current = false;
   }, [activeTrackId, activeTrack.durationSeconds]);
 
   // Smooth timeline timer with clean track end auto-advance
@@ -105,6 +161,18 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
   const handleSeek = (newTime: number) => {
     setCurrentTime(newTime);
     setSeekTime(newTime);
+    // Also seek the YouTube player
+    sendCommand("seekTo", [newTime, true]);
+  };
+
+  const handlePlayPause = () => {
+    const newPlaying = !isPlaying;
+    setIsPlaying(newPlaying);
+    if (newPlaying) {
+      sendCommand("playVideo");
+    } else {
+      sendCommand("pauseVideo");
+    }
   };
 
   const toggleMute = () => {
@@ -114,6 +182,11 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     } else {
       setIsMuted(true);
     }
+  };
+
+  const handleVolumeChange = (val: number) => {
+    setVolume(val);
+    if (val > 0 && isMuted) setIsMuted(false);
   };
 
   const formatTime = (secs: number) => {
@@ -126,14 +199,17 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
     return `${mins}:${remainingSecs < 10 ? "0" : ""}${remainingSecs}`;
   };
 
-  // Embed URL with active volume & mute parameter
+  // Embed URL: only changes when track, play/pause, or seek changes (NOT on volume change)
   const getEmbedUrl = (track: PujoMusicTrack) => {
     const autoplay = isPlaying ? "1" : "0";
-    const muteParam = isMuted || volume === 0 ? "&mute=1" : "&mute=0";
     const videoId = track.youtubeId || "xlElO06nQy8";
     const startParam = seekTime !== null ? `&start=${seekTime}` : "";
-    return `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay}&enablejsapi=1&rel=0${muteParam}${startParam}`;
+    const vol = isMuted ? 0 : volume;
+    return `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay}&enablejsapi=1&rel=0&origin=${encodeURIComponent(window.location.origin)}${startParam}&volume=${vol}`;
   };
+
+  // Stable key for the iframe — only reload on track change or seek, NOT on volume changes
+  const embedKey = `${activeTrack.id}-${isPlaying}-${seekTime}`;
 
   if (!isOpen) return null;
 
@@ -158,7 +234,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
         </div>
         <div className="flex items-center gap-1.5">
           <button
-            onClick={() => setIsPlaying(!isPlaying)}
+            onClick={handlePlayPause}
             className="grid size-8 place-items-center rounded-lg bg-[#8c1e21] text-[#f5c85b] hover:bg-[#6f1719]"
           >
             {isPlaying ? <Pause size={14} /> : <Play size={14} />}
@@ -181,11 +257,26 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
 
         {/* Offscreen Continuous Audio Stream Player */}
         <iframe
-          key={`min-${activeTrack.id}-${isPlaying}-${isMuted}-${volume}`}
+          ref={miniIframeRef}
+          key={embedKey}
           src={getEmbedUrl(activeTrack)}
           title="Audio Stream"
           className="absolute opacity-0 pointer-events-none -z-50 w-1 h-1 overflow-hidden"
           allow="autoplay; encrypted-media; picture-in-picture"
+          onLoad={() => {
+            playerReadyRef.current = false;
+            // Apply volume after a short delay to let the player initialize
+            setTimeout(() => {
+              playerReadyRef.current = true;
+              const effectiveVolume = isMuted ? 0 : volume;
+              sendCommand("setVolume", [effectiveVolume]);
+              if (isMuted || volume === 0) {
+                sendCommand("mute");
+              } else {
+                sendCommand("unMute");
+              }
+            }, 1500);
+          }}
         />
       </div>
     );
@@ -210,7 +301,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                 {bengali ? "পুজো গান প্লেয়ার" : "Pujo Audio Player"}
               </h3>
               <p className="text-[11px] text-[#f8edd8]/70">
-                {bengali ? "৬০টি সেরা পুজো গান ও আগমনী সুর" : "60 Festive Pujor Gaan & Mahalaya"}
+                {bengali ? `${PUJO_MUSIC_TRACKS.filter(t => t.section === "hits").length}টি সেরা পুজো গান ও আগমনী সুর` : `${PUJO_MUSIC_TRACKS.filter(t => t.section === "hits").length} Festive Pujor Gaan & Mahalaya`}
               </p>
             </div>
           </div>
@@ -324,7 +415,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
               </button>
 
               <button
-                onClick={() => setIsPlaying(!isPlaying)}
+                onClick={handlePlayPause}
                 className="grid size-14 place-items-center rounded-full bg-[#8c1e21] text-[#f5c85b] shadow-2xl transition hover:scale-105 active:scale-95"
                 title={isPlaying ? "Pause" : "Play"}
               >
@@ -372,11 +463,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                       min="0"
                       max="100"
                       value={isMuted ? 0 : volume}
-                      onChange={e => {
-                        const val = Number(e.target.value);
-                        setVolume(val);
-                        if (val > 0 && isMuted) setIsMuted(false);
-                      }}
+                      onChange={e => handleVolumeChange(Number(e.target.value))}
                       className="h-1.5 w-20 cursor-pointer appearance-none rounded-lg bg-white/30 accent-[#f5c85b]"
                     />
                     <span className="text-[10px] font-bold text-[#f5c85b] w-6 text-right">
@@ -399,16 +486,31 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
             </div>
           </div>
 
-          {/* Offscreen Audio Stream Engine */}
+          {/* Offscreen Audio Stream Engine - key does NOT include volume so slider doesn't reload iframe */}
           <iframe
-            key={`audio-engine-${activeTrack.id}-${isPlaying}-${isMuted}-${volume}-${seekTime}`}
+            ref={iframeRef}
+            key={embedKey}
             src={getEmbedUrl(activeTrack)}
             title="Audio Stream Engine"
             className="absolute opacity-0 pointer-events-none -z-50 w-1 h-1 overflow-hidden"
             allow="autoplay; encrypted-media; picture-in-picture"
+            onLoad={() => {
+              playerReadyRef.current = false;
+              // Apply volume after a short delay to let the player initialize
+              setTimeout(() => {
+                playerReadyRef.current = true;
+                const effectiveVolume = isMuted ? 0 : volume;
+                sendCommand("setVolume", [effectiveVolume]);
+                if (isMuted || volume === 0) {
+                  sendCommand("mute");
+                } else {
+                  sendCommand("unMute");
+                }
+              }, 1500);
+            }}
           />
 
-          {/* Section Playlist Queue List (Scrollable 60-Song Queue, Isolated Scroll for PC) */}
+          {/* Section Playlist Queue List (Scrollable Song Queue, Isolated Scroll for PC) */}
           <div className="rounded-2xl border border-white/10 bg-black/40 p-3">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2 text-xs font-bold text-[#f5c85b]">
               <span className="flex items-center gap-1.5">
@@ -438,8 +540,12 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                 const isCurrent = t.id === activeTrackId;
                 const formatTrackDuration = (secs?: number) => {
                   if (!secs) return "3:30";
-                  const mins = Math.floor(secs / 60);
+                  const hours = Math.floor(secs / 3600);
+                  const mins = Math.floor((secs % 3600) / 60);
                   const remaining = Math.floor(secs % 60);
+                  if (hours > 0) {
+                    return `${hours}:${mins < 10 ? "0" : ""}${mins}:${remaining < 10 ? "0" : ""}${remaining}`;
+                  }
                   return `${mins}:${remaining < 10 ? "0" : ""}${remaining}`;
                 };
 
