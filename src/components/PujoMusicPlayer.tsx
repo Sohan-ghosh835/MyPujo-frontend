@@ -468,7 +468,7 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                     <SkipForward size={18} />
                   </button>
 
-                  {/* Dual Hover (PC) & Click/Tap (Mobile) Volume & Mute Control */}
+                  {/* Dual Hover (PC with Contiguous Bridge) & Click/Tap (Mobile) Volume & Mute Control */}
                   <div
                     ref={volumeContainerRef}
                     className="relative"
@@ -496,33 +496,35 @@ export function PujoMusicPlayer({ isOpen, onClose }: PujoMusicPlayerProps) {
                       )}
                     </button>
 
-                    {/* Volume Slider Popup */}
+                    {/* Volume Slider Popup with Zero-Gap Hover Bridge for PC */}
                     {showVolumeSlider && (
                       <div
-                        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-xl border border-white/20 bg-[#160a0a]/95 px-3 py-2.5 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150 z-30"
+                        className="absolute bottom-full pb-2 left-1/2 -translate-x-1/2 flex flex-col items-center z-30"
                         onClick={e => e.stopPropagation()}
                       >
-                        <button
-                          onClick={toggleMute}
-                          className="text-[#f5c85b] hover:text-white transition p-0.5"
-                          title={isMuted ? "Unmute" : "Mute"}
-                        >
-                          {isMuted || volume === 0 ? <VolumeX size={14} /> : <Volume2 size={14} />}
-                        </button>
-                        <input
-                          type="range"
-                          min="0"
-                          max="100"
-                          value={isMuted ? 0 : volume}
-                          onChange={e => handleVolumeChange(Number(e.target.value))}
-                          style={{
-                            background: `linear-gradient(to right, #f5c85b 0%, #f5c85b ${activeVolumePercent}%, rgba(255, 255, 255, 0.3) ${activeVolumePercent}%, rgba(255, 255, 255, 0.3) 100%)`,
-                          }}
-                          className="h-1.5 w-24 cursor-pointer appearance-none rounded-lg accent-[#f5c85b] transition-all"
-                        />
-                        <span className="text-[10px] font-bold text-[#f5c85b] w-7 text-right">
-                          {isMuted ? "0%" : `${volume}%`}
-                        </span>
+                        <div className="flex items-center gap-2 rounded-xl border border-white/20 bg-[#160a0a]/95 px-3 py-2.5 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
+                          <button
+                            onClick={toggleMute}
+                            className="text-[#f5c85b] hover:text-white transition p-0.5"
+                            title={isMuted ? "Unmute" : "Mute"}
+                          >
+                            {isMuted || volume === 0 ? <VolumeX size={14} /> : <Volume2 size={14} />}
+                          </button>
+                          <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            value={isMuted ? 0 : volume}
+                            onChange={e => handleVolumeChange(Number(e.target.value))}
+                            style={{
+                              background: `linear-gradient(to right, #f5c85b 0%, #f5c85b ${activeVolumePercent}%, rgba(255, 255, 255, 0.3) ${activeVolumePercent}%, rgba(255, 255, 255, 0.3) 100%)`,
+                            }}
+                            className="h-1.5 w-24 cursor-pointer appearance-none rounded-lg accent-[#f5c85b] transition-all"
+                          />
+                          <span className="text-[10px] font-bold text-[#f5c85b] w-7 text-right">
+                            {isMuted ? "0%" : `${volume}%`}
+                          </span>
+                        </div>
                       </div>
                     )}
                   </div>
