@@ -10,6 +10,5 @@ export function CrowdPill({ crowd }: { crowd: string }) {
 }
 
 export function DevelopmentPill({ className }: { className?: string }) {
-  const { language } = useLanguage();
-  return <span className={cn("inline-flex items-center gap-1 rounded-full bg-[#fff0cf] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[#8a5810] ring-1 ring-[#e7c178]", className)}>{language === "bn" ? "উৎস-সহ রেকর্ড" : "Sourced records"}</span>;
+  return null;
 }
