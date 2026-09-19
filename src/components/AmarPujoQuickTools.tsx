@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Share2, Route, Phone, TrainFront, ExternalLink, Copy, Check, ChevronDown, ChevronUp } from "lucide-react";
+import { Share2, Route, Phone, TrainFront, ExternalLink, Copy, Check, ChevronDown, ChevronUp, Eye, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ALL_PANDALS } from "@shared/pujaData";
@@ -51,6 +51,7 @@ export function AmarPujoQuickTools() {
 
   const [shareState, setShareState] = useState<"idle" | "shared" | "copied" | "failed">("idle");
   const [showAllEmergency, setShowAllEmergency] = useState(false);
+  const [isMetroModalOpen, setIsMetroModalOpen] = useState(false);
 
   const trails = useMemo(() => generateSectionTrails(ALL_PANDALS), []);
 
@@ -177,26 +178,75 @@ export function AmarPujoQuickTools() {
         </div>
       </div>
 
-      {/* ── 4. Kolkata Metro Link ── */}
-      <a
-        href="https://mtp.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,304,366,554"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group flex items-center gap-4 rounded-[1.25rem] border border-[#7c3aed]/25 bg-[#7c3aed]/8 p-5 transition hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/12"
-      >
-        <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#7c3aed]/20">
-          <TrainFront className="text-[#a78bfa]" size={18} />
+      {/* ── 4. Kolkata Metro Map & Info ── */}
+      <div className="rounded-[1.25rem] border border-[#7c3aed]/25 bg-[#7c3aed]/8 p-5 backdrop-blur-sm">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-4">
+            <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-[#7c3aed]/20">
+              <TrainFront className="text-[#a78bfa]" size={18} />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-[#f8edd8]">
+                {bengali ? "কলকাতা মেট্রো ম্যাপ ও তথ্য" : "Kolkata Metro Map & Info"}
+              </h3>
+              <p className="text-xs text-[#f8edd8]/60">
+                {bengali ? "অফিসিয়াল রুট ম্যাপ দেখুন — Metro Railway, Kolkata" : "View official route maps — Metro Railway, Kolkata"}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2 sm:flex-shrink-0">
+            <Button
+              type="button"
+              onClick={() => setIsMetroModalOpen(true)}
+              className="rounded-full border border-[#f5c85b]/40 bg-[#f5c85b] px-4 py-2 text-xs font-extrabold text-[#241f1a] shadow-md transition hover:bg-[#ffe396] hover:scale-102"
+            >
+              <Eye size={14} className="mr-1.5" />
+              {bengali ? "ম্যাপ দেখুন" : "View Map"}
+            </Button>
+            <a
+              href="https://mtp.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,304,366,554"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 rounded-full border border-[#a78bfa]/30 bg-[#7c3aed]/20 px-3 py-1.5 text-xs font-semibold text-[#a78bfa] transition hover:bg-[#7c3aed]/30"
+            >
+              <span>{bengali ? "অফিসিয়াল সাইট" : "Official Site"}</span>
+              <ExternalLink size={12} />
+            </a>
+          </div>
         </div>
-        <div className="flex-1">
-          <h3 className="text-sm font-bold text-[#f8edd8]">
-            {bengali ? "কলকাতা মেট্রো ম্যাপ ও তথ্য" : "Kolkata Metro Map & Info"}
-          </h3>
-          <p className="text-xs text-[#f8edd8]/60">
-            {bengali ? "অফিসিয়াল রুট ম্যাপ দেখুন — Metro Railway, Kolkata" : "View official route maps — Metro Railway, Kolkata"}
-          </p>
+      </div>
+
+      {/* ── Metro Map Viewer Modal ── */}
+      {isMetroModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative max-h-[90vh] max-w-4xl w-full overflow-hidden rounded-2xl border border-white/20 bg-[#1c0a0c] p-4 shadow-2xl">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <div className="flex items-center gap-2 text-[#f5c85b]">
+                <TrainFront size={18} />
+                <h3 className="font-bold text-sm text-[#f8edd8]">
+                  {bengali ? "কলকাতা মেট্রো রুট ম্যাপ" : "Kolkata Metro Route Map"}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsMetroModalOpen(false)}
+                className="rounded-full bg-white/10 p-1.5 text-white/80 transition hover:bg-white/20 hover:text-white"
+                aria-label="Close modal"
+              >
+                <X size={18} />
+              </button>
+            </div>
+            <div className="mt-3 max-h-[75vh] overflow-auto rounded-xl bg-black/40 p-2 pujo-scrollbar">
+              <img
+                src="/mapmetro.png"
+                alt="Kolkata Metro Map"
+                className="w-full h-auto object-contain rounded-lg shadow-md"
+              />
+            </div>
+          </div>
         </div>
-        <ExternalLink size={14} className="flex-shrink-0 text-[#a78bfa] opacity-50 transition group-hover:opacity-100" />
-      </a>
+      )}
     </section>
   );
 }
