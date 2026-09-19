@@ -193,7 +193,7 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
       <main className="site-main">{children}</main>
 
       {/* Footer */}
-      <footer className="relative z-30 border-t border-[#f5c85b]/30 bg-[#180709] px-5 pb-24 pt-6 text-[#f8edd8] opacity-100 shadow-[0_-12px_32px_rgba(0,0,0,0.95)] lg:px-10 lg:pb-6">
+      <footer className="relative z-30 border-t border-[#f5c85b]/30 bg-[#180709] px-5 pb-24 pt-6 text-[#f8edd8] opacity-100 lg:px-10 lg:pb-6">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <img src="/final_icon.png" alt="PujoParikroma icon" className="size-7 object-contain brightness-110 drop-shadow-md" />
