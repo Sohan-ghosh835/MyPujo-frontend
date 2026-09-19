@@ -171,7 +171,6 @@ export default function Navigate() {
               {PRESET_LOCATIONS.map(p => (
                 <button key={p.label} onClick={() => selectPreset(p)} className={`preset-origin-item ${activePreset === p.label ? "is-active" : ""}`}>
                   <span>{bn ? p.labelBn : p.label}</span>
-                  <span className="text-[10px] text-white/40">{p.lat.toFixed(4)}, {p.lng.toFixed(4)}</span>
                 </button>
               ))}
             </div>}
