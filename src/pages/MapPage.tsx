@@ -17,7 +17,6 @@ export default function MapPage() {
   const { language } = useLanguage();
   const bengali = language === "bn";
   const [section, setSection] = useState("All sections");
-  const [priority, setPriority] = useState("All priorities");
   const [query, setQuery] = useState("");
 
   const visibleMapPandals = useMemo(
@@ -49,7 +48,7 @@ export default function MapPage() {
         </div>
 
         {/* Filter Bar */}
-        <div className="mb-6 grid gap-3 rounded-2xl border border-white/15 bg-white/5 p-4 backdrop-blur-md lg:grid-cols-4">
+        <div className="mb-6 grid gap-3 rounded-2xl border border-white/15 bg-white/5 p-4 backdrop-blur-md lg:grid-cols-3">
           <div className="relative lg:col-span-2">
             <Search className="absolute left-3 top-3 text-[#f5c85b]" size={16} />
             <Input
@@ -72,19 +71,7 @@ export default function MapPage() {
               ))}
             </SelectContent>
           </Select>
-          <Select value={priority} onValueChange={setPriority}>
-            <SelectTrigger className="h-10 border-white/20 bg-white/10 text-xs text-white">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {["All priorities", "S", "A", "B", "C"].map(item => (
-                <SelectItem key={item} value={item}>
-                  {item}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <div className="flex items-center gap-2 lg:col-span-4">
+          <div className="flex items-center gap-2 lg:col-span-3">
             <SlidersHorizontal size={15} className="ml-1 text-[#f5c85b]" />
             <span className="text-xs text-[#f8edd8]/80">
               {addressPreviewsCount} {bengali ? "টি ঠিকানা প্রিভিউ খোঁজা যাবে; কোনও ভুয়ো পিন যোগ করা হয়নি।" : "address previews remain searchable without adding false pins."}
