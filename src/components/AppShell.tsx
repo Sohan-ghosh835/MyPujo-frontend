@@ -71,7 +71,6 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
           isTransparent ? "h-20 w-full px-6 sm:px-10 lg:px-16 xl:px-20" : "max-w-7xl px-5 py-4 lg:px-10"
         )}>
           <Link href="/" className="flex items-center gap-3">
-            <img src="/favicon.png" alt="PujoParikroma icon" className="size-10 rounded-full border border-[#f5c85b]/70 object-cover shadow-md" />
             <img src="/puja_bengali_logo_transparent.png" alt="পূজা পরিক্রমা" className="h-10 sm:h-12 w-auto object-contain brightness-110 drop-shadow-md" />
           </Link>
 
