@@ -9,10 +9,16 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/favicon.png",
+      "src": "/pwa-installed-icon.png",
       "sizes": "192x192 512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-installed-icon.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
