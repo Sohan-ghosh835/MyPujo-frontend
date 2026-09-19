@@ -14,12 +14,6 @@ const EMERGENCY_NUMBERS = [
   { labelEn: "Child Helpline", labelBn: "শিশু হেল্পলাইন", number: "1098" },
   { labelEn: "Cyber Crime", labelBn: "সাইবার ক্রাইম", number: "1930" },
   { labelEn: "Emergency Response Support", labelBn: "জরুরি প্রতিক্রিয়া সেবা", number: "112" },
-  { labelEn: "Ambulance Service", labelBn: "অ্যাম্বুলেন্স সার্ভিস", number: "102" },
-  { labelEn: "Disaster Management", labelBn: "দুর্যোগ ব্যবস্থাপনা", number: "1070" },
-  { labelEn: "Kolkata Police Control Room", labelBn: "কলকাতা পুলিশ কন্ট্রোল রুম", number: "03322143024" },
-  { labelEn: "Senior Citizen Helpline", labelBn: "প্রবীণ নাগরিক হেল্পলাইন", number: "1090" },
-  { labelEn: "Traffic Police Control Room", labelBn: "ট্রাফিক পুলিশ কন্ট্রোল রুম", number: "03322143644" },
-  { labelEn: "Medical Emergency & Blood Bank", labelBn: "মেডিকেল জরুরি সেবা", number: "104" },
 ];
 
 // ── Share helper ──
