@@ -36,9 +36,8 @@ import {
   type NearbyToiletResult,
 } from "@shared/nearestDiscovery";
 
-/** Exact Home Location requested by user from Annapurna Family Mart */
+/** Exact Home Location coordinates */
 const HOME_LOCATION = {
-  name: "Annapurna Family Mart",
   lat: 22.6641983,
   lng: 88.4024476,
 };
@@ -68,10 +67,12 @@ export function NearestPujoPanel() {
   const { language } = useLanguage();
   const bengali = language === "bn";
 
+  const defaultHomeLabel = bengali ? "হোম অবস্থান" : "Home Location";
+
   const [locationMode, setLocationMode] = useState<LocationMode>("home");
   const [locationState, setLocationState] = useState<LocationState>("idle");
   const [activePos, setActivePos] = useState<{ lat: number; lng: number }>(HOME_LOCATION);
-  const [locationName, setLocationName] = useState<string>(HOME_LOCATION.name);
+  const [locationName, setLocationName] = useState<string>(defaultHomeLabel);
 
   const [topPicks, setTopPicks] = useState<TopPickResult[]>([]);
   const [nearbyPandals, setNearbyPandals] = useState<NearbyPandalResult[]>([]);
@@ -99,13 +100,13 @@ export function NearestPujoPanel() {
   // On initial mount, default to Home Location
   useEffect(() => {
     calculateResultsForPosition(HOME_LOCATION);
-    setLocationName(HOME_LOCATION.name);
-  }, []);
+    setLocationName(defaultHomeLabel);
+  }, [bengali]);
 
   // Switch to Home Location
   const setHomeMode = () => {
     setLocationMode("home");
-    setLocationName(HOME_LOCATION.name);
+    setLocationName(defaultHomeLabel);
     calculateResultsForPosition(HOME_LOCATION);
   };
 
@@ -187,7 +188,7 @@ export function NearestPujoPanel() {
           </h2>
           <p className="mt-1 text-xs text-[#f8edd8]/70">
             {bengali
-              ? "হোম লোকেশন (অন্নপূর্ণা ফ্যামিলি মার্ট) অথবা লাইভ জিপিএস অবস্থান থেকে দূরত্ব হিসাব করুন।"
+              ? "হোম অবস্থান অথবা লাইভ জিপিএস অবস্থান থেকে দূরত্ব হিসাব করুন।"
               : "Calculate distances and transit times from your Home Location or Live GPS position."}
           </p>
         </div>
@@ -208,7 +209,7 @@ export function NearestPujoPanel() {
               </div>
               <div>
                 <p className="text-sm font-bold">{bengali ? "হোম অবস্থান" : "Home Location"}</p>
-                <p className="text-[11px] opacity-80">Annapurna Family Mart ({HOME_LOCATION.lat}, {HOME_LOCATION.lng})</p>
+                <p className="text-[11px] opacity-80">{bengali ? "সংরক্ষিত প্রাথমিক অবস্থান" : "Primary set position"}</p>
               </div>
             </div>
             {locationMode === "home" && <Check className="text-[#f5c85b]" size={18} />}
@@ -242,7 +243,10 @@ export function NearestPujoPanel() {
         <div className="mt-3 flex items-center justify-center gap-2 text-xs font-semibold text-[#f5c85b]">
           <MapPin size={14} />
           <span>
-            {bengali ? "বর্তমান রেফারেন্স অবস্থান:" : "Active Reference Point:"} {locationName} ({activePos.lat.toFixed(5)}, {activePos.lng.toFixed(5)})
+            {bengali ? "বর্তমান রেফারেন্স অবস্থান:" : "Active Reference Point:"}{" "}
+            {locationMode === "home"
+              ? (bengali ? "হোম অবস্থান" : "Home Location")
+              : `${locationName} (${activePos.lat.toFixed(5)}, ${activePos.lng.toFixed(5)})`}
           </span>
         </div>
       </div>
@@ -253,8 +257,8 @@ export function NearestPujoPanel() {
           <AlertTriangle className="mt-0.5 flex-shrink-0 text-amber-400" size={18} />
           <p>
             {bengali
-              ? "লাইভ জিপিএস অনুমতি বন্ধ আছে। অন্নপূর্ণা ফ্যামিলি মার্ট হোম অবস্থান ব্যবহার করা হচ্ছে।"
-              : "Live GPS permission is disabled. Falling back to Home Location (Annapurna Family Mart)."}
+              ? "লাইভ জিপিএস অনুমতি বন্ধ আছে। হোম অবস্থান ব্যবহার করা হচ্ছে।"
+              : "Live GPS permission is disabled. Falling back to Home Location."}
           </p>
         </div>
       )}
@@ -263,8 +267,8 @@ export function NearestPujoPanel() {
           <AlertTriangle className="mt-0.5 flex-shrink-0 text-amber-400" size={18} />
           <p>
             {bengali
-              ? "লাইভ জিপিএস পাওয়া যাচ্ছে না। অন্নপূর্ণা ফ্যামিলি মার্ট হোম অবস্থান ব্যবহার করা হচ্ছে।"
-              : "Live GPS is unavailable on this device. Using Home Location (Annapurna Family Mart)."}
+              ? "লাইভ জিপিএস পাওয়া যাচ্ছে না। হোম অবস্থান ব্যবহার করা হচ্ছে।"
+              : "Live GPS is unavailable on this device. Using Home Location."}
           </p>
         </div>
       )}
