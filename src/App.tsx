@@ -99,17 +99,23 @@ function Router() {
   );
 }
 
+import { MusicProvider } from "./contexts/MusicContext";
+import { GlobalPujoMusicPlayer } from "./components/GlobalPujoMusicPlayer";
+
 export default function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <LanguageProvider>
-          <TooltipProvider>
-            <SmoothScrollProvider>
-              <Toaster richColors position="top-right" />
-              <Router />
-            </SmoothScrollProvider>
-          </TooltipProvider>
+          <MusicProvider>
+            <TooltipProvider>
+              <SmoothScrollProvider>
+                <Toaster richColors position="top-right" />
+                <Router />
+                <GlobalPujoMusicPlayer />
+              </SmoothScrollProvider>
+            </TooltipProvider>
+          </MusicProvider>
         </LanguageProvider>
       </ThemeProvider>
     </ErrorBoundary>

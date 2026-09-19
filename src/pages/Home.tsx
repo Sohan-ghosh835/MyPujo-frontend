@@ -109,9 +109,6 @@ export default function Home() {
               <Link href="/explore" className="inline-flex items-center gap-2.5 rounded-full bg-[#f5c85b] px-8 py-4 text-base font-extrabold text-[#241f1a] shadow-xl transition hover:scale-105 hover:bg-[#ffe09a]">
                 {bengali ? "পুজো পরিক্রমা" : "Start exploring"} <ArrowRight size={18} />
               </Link>
-              <a href="#countdown" className="inline-flex items-center gap-2.5 rounded-full border border-white/40 bg-white/10 px-8 py-4 text-base font-bold backdrop-blur-md transition hover:bg-white/20">
-                <CalendarDays size={18} /> Countdown
-              </a>
             </div>
           </div>
         </div>

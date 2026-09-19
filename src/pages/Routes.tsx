@@ -1,16 +1,25 @@
 import { AppShell } from "@/components/AppShell";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { RoutePlanner } from "@/components/RoutePlanner";
-import { CheckCircle2, Sparkles } from "lucide-react";
+import { NearestPujoPanel } from "@/components/NearestPujoPanel";
+import { CheckCircle2, Sparkles, MapPinned, Crosshair } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+
+type RoutesTab = "plan" | "nearby";
 
 export default function Routes() {
   const { language } = useLanguage();
   const bengali = language === "bn";
+  const [tab, setTab] = useState<RoutesTab>("plan");
+
+  const peerButtonClass = (active: boolean) =>
+    `rounded-full font-bold transition-all ${active ? "bg-[#9d2529] text-[#f5c85b] shadow-md" : "border border-[#f5c85b]/40 bg-white/10 text-[#f8edd8] hover:bg-white/20"}`;
 
   return (
     <AppShell>
       <div className="mx-auto max-w-7xl px-5 py-10 lg:px-10 lg:py-14">
-        {/* Page Hero Header with High-Contrast Light Colors */}
+        {/* Page Hero Header */}
         <div className="max-w-3xl">
           <p className="font-bengali text-xs font-bold uppercase tracking-[0.18em] text-[#f5c85b]">
             {bengali ? "পরিক্রমার কর্মক্ষেত্র" : "Parikrama workspace"}
@@ -25,34 +34,62 @@ export default function Routes() {
           </p>
         </div>
 
-        {/* Content Layout */}
-        <div className="mt-9 grid gap-7 xl:grid-cols-[minmax(0,1fr)_340px]">
-          <div className="rounded-[1.5rem] border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl sm:p-7">
-            <RoutePlanner compact />
-          </div>
-          <aside className="space-y-5">
-            <section className="rounded-[1.5rem] border border-white/20 bg-white/10 p-6 text-[#f8edd8] shadow-2xl backdrop-blur-xl">
-              <Sparkles className="text-[#f5c85b]" size={23} />
-              <h2 className="font-display mt-5 text-2xl font-bold text-[#f8edd8]">
-                {bengali ? "এই প্ল্যানার কী করে" : "What this planner does"}
-              </h2>
-              <ul className="mt-4 space-y-3 text-sm leading-relaxed text-[#f8edd8]/80">
-                <li>
-                  <CheckCircle2 className="mr-2 inline text-[#f5c85b]" size={15} />
-                  {bengali ? "এলাকা অনুযায়ী সরবরাহ করা ক্যাটালগ ফিল্টার করে।" : "Filters the supplied catalogue by neighbourhood."}
-                </li>
-                <li>
-                  <CheckCircle2 className="mr-2 inline text-[#f5c85b]" size={15} />
-                  {bengali ? "র‌্যাঙ্ক ও উদ্ধৃত গাইড লেন্স দিয়ে ছোট তালিকা প্রস্তাব করে।" : "Uses ranked records and cited guide lenses to propose a compact visit list."}
-                </li>
-                <li>
-                  <CheckCircle2 className="mr-2 inline text-[#f5c85b]" size={15} />
-                  {bengali ? "নিজের ফোনে ব্যবহারের জন্য তালিকা সংরক্ষণ ও কপি করে।" : "Saves and copies a list you can use on your own phone."}
-                </li>
-              </ul>
-            </section>
-          </aside>
+        {/* Tab Switcher */}
+        <div className="mt-6 flex flex-wrap gap-2" aria-label={bengali ? "রুট বিভাগ" : "Routes sections"}>
+          <Button
+            onClick={() => setTab("plan")}
+            aria-pressed={tab === "plan"}
+            className={peerButtonClass(tab === "plan")}
+          >
+            <MapPinned size={15} className="mr-1.5" />
+            {bengali ? "পরিক্রমা পরিকল্পনা" : "Plan a Parikrama"}
+          </Button>
+          <Button
+            onClick={() => setTab("nearby")}
+            aria-pressed={tab === "nearby"}
+            className={peerButtonClass(tab === "nearby")}
+          >
+            <Crosshair size={15} className="mr-1.5" />
+            {bengali ? "আমার কাছে খুঁজুন" : "Find what's near me"}
+          </Button>
         </div>
+
+        {/* Content */}
+        {tab === "plan" ? (
+          <div className="mt-9 grid gap-7 xl:grid-cols-[minmax(0,1fr)_340px]">
+            <div className="rounded-[1.5rem] border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl sm:p-7">
+              <RoutePlanner compact />
+            </div>
+            <aside className="space-y-5">
+              <section className="rounded-[1.5rem] border border-white/20 bg-white/10 p-6 text-[#f8edd8] shadow-2xl backdrop-blur-xl">
+                <Sparkles className="text-[#f5c85b]" size={23} />
+                <h2 className="font-display mt-5 text-2xl font-bold text-[#f8edd8]">
+                  {bengali ? "এই প্ল্যানার কী করে" : "What this planner does"}
+                </h2>
+                <ul className="mt-4 space-y-3 text-sm leading-relaxed text-[#f8edd8]/80">
+                  <li>
+                    <CheckCircle2 className="mr-2 inline text-[#f5c85b]" size={15} />
+                    {bengali ? "এলাকা অনুযায়ী সরবরাহ করা ক্যাটালগ ফিল্টার করে।" : "Filters the supplied catalogue by neighbourhood."}
+                  </li>
+                  <li>
+                    <CheckCircle2 className="mr-2 inline text-[#f5c85b]" size={15} />
+                    {bengali ? "র‌্যাঙ্ক ও উদ্ধৃত গাইড লেন্স দিয়ে ছোট তালিকা প্রস্তাব করে।" : "Uses ranked records and cited guide lenses to propose a compact visit list."}
+                  </li>
+                  <li>
+                    <CheckCircle2 className="mr-2 inline text-[#f5c85b]" size={15} />
+                    {bengali ? "নিজের ফোনে ব্যবহারের জন্য তালিকা সংরক্ষণ ও কপি করে।" : "Saves and copies a list you can use on your own phone."}
+                  </li>
+                </ul>
+              </section>
+            </aside>
+          </div>
+        ) : (
+          <div className="mt-9 mx-auto max-w-5xl">
+            <div className="rounded-[1.5rem] border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl sm:p-7">
+              <NearestPujoPanel />
+            </div>
+          </div>
+        )}
       </div>
     </AppShell>
   );

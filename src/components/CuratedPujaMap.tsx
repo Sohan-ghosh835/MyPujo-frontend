@@ -1,11 +1,34 @@
 import { Button } from "@/components/ui/button";
+import { PujoDiscoveryMap } from "@/components/PujoDiscoveryMap";
 import { MapPinned, Search, ChevronLeft, ChevronRight } from "lucide-react";
-import { useCallback, useState } from "react";
+import { lazy, Suspense, useCallback, useState } from "react";
 import { Link } from "wouter";
 
-export const CURATED_MAPS = [
+type IframeMapEntry = {
+  id: string;
+  kind: "iframe";
+  labelEn: string;
+  labelBn: string;
+  subtitleEn: string;
+  subtitleBn: string;
+  url: string;
+};
+
+type InteractiveMapEntry = {
+  id: string;
+  kind: "interactive";
+  labelEn: string;
+  labelBn: string;
+  subtitleEn: string;
+  subtitleBn: string;
+};
+
+type CuratedMapEntry = IframeMapEntry | InteractiveMapEntry;
+
+export const CURATED_MAPS: CuratedMapEntry[] = [
   {
     id: "puja-company",
+    kind: "iframe",
     labelEn: "Kolkata Durga Puja Guide",
     labelBn: "কলকাতা দুর্গা পুজো গাইড",
     subtitleEn: "by The Puja Company",
@@ -14,6 +37,7 @@ export const CURATED_MAPS = [
   },
   {
     id: "north",
+    kind: "iframe",
     labelEn: "North Kolkata",
     labelBn: "উত্তর কলকাতা",
     subtitleEn: "Pandal locations",
@@ -22,6 +46,7 @@ export const CURATED_MAPS = [
   },
   {
     id: "north-central",
+    kind: "iframe",
     labelEn: "North & Central Kolkata",
     labelBn: "উত্তর ও মধ্য কলকাতা",
     subtitleEn: "Pandal locations",
@@ -30,6 +55,7 @@ export const CURATED_MAPS = [
   },
   {
     id: "south",
+    kind: "iframe",
     labelEn: "South Kolkata",
     labelBn: "দক্ষিণ কলকাতা",
     subtitleEn: "Pandal locations",
@@ -38,11 +64,21 @@ export const CURATED_MAPS = [
   },
   {
     id: "salt-lake",
+    kind: "iframe",
     labelEn: "Salt Lake",
     labelBn: "সল্ট লেক",
     subtitleEn: "Pandal locations",
     subtitleBn: "প্যান্ডেল অবস্থান",
     url: "https://www.google.com/maps/d/embed?mid=11PsLxgsYOJmt-8u9KxGC3JqH6w0Sfe8&ehbc=2E312F",
+  },
+  {
+    id: "duggamap",
+    kind: "iframe",
+    labelEn: "Interactive Kolkata Puja & Transit Map",
+    labelBn: "ইন্টারঅ্যাক্টিভ কলকাতা পুজো ও ট্রানজিট মানচিত্র",
+    subtitleEn: "Full-screen Map · Metro lines · 100+ Public Toilets",
+    subtitleBn: "ফুল-স্ক্রিন মানচিত্র · মেট্রো লাইন · ১০০+ পাবলিক টয়লেট",
+    url: "/duggamap/index.html",
   },
 ];
 
@@ -166,22 +202,27 @@ export function CuratedPujaMap({ bengali }: { bengali: boolean }) {
           data-lenis-prevent
           className="mt-4 h-[clamp(500px,72svh,760px)] overflow-hidden rounded-[1.25rem] border border-white/20 bg-black/40"
         >
-          {/* Render all loaded iframes, only show the active one */}
-          {CURATED_MAPS.map(
-            (m, i) =>
-              loadedSet.has(i) && (
-                <iframe
-                  key={m.id}
-                  title={`Curated map – ${m.labelEn}`}
-                  src={m.url}
-                  className="h-full w-full border-0"
-                  style={{ display: i === activeIndex ? "block" : "none" }}
-                  loading="lazy"
-                  allowFullScreen
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  onError={() => setFailedSet(prev => new Set(prev).add(i))}
-                />
-              )
+          {activeMap.kind === "interactive" ? (
+            /* Interactive Leaflet map — only mounted when this entry is active */
+            <PujoDiscoveryMap />
+          ) : (
+            /* Render all loaded iframes, only show the active one */
+            CURATED_MAPS.map(
+              (m, i) =>
+                m.kind === "iframe" && loadedSet.has(i) && (
+                  <iframe
+                    key={m.id}
+                    title={`Curated map – ${m.labelEn}`}
+                    src={m.url}
+                    className="h-full w-full border-0"
+                    style={{ display: i === activeIndex ? "block" : "none" }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    onError={() => setFailedSet(prev => new Set(prev).add(i))}
+                  />
+                )
+            )
           )}
         </div>
       )}

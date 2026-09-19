@@ -37,21 +37,53 @@ function MapViewController({ center, zoom }: { center: [number, number]; zoom: n
   return null;
 }
 
-export function PandalMap({ initialCategory = "all" }: { initialCategory?: string }) {
+/** Shape accepted from MapPage's tRPC-sourced filtered pandal list. */
+type ExternalPandal = {
+  id: string;
+  name: string;
+  section: string;
+  subArea: string;
+  address: string;
+  latitude: number;
+  longitude: number;
+  priority?: string | null;
+};
+
+function toMapPandalItem(p: ExternalPandal): MapPandalItem | null {
+  if (!p.latitude || !p.longitude || p.latitude === 0 || p.longitude === 0) return null;
+  const cat: MapPandalCategory = p.section === "Salt Lake" ? "salt_lake"
+    : p.section?.includes("North") ? "north"
+    : p.section?.includes("South") ? "south"
+    : "north";
+  return { id: p.id, name: p.name, lat: p.latitude, lng: p.longitude, cat, section: p.section, subArea: p.subArea, address: p.address, websitePandalId: p.id };
+}
+
+export function PandalMap({ initialCategory = "all", pandals }: { initialCategory?: string; pandals?: (MapPandalItem | ExternalPandal)[] }) {
   const { language } = useLanguage();
   const bengali = language === "bn";
   const [selectedCat, setSelectedCat] = useState<string>(initialCategory);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [activePandal, setActivePandal] = useState<MapPandalItem | null>(null);
 
+  /** When MapPage supplies an externally-filtered list, convert and use it; otherwise fall back to the static map dataset. */
+  const basePandals = useMemo<MapPandalItem[]>(() => {
+    if (!pandals) return DURGA_PUJO_MAP_PANDALS;
+    return pandals
+      .map(p => {
+        if ("cat" in p && typeof p.cat === "string") return p as MapPandalItem;
+        return toMapPandalItem(p as ExternalPandal);
+      })
+      .filter((p): p is MapPandalItem => p !== null);
+  }, [pandals]);
+
   const filteredPandals = useMemo(() => {
-    return DURGA_PUJO_MAP_PANDALS.filter(p => {
+    return basePandals.filter(p => {
       const matchesCat = selectedCat === "all" || p.cat === selectedCat;
       const haystack = `${p.name} ${p.subArea} ${p.address} ${p.section}`.toLowerCase();
       const matchesSearch = !searchQuery.trim() || haystack.includes(searchQuery.trim().toLowerCase());
       return matchesCat && matchesSearch;
     });
-  }, [selectedCat, searchQuery]);
+  }, [basePandals, selectedCat, searchQuery]);
 
   const mapCenter: [number, number] = useMemo(() => {
     if (activePandal) return [activePandal.lat, activePandal.lng];
@@ -60,12 +92,12 @@ export function PandalMap({ initialCategory = "all" }: { initialCategory?: strin
   }, [activePandal, filteredPandals]);
 
   const categoryCounts = useMemo(() => {
-    const counts = { all: DURGA_PUJO_MAP_PANDALS.length, north: 0, south: 0, salt_lake: 0, aristocratic: 0 };
-    DURGA_PUJO_MAP_PANDALS.forEach(p => {
+    const counts: Record<string, number> = { all: basePandals.length, north: 0, south: 0, salt_lake: 0, aristocratic: 0 };
+    basePandals.forEach(p => {
       if (counts[p.cat] !== undefined) counts[p.cat]++;
     });
     return counts;
-  }, []);
+  }, [basePandals]);
 
   return (
     <div className="space-y-4">

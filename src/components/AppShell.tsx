@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useMusic } from "@/contexts/MusicContext";
 import { Compass, Disc, Download, Heart, Map, Music, Route, Sparkles, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useEffect, useState, type ReactNode } from "react";
-import { PujoMusicPlayer } from "@/components/PujoMusicPlayer";
 
 const links = [
   { href: "/", label: "Home", bengaliLabel: "হোম", icon: Compass },
@@ -18,11 +18,11 @@ type AppShellProps = { children: ReactNode; variant?: "default" | "transparent" 
 export function AppShell({ children, variant = "default" }: AppShellProps) {
   const [location] = useLocation();
   const { language, toggleLanguage } = useLanguage();
+  const { openMusicPlayer } = useMusic();
   const bengali = language === "bn";
   const isTransparent = variant === "transparent";
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isMusicPlayerOpen, setIsMusicPlayerOpen] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [canInstall, setCanInstall] = useState(false);
 
@@ -108,7 +108,7 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
 
             <button
               type="button"
-              onClick={() => setIsMusicPlayerOpen(true)}
+              onClick={openMusicPlayer}
               className="grid size-10 place-items-center rounded-full bg-[#f5c85b] text-[#241f1a] shadow-md transition hover:scale-105"
               aria-label={bengali ? "পুজো প্লেলিস্ট ও মহালয়া" : "Pujo Music Playlist"}
               title={bengali ? "পুজো গান ও মহালয়া" : "Pujo Music Playlist"}
@@ -164,7 +164,7 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
               <button
                 type="button"
                 onClick={() => {
-                  setIsMusicPlayerOpen(true);
+                  openMusicPlayer();
                   setMobileMenuOpen(false);
                 }}
                 className="flex w-full items-center justify-between rounded-xl bg-[#f5c85b] p-3 font-bold text-[#241f1a] shadow-lg transition active:scale-98"
@@ -236,9 +236,6 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
           })}
         </div>
       </nav>
-
-      {/* Interactive Pujo Music Player */}
-      <PujoMusicPlayer isOpen={isMusicPlayerOpen} onClose={() => setIsMusicPlayerOpen(false)} />
     </div>
   );
 }

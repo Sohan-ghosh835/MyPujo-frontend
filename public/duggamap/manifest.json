@@ -1,0 +1,20 @@
+{
+  "name": "DuggaMap – Kolkata Durga Puja Pandal Guide",
+  "short_name": "DuggaMap",
+  "description": "A free Kolkata Durga Puja pandal guide with an interactive map.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "iconpic1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "iconpic1.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -8,28 +8,30 @@ import { trpc } from "@/lib/trpc";
 import { Search, SlidersHorizontal } from "lucide-react";
 import { useMemo, useState } from "react";
 
+import { DURGA_PUJO_MAP_PANDALS } from "@shared/durgaPujoMapData";
+import { ALL_PANDALS } from "@shared/pujaData";
+
 const mapSections = ["All sections", "South Kolkata", "North Kolkata", "Central Kolkata", "East Kolkata", "West Kolkata", "Salt Lake", "New Town"];
 
 export default function MapPage() {
   const { language } = useLanguage();
   const bengali = language === "bn";
-  const pandals = trpc.pandals.mapList.useQuery();
   const [section, setSection] = useState("All sections");
   const [priority, setPriority] = useState("All priorities");
   const [query, setQuery] = useState("");
 
-  const visiblePandals = useMemo(
+  const visibleMapPandals = useMemo(
     () =>
-      (pandals.data?.data ?? []).filter(pandal => {
+      DURGA_PUJO_MAP_PANDALS.filter(pandal => {
         const matchesSection = section === "All sections" || pandal.section === section;
-        const matchesPriority = priority === "All priorities" || pandal.priority === priority;
-        const haystack = `${pandal.name} ${pandal.address} ${pandal.subArea}`.toLowerCase();
-        return matchesSection && matchesPriority && haystack.includes(query.trim().toLowerCase());
+        const haystack = `${pandal.name} ${pandal.address} ${pandal.subArea} ${pandal.section}`.toLowerCase();
+        return matchesSection && haystack.includes(query.trim().toLowerCase());
       }),
-    [pandals.data, section, priority, query]
+    [section, query]
   );
 
-  const mappableCount = visiblePandals.filter(pandal => pandal.latitude !== 0 && pandal.longitude !== 0).length;
+  const totalCatalogueCount = ALL_PANDALS.length;
+  const addressPreviewsCount = totalCatalogueCount - visibleMapPandals.length;
 
   return (
     <AppShell>
@@ -85,13 +87,13 @@ export default function MapPage() {
           <div className="flex items-center gap-2 lg:col-span-4">
             <SlidersHorizontal size={15} className="ml-1 text-[#f5c85b]" />
             <span className="text-xs text-[#f8edd8]/80">
-              {visiblePandals.length - mappableCount} {bengali ? "টি ঠিকানা প্রিভিউ খোঁজা যাবে; কোনও ভুয়ো পিন যোগ করা হয়নি।" : "address previews remain searchable without adding false pins."}
+              {addressPreviewsCount} {bengali ? "টি ঠিকানা প্রিভিউ খোঁজা যাবে; কোনও ভুয়ো পিন যোগ করা হয়নি।" : "address previews remain searchable without adding false pins."}
             </span>
           </div>
         </div>
 
         {/* Interactive Map */}
-        <PandalMap pandals={visiblePandals} />
+        <PandalMap pandals={visibleMapPandals} />
 
         <p className="mx-auto mt-4 max-w-2xl text-center text-xs leading-relaxed text-[#f8edd8]/70">
           {bengali

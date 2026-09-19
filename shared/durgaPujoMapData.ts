@@ -1,4 +1,6 @@
-export type MapPandalCategory = "north" | "south" | "salt_lake" | "aristocratic";
+import { ALL_PANDALS, type PandalRecord } from "./pujaData";
+
+export type MapPandalCategory = "north" | "south" | "salt_lake" | "aristocratic" | "iconic";
 
 export interface MapPandalItem {
   id: string;
@@ -2347,6 +2349,32 @@ export const DURGA_PUJO_MAP_PANDALS: MapPandalItem[] = [
   }
 ];
 
+/**
+ * Derives "iconic" pandals from the canonical ALL_PANDALS catalogue.
+ * A pandal qualifies as iconic if it has priority "S" or is marked as
+ * sourceFeatured by KolkataKhoj 2026. Returns MapPandalItem[] so these
+ * can be rendered on the discovery map alongside the static dataset.
+ */
+export function deriveIconicPandals(): MapPandalItem[] {
+  return ALL_PANDALS
+    .filter((p: PandalRecord) =>
+      (p.priority === "S" || p.kolkataKhoj2026?.sourceFeatured === true) &&
+      p.latitude !== 0 && p.longitude !== 0 &&
+      Number.isFinite(p.latitude) && Number.isFinite(p.longitude)
+    )
+    .map((p: PandalRecord, index: number): MapPandalItem => ({
+      id: `iconic-${index + 1}`,
+      name: p.name,
+      lat: p.latitude,
+      lng: p.longitude,
+      cat: "iconic",
+      section: p.section,
+      subArea: p.subArea,
+      address: p.address,
+      websitePandalId: p.id,
+    }));
+}
+
 export function getCategoryLabel(cat: MapPandalCategory, bengali: boolean) {
   switch (cat) {
     case "north":
@@ -2357,6 +2385,8 @@ export function getCategoryLabel(cat: MapPandalCategory, bengali: boolean) {
       return bengali ? "সল্টলেক ও ইস্ট" : "Salt Lake & East";
     case "aristocratic":
       return bengali ? "বনেদি বাড়ির পুজো" : "Aristocratic Bonedi Bari";
+    case "iconic":
+      return bengali ? "আইকনিক পুজো" : "Iconic Puja";
     default:
       return cat;
   }
@@ -2372,6 +2402,8 @@ export function getCategoryColor(cat: MapPandalCategory) {
       return "#2ecc40";
     case "aristocratic":
       return "#ff9f1c";
+    case "iconic":
+      return "#a855f7";
     default:
       return "#e0342c";
   }
