@@ -72,6 +72,7 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
         )}>
           <Link href="/" className="flex items-center gap-2.5 sm:gap-3">
             <img src="/final_icon.png" alt="PujoParikroma Icon" className="h-9 sm:h-11 w-auto object-contain brightness-110 drop-shadow-md" />
+            <span className="h-6 sm:h-7 w-[1.5px] rounded-full bg-gradient-to-b from-[#f5c85b]/20 via-[#f5c85b] to-[#f5c85b]/20 shadow-[0_0_8px_rgba(245,200,91,0.4)]" aria-hidden="true" />
             <img src="/puja_bengali_logo_transparent.png" alt="পূজা পরিক্রমা" className="h-9 sm:h-11 w-auto object-contain brightness-110 drop-shadow-md" />
           </Link>
 
