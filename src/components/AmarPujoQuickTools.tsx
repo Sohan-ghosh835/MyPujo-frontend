@@ -1,20 +1,25 @@
-import { useMemo, useState } from "react";
-import { Share2, Route, Phone, TrainFront, ExternalLink, Copy, Check, ChevronDown, ChevronUp, Eye, X } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { Share2, Route, Phone, TrainFront, ExternalLink, Copy, Check, ChevronDown, ChevronUp, Eye, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ALL_PANDALS } from "@shared/pujaData";
 import { generateSectionTrails, type SectionTrail } from "@shared/pandalHoppingTrails";
 
-// ── Emergency numbers ──
+// ── Emergency numbers matching reference ──
 
 const EMERGENCY_NUMBERS = [
-  { labelEn: "Police", labelBn: "পুলিশ", number: "100" },
-  { labelEn: "Fire", labelBn: "ফায়ার ব্রিগেড", number: "101" },
-  { labelEn: "Ambulance", labelBn: "অ্যাম্বুলেন্স", number: "102" },
-  { labelEn: "Women's Helpline", labelBn: "নারী হেল্পলাইন", number: "1091" },
+  { labelEn: "Dial 100 (Police)", labelBn: "ডায়াল ১০০ (পুলিশ)", number: "100" },
+  { labelEn: "Fire Service", labelBn: "ফায়ার সার্ভিস", number: "101" },
+  { labelEn: "Women Helpline", labelBn: "নারী হেল্পলাইন", number: "1091" },
   { labelEn: "Child Helpline", labelBn: "শিশু হেল্পলাইন", number: "1098" },
+  { labelEn: "Cyber Crime", labelBn: "সাইবার ক্রাইম", number: "1930" },
+  { labelEn: "Emergency Response Support", labelBn: "জরুরি প্রতিক্রিয়া সেবা", number: "112" },
+  { labelEn: "Ambulance Service", labelBn: "অ্যাম্বুলেন্স সার্ভিস", number: "102" },
   { labelEn: "Disaster Management", labelBn: "দুর্যোগ ব্যবস্থাপনা", number: "1070" },
   { labelEn: "Kolkata Police Control Room", labelBn: "কলকাতা পুলিশ কন্ট্রোল রুম", number: "03322143024" },
+  { labelEn: "Senior Citizen Helpline", labelBn: "প্রবীণ নাগরিক হেল্পলাইন", number: "1090" },
+  { labelEn: "Traffic Police Control Room", labelBn: "ট্রাফিক পুলিশ কন্ট্রোল রুম", number: "03322143644" },
+  { labelEn: "Medical Emergency & Blood Bank", labelBn: "মেডিকেল জরুরি সেবা", number: "104" },
 ];
 
 // ── Share helper ──
@@ -52,6 +57,17 @@ export function AmarPujoQuickTools() {
   const [shareState, setShareState] = useState<"idle" | "shared" | "copied" | "failed">("idle");
   const [showAllEmergency, setShowAllEmergency] = useState(false);
   const [isMetroModalOpen, setIsMetroModalOpen] = useState(false);
+
+  // Prevent background scroll when Metro Map Modal is open
+  useEffect(() => {
+    if (isMetroModalOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [isMetroModalOpen]);
 
   const trails = useMemo(() => generateSectionTrails(ALL_PANDALS), []);
 
@@ -109,7 +125,7 @@ export function AmarPujoQuickTools() {
             </div>
             <div>
               <h3 className="text-sm font-bold text-[#f8edd8]">
-                {bengali ? "প্যান্ডেল হপিং রুট" : "Pandal-Hopping Routes"}
+                {bengali ? "প্যান্ডেল হপিং রুট" : "Suggested Pandal-Hopping Routes"}
               </h3>
               <p className="text-xs text-[#f8edd8]/60">
                 {bengali ? "এলাকাভিত্তিক Google Maps রুট" : "Per-section Google Maps routes"}
@@ -117,26 +133,31 @@ export function AmarPujoQuickTools() {
             </div>
           </div>
           <div className="mt-4 grid gap-2 sm:grid-cols-2">
-            {trails.map((trail) => (
-              <a
-                key={trail.section}
-                href={trail.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3 transition hover:border-[#f5c85b]/30 hover:bg-white/10"
-              >
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-bold text-[#f8edd8]">
-                    {bengali ? trail.sectionBn : trail.section}
-                  </p>
-                  <p className="text-[10px] text-[#f8edd8]/50">
-                    {trail.pandalCount} {bengali ? "টি প্যান্ডেল" : "pandals"} · {trail.pandalNames.slice(0, 2).join(", ")}
-                    {trail.pandalNames.length > 2 && "…"}
-                  </p>
-                </div>
-                <ExternalLink size={14} className="flex-shrink-0 text-[#f5c85b] opacity-50 transition group-hover:opacity-100" />
-              </a>
-            ))}
+            {trails.map((trail) => {
+              const routeTitle = bengali
+                ? `${trail.sectionBn}${trail.distanceText ? ` (${trail.distanceText})` : ""}`
+                : `${trail.section}${trail.distanceText ? ` (${trail.distanceText})` : ""}`;
+              return (
+                <a
+                  key={trail.section}
+                  href={trail.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3.5 transition hover:border-[#f5c85b]/40 hover:bg-white/10"
+                >
+                  <div className="min-w-0 pr-2">
+                    <p className="truncate text-sm font-bold text-[#f8edd8]">
+                      {routeTitle} &rarr;
+                    </p>
+                    <p className="truncate text-[10px] text-[#f8edd8]/50 mt-0.5">
+                      {trail.pandalCount} {bengali ? "টি প্যান্ডেল" : "pandals"} · {trail.pandalNames.slice(0, 2).join(", ")}
+                      {trail.pandalNames.length > 2 && "…"}
+                    </p>
+                  </div>
+                  <ExternalLink size={14} className="flex-shrink-0 text-[#f5c85b] opacity-60 transition group-hover:opacity-100" />
+                </a>
+              );
+            })}
           </div>
         </div>
       )}
@@ -163,7 +184,7 @@ export function AmarPujoQuickTools() {
           </button>
         </div>
         <div className="mt-3 grid gap-2">
-          {(showAllEmergency ? EMERGENCY_NUMBERS : EMERGENCY_NUMBERS.slice(0, 3)).map((item) => (
+          {(showAllEmergency ? EMERGENCY_NUMBERS : EMERGENCY_NUMBERS.slice(0, 6)).map((item) => (
             <a
               key={item.number}
               href={`tel:${item.number}`}
@@ -172,7 +193,9 @@ export function AmarPujoQuickTools() {
               <span className="text-sm font-medium text-[#f8edd8]">
                 {bengali ? item.labelBn : item.labelEn}
               </span>
-              <span className="font-mono text-sm font-bold text-red-400">{item.number}</span>
+              <span className="rounded-full bg-emerald-500/20 px-3 py-1 font-mono text-xs font-bold text-emerald-400 border border-emerald-500/30">
+                {item.number}
+              </span>
             </a>
           ))}
         </div>
@@ -219,9 +242,15 @@ export function AmarPujoQuickTools() {
 
       {/* ── Metro Map Viewer Modal ── */}
       {isMetroModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative max-h-[90vh] max-w-4xl w-full overflow-hidden rounded-2xl border border-white/20 bg-[#1c0a0c] p-4 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-3 sm:p-5 backdrop-blur-md animate-in fade-in duration-200"
+          onClick={() => setIsMetroModalOpen(false)}
+        >
+          <div
+            className="relative max-h-[92vh] max-w-4xl w-full flex flex-col overflow-hidden rounded-2xl border border-white/20 bg-[#1c0a0c] p-4 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-white/10 pb-3 flex-shrink-0">
               <div className="flex items-center gap-2 text-[#f5c85b]">
                 <TrainFront size={18} />
                 <h3 className="font-bold text-sm text-[#f8edd8]">
@@ -237,11 +266,11 @@ export function AmarPujoQuickTools() {
                 <X size={18} />
               </button>
             </div>
-            <div className="mt-3 max-h-[75vh] overflow-auto rounded-xl bg-black/40 p-2 pujo-scrollbar">
+            <div className="mt-3 flex-1 overflow-auto rounded-xl bg-black/50 p-2 pujo-scrollbar touch-pan-x touch-pan-y overscroll-contain">
               <img
                 src="/mapmetro.png"
                 alt="Kolkata Metro Map"
-                className="w-full h-auto object-contain rounded-lg shadow-md"
+                className="w-full h-auto min-w-[320px] object-contain rounded-lg shadow-md"
               />
             </div>
           </div>
