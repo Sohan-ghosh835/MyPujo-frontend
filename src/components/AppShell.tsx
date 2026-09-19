@@ -70,8 +70,9 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
           "mx-auto flex items-center justify-between",
           isTransparent ? "h-20 w-full px-6 sm:px-10 lg:px-16 xl:px-20" : "max-w-7xl px-5 py-4 lg:px-10"
         )}>
-          <Link href="/" className="flex items-center gap-3">
-            <img src="/puja_bengali_logo_transparent.png" alt="পূজা পরিক্রমা" className="h-10 sm:h-12 w-auto object-contain brightness-110 drop-shadow-md" />
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3">
+            <img src="/final_icon.png" alt="PujoParikroma Icon" className="h-9 sm:h-11 w-auto object-contain brightness-110 drop-shadow-md" />
+            <img src="/puja_bengali_logo_transparent.png" alt="পূজা পরিক্রমা" className="h-9 sm:h-11 w-auto object-contain brightness-110 drop-shadow-md" />
           </Link>
 
           {/* Desktop Nav */}
@@ -194,7 +195,7 @@ export function AppShell({ children, variant = "default" }: AppShellProps) {
       <footer className="border-t border-[#241f1a]/15 bg-[#f7efdf] px-5 pb-24 pt-6 lg:px-10 lg:pb-6">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <img src="/favicon.png" alt="PujoParikroma icon" className="size-7 rounded-full object-cover shadow-sm" />
+            <img src="/final_icon.png" alt="PujoParikroma icon" className="size-7 object-contain drop-shadow-sm" />
             <p className="font-bengali text-sm font-bold text-[#9d2529]">
               {bengali ? "এই পুজো আপনার।" : "This Puja is Yours."}
             </p>
