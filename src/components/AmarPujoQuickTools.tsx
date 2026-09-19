@@ -119,7 +119,7 @@ export function AmarPujoQuickTools() {
             </div>
             <div>
               <h3 className="text-sm font-bold text-[#f8edd8]">
-                {bengali ? "প্যান্ডেল হপিং রুট" : "Suggested Pandal-Hopping Routes"}
+                {bengali ? "প্যান্ডেল হপিং রুট" : "Pandal-Hopping Routes"}
               </h3>
               <p className="text-xs text-[#f8edd8]/60">
                 {bengali ? "এলাকাভিত্তিক Google Maps রুট" : "Per-section Google Maps routes"}
@@ -197,7 +197,7 @@ export function AmarPujoQuickTools() {
 
       {/* ── 4. Kolkata Metro Map & Info ── */}
       <div className="rounded-[1.25rem] border border-[#7c3aed]/25 bg-[#7c3aed]/8 p-5 backdrop-blur-sm">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4">
           <div className="flex items-center gap-4">
             <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-[#7c3aed]/20">
               <TrainFront className="text-[#a78bfa]" size={18} />
@@ -207,12 +207,12 @@ export function AmarPujoQuickTools() {
                 {bengali ? "কলকাতা মেট্রো ম্যাপ ও তথ্য" : "Kolkata Metro Map & Info"}
               </h3>
               <p className="text-xs text-[#f8edd8]/60">
-                {bengali ? "অফিসিয়াল রুট ম্যাপ দেখুন — Metro Railway, Kolkata" : "View official route maps — Metro Railway, Kolkata"}
+                {bengali ? "অফিসিয়াল রুট ম্যাপ ও অ্যাপ লিঙ্ক — Metro Railway, Kolkata" : "View official route maps & transit app links — Metro Railway, Kolkata"}
               </p>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 sm:flex-shrink-0">
+          <div className="flex flex-wrap items-center gap-2 pt-1">
             <Button
               type="button"
               onClick={() => setIsMetroModalOpen(true)}
@@ -221,11 +221,32 @@ export function AmarPujoQuickTools() {
               <Eye size={14} className="mr-1.5" />
               {bengali ? "ম্যাপ দেখুন" : "View Map"}
             </Button>
+
+            <a
+              href="https://play.google.com/store/apps/details?id=org.cris.kmmts&pli=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#a78bfa]/30 bg-[#7c3aed]/20 px-3.5 py-1.5 text-xs font-bold text-[#a78bfa] transition hover:bg-[#7c3aed]/30 hover:text-white"
+            >
+              <span>{bengali ? "মেট্রো অফিশিয়াল অ্যাপ" : "Metro Official App"}</span>
+              <ExternalLink size={12} />
+            </a>
+
+            <a
+              href="https://play.google.com/store/apps/details?id=com.whereismytrain.android"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#a78bfa]/30 bg-[#7c3aed]/20 px-3.5 py-1.5 text-xs font-bold text-[#a78bfa] transition hover:bg-[#7c3aed]/30 hover:text-white"
+            >
+              <span>{bengali ? "হয়ার ইজ মাই ট্রেন" : "Where Is My Train"}</span>
+              <ExternalLink size={12} />
+            </a>
+
             <a
               href="https://mtp.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,304,366,554"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 rounded-full border border-[#a78bfa]/30 bg-[#7c3aed]/20 px-3 py-1.5 text-xs font-semibold text-[#a78bfa] transition hover:bg-[#7c3aed]/30"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#a78bfa]/20 bg-white/5 px-3 py-1.5 text-xs font-semibold text-[#f8edd8]/70 transition hover:bg-white/10 hover:text-[#f8edd8]"
             >
               <span>{bengali ? "অফিসিয়াল সাইট" : "Official Site"}</span>
               <ExternalLink size={12} />
