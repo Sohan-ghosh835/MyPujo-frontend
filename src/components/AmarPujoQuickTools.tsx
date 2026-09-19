@@ -158,41 +158,53 @@ export function AmarPujoQuickTools() {
 
       {/* ── 3. Emergency Helpline ── */}
       <div className="rounded-[1.25rem] border border-white/15 bg-white/5 p-5 backdrop-blur-sm">
-        <div className="flex items-center gap-3">
-          <div className="grid h-10 w-10 place-items-center rounded-xl bg-red-500/15">
-            <Phone className="text-red-400" size={18} />
-          </div>
-          <div className="flex-1">
-            <h3 className="text-sm font-bold text-[#f8edd8]">
-              {bengali ? "জরুরি হেল্পলাইন নম্বর" : "Emergency Helpline Numbers"}
-            </h3>
-            <p className="text-xs text-[#f8edd8]/60">
-              {bengali ? "এক ট্যাপে কল করুন" : "Tap to call"}
-            </p>
+        <div
+          onClick={() => setShowAllEmergency(!showAllEmergency)}
+          className="flex cursor-pointer items-center justify-between gap-3 select-none"
+        >
+          <div className="flex items-center gap-3">
+            <div className="grid h-10 w-10 place-items-center rounded-xl bg-red-500/15">
+              <Phone className="text-red-400" size={18} />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-[#f8edd8]">
+                {bengali ? "জরুরি হেল্পলাইন নম্বর" : "Emergency Helpline Numbers"}
+              </h3>
+              <p className="text-xs text-[#f8edd8]/60">
+                {bengali ? "এক ট্যাপে কল করুন" : "Tap to call"}
+              </p>
+            </div>
           </div>
           <button
-            onClick={() => setShowAllEmergency(!showAllEmergency)}
-            className="rounded-full border border-white/15 p-1.5 text-[#f8edd8]/60 transition hover:bg-white/10"
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowAllEmergency(!showAllEmergency);
+            }}
+            className="rounded-full border border-white/15 p-1.5 text-[#f8edd8]/60 transition hover:bg-white/10 hover:text-white"
+            aria-label="Toggle helpline numbers"
           >
-            {showAllEmergency ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+            {showAllEmergency ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>
         </div>
-        <div className="mt-3 grid gap-2">
-          {(showAllEmergency ? EMERGENCY_NUMBERS : EMERGENCY_NUMBERS.slice(0, 6)).map((item) => (
-            <a
-              key={item.number}
-              href={`tel:${item.number}`}
-              className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3 transition hover:bg-white/10"
-            >
-              <span className="text-sm font-medium text-[#f8edd8]">
-                {bengali ? item.labelBn : item.labelEn}
-              </span>
-              <span className="rounded-full bg-emerald-500/20 px-3 py-1 font-mono text-xs font-bold text-emerald-400 border border-emerald-500/30">
-                {item.number}
-              </span>
-            </a>
-          ))}
-        </div>
+        {showAllEmergency && (
+          <div className="mt-4 grid gap-2 transition-all duration-200">
+            {EMERGENCY_NUMBERS.map((item) => (
+              <a
+                key={item.number}
+                href={`tel:${item.number}`}
+                className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3 transition hover:bg-white/10"
+              >
+                <span className="text-sm font-medium text-[#f8edd8]">
+                  {bengali ? item.labelBn : item.labelEn}
+                </span>
+                <span className="rounded-full bg-emerald-500/20 px-3 py-1 font-mono text-xs font-bold text-emerald-400 border border-emerald-500/30">
+                  {item.number}
+                </span>
+              </a>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* ── 4. Kolkata Metro Map & Info ── */}
